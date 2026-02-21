@@ -11,12 +11,12 @@ export const ARTICLES: Article[] = [
   // ── Getting Started ─────────────────────────────────────────────
   {
     id: 'welcome',
-    title: 'Welcome to OpenClaw',
-    subtitle: 'Your personal AI agent on Telegram',
+    title: 'Welcome to xAI2026',
+    subtitle: 'Your personal AI agent',
     icon: '👋',
     category: 'getting-started',
     content: `
-**OpenClaw** gives you a dedicated AI agent accessible right inside Telegram — no apps to install, no accounts to create.
+**xAI2026** gives you a dedicated AI agent accessible right inside Telegram — no apps to install, no accounts to create.
 
 ## How it works
 
@@ -24,7 +24,7 @@ export const ARTICLES: Article[] = [
 2. **Just chat** — Send any message and your AI agent will respond. It understands context, can help with research, writing, coding, and more.
 3. **Your own instance** — Unlike shared AI chatbots, you get a dedicated agent that runs on its own server with persistent memory.
 
-## What makes OpenClaw different
+## What makes xAI2026 different
 
 - **Private** — Your conversations stay on your dedicated instance
 - **Persistent** — Your agent remembers context across sessions
@@ -41,7 +41,7 @@ export const ARTICLES: Article[] = [
     content: `
 ## 1. Start the bot
 
-Open Telegram and send \`/start\` to **@OpenClawBot**. Your free trial begins immediately — no credit card needed.
+Open Telegram and send \`/start\` to **@xAI2026Bot**. Your free trial begins immediately — no credit card needed.
 
 ## 2. Wait for provisioning
 
@@ -72,7 +72,7 @@ Just type anything! Try:
     icon: '🧠',
     category: 'features',
     content: `
-OpenClaw supports multiple AI models. Switch between them with \`/models\`.
+xAI2026 supports multiple AI models. Switch between them with \`/models\`.
 
 ## Available Models
 
@@ -102,7 +102,7 @@ Different models consume tokens at different rates. Opus uses more tokens per re
     icon: '🔑',
     category: 'features',
     content: `
-Every OpenClaw instance comes with full SSH access — you own the machine.
+Every xAI2026 instance comes with full SSH access — you own the machine.
 
 ## Getting your credentials
 

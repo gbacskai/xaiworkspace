@@ -6,9 +6,12 @@
   text-align: center;
   padding: 40px 24px 24px;
 
-  .hero-icon {
-    font-size: 56px;
-    margin-bottom: 12px;
+  .hero-logo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 16px;
   }
 
   h1 {
