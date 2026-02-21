@@ -1,0 +1,60 @@
+<div class="home">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-icon">🐾</div>
+    <h1>OpenClaw</h1>
+    <p class="hero-sub">
+      Hey {{ tg.userName() }}! Your AI agent guide.
+    </p>
+  </div>
+
+  <!-- Getting Started -->
+  <div class="section-header">Getting Started</div>
+  <div class="card-list">
+    @for (article of gettingStarted; track article.id) {
+      <div class="card-item" (click)="open(article)">
+        <span class="card-icon">{{ article.icon }}</span>
+        <div class="card-text">
+          <div class="card-title">{{ article.title }}</div>
+          <div class="card-sub">{{ article.subtitle }}</div>
+        </div>
+        <span class="card-chevron">›</span>
+      </div>
+    }
+  </div>
+
+  <!-- Features -->
+  <div class="section-header">Features</div>
+  <div class="card-list">
+    @for (article of features; track article.id) {
+      <div class="card-item" (click)="open(article)">
+        <span class="card-icon">{{ article.icon }}</span>
+        <div class="card-text">
+          <div class="card-title">{{ article.title }}</div>
+          <div class="card-sub">{{ article.subtitle }}</div>
+        </div>
+        <span class="card-chevron">›</span>
+      </div>
+    }
+  </div>
+
+  <!-- Guides -->
+  <div class="section-header">Guides</div>
+  <div class="card-list">
+    @for (article of guides; track article.id) {
+      <div class="card-item" (click)="open(article)">
+        <span class="card-icon">{{ article.icon }}</span>
+        <div class="card-text">
+          <div class="card-title">{{ article.title }}</div>
+          <div class="card-sub">{{ article.subtitle }}</div>
+        </div>
+        <span class="card-chevron">›</span>
+      </div>
+    }
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>OpenClaw by xShopper Pty Ltd</p>
+  </div>
+</div>

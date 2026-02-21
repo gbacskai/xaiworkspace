@@ -1,0 +1,14 @@
+<div class="article">
+  <div class="article-header">
+    <span class="article-icon">{{ icon() }}</span>
+    <h1>{{ title() }}</h1>
+    <p class="article-sub">{{ subtitle() }}</p>
+  </div>
+
+  <div class="article-body" [innerHTML]="html()"></div>
+
+  <!-- Back link for desktop/web (no Telegram BackButton) -->
+  <div class="article-footer">
+    <a routerLink="/" class="back-link">← Back to all articles</a>
+  </div>
+</div>
