@@ -6,7 +6,14 @@ import { TelegramService } from './services/telegram.service';
   selector: 'app-root',
   imports: [RouterOutlet],
   template: '<router-outlet />',
-  styles: ':host { display: block; }',
+  styles: `
+    :host {
+      display: block;
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+  `,
 })
 export class App implements OnInit {
   private tg = inject(TelegramService);

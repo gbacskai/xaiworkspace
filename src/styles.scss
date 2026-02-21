@@ -30,6 +30,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   min-height: var(--tg-viewport-stable-height);
+
+  // On wider screens (desktop browser), show a phone-like frame
+  @media (min-width: 480px) {
+    background: #e8e8ed;
+
+    app-root {
+      background: var(--tg-theme-bg-color);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+    }
+  }
 }
 
 a {
