@@ -59,7 +59,9 @@ Just type anything! Try:
 - \`/usage\` — Check your token balance
 - \`/models\` — Switch between AI models
 - \`/billing\` — Manage your subscription
+- \`/language\` — Change your preferred language
 - \`/ssh\` — Get SSH access to your instance
+- \`/stop\` — Hibernate your instance when not in use
 - \`/help\` — See all available commands
     `,
   },
@@ -72,7 +74,7 @@ Just type anything! Try:
     icon: '🧠',
     category: 'features',
     content: `
-xAI2026 supports multiple AI models. Switch between them with \`/models\`.
+xAI2026 supports multiple AI models from several providers. Switch between them with \`/models\`.
 
 ## Available Models
 
@@ -81,6 +83,9 @@ xAI2026 supports multiple AI models. Switch between them with \`/models\`.
 | **Claude Sonnet** | Everyday tasks — fast, capable, balanced |
 | **Claude Opus** | Complex reasoning, research, long documents |
 | **Claude Haiku** | Quick answers, simple tasks, lowest cost |
+| **GPT-4o** | General-purpose, good at structured output |
+| **DeepSeek** | Cost-effective reasoning and coding |
+| **Gemini** | Multimodal tasks, large context windows |
 
 ## Switching models
 
@@ -218,7 +223,76 @@ Check \`/usage\` regularly to track your token consumption. The progress bar sho
 
 ## Hibernation
 
-Your instance hibernates automatically when idle to save resources. Just send any message to wake it up — it takes about 30 seconds.
+Your instance hibernates automatically when idle to save resources. Just send any message to wake it up — it takes about 30 seconds. You can also manually hibernate with \`/stop\`.
+    `,
+  },
+  {
+    id: 'language-region',
+    title: 'Language & Region',
+    subtitle: 'Change language and server location',
+    icon: '🌍',
+    category: 'guides',
+    content: `
+## Change language
+
+Send \`/language\` to choose from 10 supported languages:
+
+| | |
+|---|---|
+| 🇬🇧 English | 🇨🇳 中文 |
+| 🇪🇸 Español | 🇸🇦 العربية |
+| 🇧🇷 Português | 🇩🇪 Deutsch |
+| 🇫🇷 Français | 🇯🇵 日本語 |
+| 🇷🇺 Русский | 🇮🇳 हिन्दी |
+
+Your language preference is auto-detected from your Telegram settings on first use, but you can change it anytime. All bot messages will appear in your selected language.
+
+## Change region
+
+Send \`/region\` to move your AI instance to a different server region. This can reduce latency if you're closer to another data centre.
+
+Available regions are shown with your current selection highlighted.
+    `,
+  },
+  {
+    id: 'privacy-data',
+    title: 'Your Data & Privacy',
+    subtitle: 'Access, export, or delete your data',
+    icon: '🔒',
+    category: 'guides',
+    content: `
+## Privacy controls
+
+xAI2026 gives you full control over your personal data, directly inside Telegram:
+
+- \`/privacy\` — View the Privacy Policy and Terms of Service
+- \`/my_data\` — Export all your personal data as a JSON file
+- \`/delete_my_data\` — Permanently delete all your personal data
+
+## What gets exported
+
+The \`/my_data\` command exports:
+
+- Your account details (plan, email, region)
+- Payment history
+- Usage statistics
+- Server instance information
+
+## What gets deleted
+
+The \`/delete_my_data\` command removes:
+
+- Your client record and all account data
+- Payment history
+- Usage logs and spend tracking
+- Your AI instance and all files on it
+- SSH keys and DNS records
+
+This action is **permanent and cannot be undone**. You will be asked to confirm before deletion proceeds.
+
+## Contact
+
+For any privacy questions: privacy@xshopper.com
     `,
   },
   {
@@ -230,20 +304,23 @@ Your instance hibernates automatically when idle to save resources. Just send an
     content: `
 ## How it works
 
-1. Send \`/invite\` to generate your personal referral link
-2. Share the link with friends
-3. When they make their first payment, you get **200K bonus tokens**
+1. Send \`/invite email@example.com\` to invite a friend
+2. You get **200K bonus tokens** instantly for each invite sent
+3. When your friend subscribes, you earn an additional referral bonus
 
 ## Rules
 
-- Up to **5 referrals per month**
-- Bonus tokens are added to your current balance immediately
-- Your friend gets the standard free trial
-- Referral link never expires
+- Up to **5 invite credits per month**
+- Maximum **10 pending** (unused) invites at a time
+- The same email cannot be re-invited within **4 weeks**
+- The invitee must not already have an xAI2026 account
 
-## Sharing
+## Tracking your invites
 
-Your referral link works as a standard Telegram deep link. Just forward it in any chat or post it anywhere.
+Send \`/invites\` to see all your sent invitations with their status:
+- **waiting** — invite sent, not yet signed up
+- **signed up** — invitee created an account
+- **subscribed** — invitee made their first payment (referral bonus earned)
     `,
   },
 ];

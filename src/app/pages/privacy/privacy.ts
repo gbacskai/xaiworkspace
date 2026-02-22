@@ -79,7 +79,12 @@ If you are in the EU/EEA or UK, you have the following rights under GDPR:
 - **Right to data portability** — receive your data in a structured, machine-readable format
 - **Right to object** — object to processing based on legitimate interests
 
-To exercise any of these rights, contact us at privacy@xshopper.com. We will respond within 30 days.
+You can exercise several of these rights directly inside Telegram:
+
+- Send \`/my_data\` to export your personal data
+- Send \`/delete_my_data\` to request deletion of all your data
+
+For other requests, contact us at privacy@xshopper.com. We will respond within 30 days.
 
 You also have the right to lodge a complaint with your local supervisory authority.
 
