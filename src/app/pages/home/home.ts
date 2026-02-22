@@ -25,4 +25,14 @@ export class HomePage implements OnInit {
     this.tg.haptic();
     this.router.navigate(['/article', article.id]);
   }
+
+  openPrivacy() {
+    this.tg.haptic();
+    this.router.navigate(['/privacy']);
+  }
+
+  openTerms() {
+    this.tg.haptic();
+    this.router.navigate(['/terms']);
+  }
 }
