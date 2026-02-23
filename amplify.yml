@@ -8,7 +8,7 @@ frontend:
       commands:
         - npx ng build --configuration production
   artifacts:
-    baseDirectory: dist/xai2026/browser
+    baseDirectory: dist/xaiworkspace/browser
     files:
       - '**/*'
   customHeaders:

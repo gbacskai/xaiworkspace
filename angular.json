@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "xai2026": {
+    "xaiworkspace": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -83,10 +83,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "xai2026:build:production"
+              "buildTarget": "xaiworkspace:build:production"
             },
             "development": {
-              "buildTarget": "xai2026:build:development"
+              "buildTarget": "xaiworkspace:build:development"
             }
           },
           "defaultConfiguration": "development"
