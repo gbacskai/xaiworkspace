@@ -11,12 +11,12 @@ export const ARTICLES: Article[] = [
   // ── Getting Started ─────────────────────────────────────────────
   {
     id: 'welcome',
-    title: 'Welcome to xAI2026',
+    title: 'Welcome to xAI Workspace',
     subtitle: 'Your personal AI agent',
     icon: '👋',
     category: 'getting-started',
     content: `
-**xAI2026** gives you a dedicated AI agent accessible right inside Telegram — no apps to install, no accounts to create.
+**xAI Workspace** gives you a dedicated AI agent accessible right inside Telegram — no apps to install, no accounts to create.
 
 ## How it works
 
@@ -24,7 +24,7 @@ export const ARTICLES: Article[] = [
 2. **Just chat** — Send any message and your AI agent will respond. It understands context, can help with research, writing, coding, and more.
 3. **Your own instance** — Unlike shared AI chatbots, you get a dedicated agent that runs on its own server with persistent memory.
 
-## What makes xAI2026 different
+## What makes xAI Workspace different
 
 - **Private** — Your conversations stay on your dedicated instance
 - **Persistent** — Your agent remembers context across sessions
@@ -41,7 +41,7 @@ export const ARTICLES: Article[] = [
     content: `
 ## 1. Start the bot
 
-Open Telegram and send \`/start\` to **@xAI2026Bot**. Your free trial begins immediately — no credit card needed.
+Open Telegram and send \`/start\` to **@xAIWorkspaceBot**. Your free trial begins immediately — no credit card needed.
 
 ## 2. Wait for provisioning
 
@@ -74,7 +74,7 @@ Just type anything! Try:
     icon: '🧠',
     category: 'features',
     content: `
-xAI2026 supports multiple AI models from several providers. Switch between them with \`/models\`.
+xAI Workspace supports multiple AI models from several providers. Switch between them with \`/models\`.
 
 ## Available Models
 
@@ -107,7 +107,7 @@ Different models consume tokens at different rates. Opus uses more tokens per re
     icon: '🔑',
     category: 'features',
     content: `
-Every xAI2026 instance comes with full SSH access — you own the machine.
+Every xAI Workspace instance comes with full SSH access — you own the machine.
 
 ## Getting your credentials
 
@@ -263,7 +263,7 @@ Available regions are shown with your current selection highlighted.
     content: `
 ## Privacy controls
 
-xAI2026 gives you full control over your personal data, directly inside Telegram:
+xAI Workspace gives you full control over your personal data, directly inside Telegram:
 
 - \`/privacy\` — View the Privacy Policy and Terms of Service
 - \`/my_data\` — Export all your personal data as a JSON file
@@ -313,7 +313,7 @@ For any privacy questions: privacy@xshopper.com
 - Up to **5 invite credits per month**
 - Maximum **10 pending** (unused) invites at a time
 - The same email cannot be re-invited within **4 weeks**
-- The invitee must not already have an xAI2026 account
+- The invitee must not already have an xAI Workspace account
 
 ## Tracking your invites
 
