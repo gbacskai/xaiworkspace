@@ -3,6 +3,7 @@ import { UiStrings } from '../i18n.types';
 export const EN: UiStrings = {
   'hero.greeting': 'Hey {name}! Your AI agent guide.',
   'hero.inviteOnly': 'This is an invitation-only application!',
+  'hero.openTelegram': 'Open in Telegram',
   'section.gettingStarted': 'Getting Started',
   'section.features': 'Features',
   'section.guides': 'Guides',

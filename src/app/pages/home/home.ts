@@ -21,6 +21,7 @@ export class HomePage implements OnInit {
   locales = SUPPORTED_LOCALES;
   localeLabels = LOCALE_LABELS;
   langOpen = signal(false);
+  isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   gettingStarted = computed(() => this.i18n.articles().filter(a => a.category === 'getting-started'));
   features = computed(() => this.i18n.articles().filter(a => a.category === 'features'));

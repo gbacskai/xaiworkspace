@@ -2,6 +2,7 @@ import { UiStrings } from '../i18n.types';
 
 export const FR: UiStrings = {
   'hero.greeting': 'Salut {name}\u00a0! Votre guide d\u2019agent IA.',
+  'hero.openTelegram': 'Ouvrir dans Telegram',
   'hero.inviteOnly': 'Cette application est sur invitation uniquement\u00a0!',
   'section.gettingStarted': 'Premiers pas',
   'section.features': 'Fonctionnalit\u00e9s',

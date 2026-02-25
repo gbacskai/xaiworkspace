@@ -9,6 +9,7 @@ export const SUPPORTED_LOCALES: SupportedLocale[] = [
 export interface UiStrings {
   'hero.greeting': string;
   'hero.inviteOnly': string;
+  'hero.openTelegram': string;
   'section.gettingStarted': string;
   'section.features': string;
   'section.guides': string;

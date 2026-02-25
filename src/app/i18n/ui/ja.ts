@@ -2,6 +2,7 @@ import { UiStrings } from '../i18n.types';
 
 export const JA: UiStrings = {
   'hero.greeting': '\u3053\u3093\u306b\u3061\u306f {name}\u3055\u3093\uff01AI\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u30ac\u30a4\u30c9\u3067\u3059\u3002',
+  'hero.openTelegram': 'Telegram \u3067\u958b\u304f',
   'hero.inviteOnly': '\u3053\u308c\u306f\u62db\u5f85\u5236\u306e\u30a2\u30d7\u30ea\u3067\u3059\uff01',
   'section.gettingStarted': '\u306f\u3058\u3081\u306b',
   'section.features': '\u6a5f\u80fd',

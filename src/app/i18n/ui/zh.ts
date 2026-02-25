@@ -2,6 +2,7 @@ import { UiStrings } from '../i18n.types';
 
 export const ZH: UiStrings = {
   'hero.greeting': '嘿 {name}！您的 AI 智能助手指南。',
+  'hero.openTelegram': '在 Telegram 中打开',
   'hero.inviteOnly': '这是一个仅限邀请的应用！',
   'section.gettingStarted': '入门指南',
   'section.features': '功能',
