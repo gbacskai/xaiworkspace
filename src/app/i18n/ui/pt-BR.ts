@@ -22,8 +22,9 @@ export const PT_BR: UiStrings = {
   'chat.send': 'Enviar',
   'chat.connecting': 'Conectando...',
   'chat.connected': 'Conectado',
-  'chat.empty': 'Envie uma mensagem para come\u00e7ar a conversar com o xAI Bot',
+  'chat.empty': 'Envie uma mensagem para come\u00e7ar a conversar com o xAI Workspace',
   'chat.loginButton': 'Entrar com Telegram',
   'chat.loginHint': 'Fa\u00e7a login para conversar com nosso assistente de IA',
+  'chat.disconnected': 'Desconectado',
   'footer.logout': 'Sair',
 };

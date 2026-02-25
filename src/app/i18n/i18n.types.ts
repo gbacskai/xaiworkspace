@@ -31,6 +31,7 @@ export interface UiStrings {
   'chat.empty': string;
   'chat.loginButton': string;
   'chat.loginHint': string;
+  'chat.disconnected': string;
   'footer.logout': string;
 }
 

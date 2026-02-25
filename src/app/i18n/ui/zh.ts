@@ -22,8 +22,9 @@ export const ZH: UiStrings = {
   'chat.send': '发送',
   'chat.connecting': '连接中...',
   'chat.connected': '已连接',
-  'chat.empty': '发送消息开始与 xAI Bot 聊天',
+  'chat.empty': '发送消息开始与 xAI Workspace 聊天',
   'chat.loginButton': '使用 Telegram 登录',
   'chat.loginHint': '登录后即可与 AI 助手聊天',
+  'chat.disconnected': '已断开连接',
   'footer.logout': '退出登录',
 };
