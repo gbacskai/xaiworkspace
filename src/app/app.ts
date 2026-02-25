@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, computed } from '@angular/core';
+import { Component, inject, OnInit, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TelegramService } from './services/telegram.service';
 import { I18nService } from './i18n/i18n.service';
@@ -10,13 +10,21 @@ import { ChatPanelComponent } from './components/chat-panel/chat-panel';
   selector: 'app-root',
   imports: [RouterOutlet, ChatPanelComponent],
   template: `
-    <div class="content-frame">
-      <router-outlet />
+    <div class="content-frame" [class.content-frame--collapsed]="sidebarCollapsed()">
+      @if (showChat()) {
+        <button class="collapse-btn" (click)="toggleSidebar()" aria-label="Toggle sidebar">
+          {{ sidebarCollapsed() ? '›' : '‹' }}
+        </button>
+      }
+      @if (!sidebarCollapsed()) {
+        <router-outlet />
+      }
     </div>
     @if (showChat()) {
       <app-chat-panel
         class="chat-frame"
-        [class.chat-frame--open]="chat.isOpen()" />
+        [class.chat-frame--open]="chat.isOpen()"
+        [class.chat-frame--expanded]="sidebarCollapsed()" />
     }
     @if (showChat()) {
       <button class="chat-fab" (click)="chat.toggle()" aria-label="Toggle chat">
@@ -51,6 +59,49 @@ import { ChatPanelComponent } from './components/chat-panel/chat-panel';
       max-width: 430px;
       min-height: 100vh;
       width: 100%;
+      position: relative;
+      transition: flex-basis 0.3s ease, max-width 0.3s ease;
+    }
+
+    .content-frame--collapsed {
+      @media (min-width: 861px) {
+        flex: 0 0 40px;
+        max-width: 40px;
+        min-width: 40px;
+        overflow: hidden;
+      }
+    }
+
+    .collapse-btn {
+      display: none;
+
+      @media (min-width: 861px) {
+        display: flex;
+        position: absolute;
+        top: 12px;
+        right: 8px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: var(--tg-theme-section-bg-color);
+        color: var(--tg-theme-hint-color);
+        font-size: 16px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: background 0.15s;
+
+        &:hover {
+          background: var(--tg-theme-secondary-bg-color);
+        }
+      }
+    }
+
+    .content-frame--collapsed .collapse-btn {
+      right: auto;
+      left: 6px;
     }
 
     .chat-frame {
@@ -59,6 +110,7 @@ import { ChatPanelComponent } from './components/chat-panel/chat-panel';
       position: sticky;
       top: 0;
       height: 100vh;
+      transition: flex 0.3s ease;
 
       @media (max-width: 860px) {
         position: fixed;
@@ -121,6 +173,7 @@ import { ChatPanelComponent } from './components/chat-panel/chat-panel';
   `,
   host: {
     '[class.has-chat]': 'showChat()',
+    '[class.sidebar-collapsed]': 'sidebarCollapsed()',
   },
 })
 export class App implements OnInit {
@@ -130,9 +183,14 @@ export class App implements OnInit {
   chat = inject(ChatService);
 
   showChat = computed(() => !this.tg.isTelegram && this.auth.isAuthenticated());
+  sidebarCollapsed = signal(false);
 
   ngOnInit() {
     this.tg.init();
     this.i18n.detect();
+  }
+
+  toggleSidebar() {
+    this.sidebarCollapsed.update(v => !v);
   }
 }
