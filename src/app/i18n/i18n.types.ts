@@ -34,6 +34,20 @@ export interface UiStrings {
   'chat.loginHint': string;
   'chat.disconnected': string;
   'footer.logout': string;
+  'invite.title': string;
+  'invite.subtitle': string;
+  'invite.headline': string;
+  'invite.description': string;
+  'invite.feature1': string;
+  'invite.feature2': string;
+  'invite.feature3': string;
+  'invite.feature4': string;
+  'invite.feature5': string;
+  'invite.feature6': string;
+  'invite.cta': string;
+  'invite.ctaGeneric': string;
+  'invite.noCode': string;
+  'invite.footer': string;
 }
 
 export interface LocalizedArticle {
