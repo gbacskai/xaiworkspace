@@ -40,8 +40,15 @@ export class AuthService {
   });
 
   private readonly botId = environment.botId;
+  private googleClientId = '';
 
   constructor() {
+    // Fetch public config (Google client ID) from the router
+    fetch(`${environment.routerUrl}/config`)
+      .then(r => r.json())
+      .then(cfg => { this.googleClientId = cfg.googleClientId || ''; })
+      .catch(() => { /* router unreachable — Google login will be unavailable */ });
+
     const stored = sessionStorage.getItem('tg_web_user');
     if (stored) {
       try {
@@ -119,11 +126,10 @@ export class AuthService {
 
   loginWithGoogle(): void {
     if (typeof google === 'undefined' || !google.accounts?.oauth2) return;
-    const clientId = environment.googleClientId;
-    if (!clientId) return;
+    if (!this.googleClientId) return;
 
     const codeClient = google.accounts.oauth2.initCodeClient({
-      client_id: clientId,
+      client_id: this.googleClientId,
       scope: 'openid email profile https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/calendar',
       ux_mode: 'popup',
       callback: (response: { code: string; error?: string }) => {
