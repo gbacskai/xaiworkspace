@@ -1,9 +1,11 @@
 export type SupportedLocale =
   | 'en' | 'zh' | 'es' | 'ar' | 'pt-BR'
-  | 'de' | 'fr' | 'ja' | 'ru' | 'hi';
+  | 'de' | 'fr' | 'ja' | 'ru' | 'hi'
+  | 'ko' | 'tr' | 'it' | 'id' | 'nl' | 'hu';
 
 export const SUPPORTED_LOCALES: SupportedLocale[] = [
   'en', 'zh', 'es', 'ar', 'pt-BR', 'de', 'fr', 'ja', 'ru', 'hi',
+  'ko', 'tr', 'it', 'id', 'nl', 'hu',
 ];
 
 export interface UiStrings {

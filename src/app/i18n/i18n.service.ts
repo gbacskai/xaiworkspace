@@ -13,6 +13,12 @@ import { FR } from './ui/fr';
 import { JA } from './ui/ja';
 import { RU } from './ui/ru';
 import { HI } from './ui/hi';
+import { KO } from './ui/ko';
+import { TR } from './ui/tr';
+import { IT } from './ui/it';
+import { ID } from './ui/id';
+import { NL } from './ui/nl';
+import { HU } from './ui/hu';
 
 // Article content
 import { ARTICLES_EN } from './content/articles/en';
@@ -25,6 +31,12 @@ import { ARTICLES_FR } from './content/articles/fr';
 import { ARTICLES_JA } from './content/articles/ja';
 import { ARTICLES_RU } from './content/articles/ru';
 import { ARTICLES_HI } from './content/articles/hi';
+import { ARTICLES_KO } from './content/articles/ko';
+import { ARTICLES_TR } from './content/articles/tr';
+import { ARTICLES_IT } from './content/articles/it';
+import { ARTICLES_ID } from './content/articles/id';
+import { ARTICLES_NL } from './content/articles/nl';
+import { ARTICLES_HU } from './content/articles/hu';
 
 // Privacy content
 import { PRIVACY_EN } from './content/privacy/en';
@@ -37,6 +49,12 @@ import { PRIVACY_FR } from './content/privacy/fr';
 import { PRIVACY_JA } from './content/privacy/ja';
 import { PRIVACY_RU } from './content/privacy/ru';
 import { PRIVACY_HI } from './content/privacy/hi';
+import { PRIVACY_KO } from './content/privacy/ko';
+import { PRIVACY_TR } from './content/privacy/tr';
+import { PRIVACY_IT } from './content/privacy/it';
+import { PRIVACY_ID } from './content/privacy/id';
+import { PRIVACY_NL } from './content/privacy/nl';
+import { PRIVACY_HU } from './content/privacy/hu';
 
 // Terms content
 import { TERMS_EN } from './content/terms/en';
@@ -49,6 +67,12 @@ import { TERMS_FR } from './content/terms/fr';
 import { TERMS_JA } from './content/terms/ja';
 import { TERMS_RU } from './content/terms/ru';
 import { TERMS_HI } from './content/terms/hi';
+import { TERMS_KO } from './content/terms/ko';
+import { TERMS_TR } from './content/terms/tr';
+import { TERMS_IT } from './content/terms/it';
+import { TERMS_ID } from './content/terms/id';
+import { TERMS_NL } from './content/terms/nl';
+import { TERMS_HU } from './content/terms/hu';
 
 // Authorize content
 import { AUTHORIZE_EN } from './content/authorize/en';
@@ -61,30 +85,41 @@ import { AUTHORIZE_FR } from './content/authorize/fr';
 import { AUTHORIZE_JA } from './content/authorize/ja';
 import { AUTHORIZE_RU } from './content/authorize/ru';
 import { AUTHORIZE_HI } from './content/authorize/hi';
+import { AUTHORIZE_KO } from './content/authorize/ko';
+import { AUTHORIZE_TR } from './content/authorize/tr';
+import { AUTHORIZE_IT } from './content/authorize/it';
+import { AUTHORIZE_ID } from './content/authorize/id';
+import { AUTHORIZE_NL } from './content/authorize/nl';
+import { AUTHORIZE_HU } from './content/authorize/hu';
 
 const UI_STRINGS: Record<SupportedLocale, UiStrings> = {
   en: EN, zh: ZH, es: ES, ar: AR, 'pt-BR': PT_BR,
   de: DE, fr: FR, ja: JA, ru: RU, hi: HI,
+  ko: KO, tr: TR, it: IT, id: ID, nl: NL, hu: HU,
 };
 
 const ARTICLE_CONTENT: Record<SupportedLocale, Record<string, LocalizedArticle>> = {
   en: ARTICLES_EN, zh: ARTICLES_ZH, es: ARTICLES_ES, ar: ARTICLES_AR, 'pt-BR': ARTICLES_PT_BR,
   de: ARTICLES_DE, fr: ARTICLES_FR, ja: ARTICLES_JA, ru: ARTICLES_RU, hi: ARTICLES_HI,
+  ko: ARTICLES_KO, tr: ARTICLES_TR, it: ARTICLES_IT, id: ARTICLES_ID, nl: ARTICLES_NL, hu: ARTICLES_HU,
 };
 
 const PRIVACY_CONTENT: Record<SupportedLocale, string> = {
   en: PRIVACY_EN, zh: PRIVACY_ZH, es: PRIVACY_ES, ar: PRIVACY_AR, 'pt-BR': PRIVACY_PT_BR,
   de: PRIVACY_DE, fr: PRIVACY_FR, ja: PRIVACY_JA, ru: PRIVACY_RU, hi: PRIVACY_HI,
+  ko: PRIVACY_KO, tr: PRIVACY_TR, it: PRIVACY_IT, id: PRIVACY_ID, nl: PRIVACY_NL, hu: PRIVACY_HU,
 };
 
 const TERMS_CONTENT: Record<SupportedLocale, string> = {
   en: TERMS_EN, zh: TERMS_ZH, es: TERMS_ES, ar: TERMS_AR, 'pt-BR': TERMS_PT_BR,
   de: TERMS_DE, fr: TERMS_FR, ja: TERMS_JA, ru: TERMS_RU, hi: TERMS_HI,
+  ko: TERMS_KO, tr: TERMS_TR, it: TERMS_IT, id: TERMS_ID, nl: TERMS_NL, hu: TERMS_HU,
 };
 
 const AUTHORIZE_CONTENT: Record<SupportedLocale, string> = {
   en: AUTHORIZE_EN, zh: AUTHORIZE_ZH, es: AUTHORIZE_ES, ar: AUTHORIZE_AR, 'pt-BR': AUTHORIZE_PT_BR,
   de: AUTHORIZE_DE, fr: AUTHORIZE_FR, ja: AUTHORIZE_JA, ru: AUTHORIZE_RU, hi: AUTHORIZE_HI,
+  ko: AUTHORIZE_KO, tr: AUTHORIZE_TR, it: AUTHORIZE_IT, id: AUTHORIZE_ID, nl: AUTHORIZE_NL, hu: AUTHORIZE_HU,
 };
 
 export const LOCALE_LABELS: Record<SupportedLocale, string> = {
@@ -98,6 +133,12 @@ export const LOCALE_LABELS: Record<SupportedLocale, string> = {
   ja: '日本語',
   ru: 'Русский',
   hi: 'हिन्दी',
+  ko: '한국어',
+  tr: 'Türkçe',
+  it: 'Italiano',
+  id: 'Bahasa Indonesia',
+  nl: 'Nederlands',
+  hu: 'Magyar',
 };
 
 function detectLocale(languageCode: string | undefined): SupportedLocale {

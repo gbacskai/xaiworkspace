@@ -65,7 +65,9 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
     if (text !== null) {
       this.messageText = text;
       this.chat.pendingInput.set(null);
-      requestAnimationFrame(() => this.autoResize());
+      // Double rAF: first lets Angular flush the ngModel binding,
+      // second measures the updated scrollHeight for auto-resize.
+      requestAnimationFrame(() => requestAnimationFrame(() => this.autoResize()));
     }
   });
 

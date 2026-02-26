@@ -1,0 +1,41 @@
+<app-back-button />
+<div class="analytics">
+  <div class="analytics-header">
+    <h1>Analytics</h1>
+  </div>
+
+  @if (loading()) {
+    <div class="analytics-loading">Loading...</div>
+  } @else if (error()) {
+    <div class="analytics-error">{{ error() }}</div>
+  } @else {
+    <div class="analytics-chart-section">
+      <div class="analytics-chart-title">Last 16 Hours</div>
+      <div class="analytics-chart-wrap">
+        <canvas #hourlyChart></canvas>
+      </div>
+    </div>
+
+    <div class="analytics-chart-section">
+      <div class="analytics-chart-title">Last 7 Days</div>
+      <div class="analytics-chart-wrap">
+        <canvas #dailyChart></canvas>
+      </div>
+    </div>
+
+    <div class="analytics-chart-section">
+      <div class="analytics-chart-title">Last 12 Months</div>
+      <div class="analytics-chart-wrap">
+        <canvas #monthlyChart></canvas>
+      </div>
+    </div>
+
+    @if (data(); as d) {
+      <div class="analytics-limits">
+        <span class="analytics-badge">{{ d.tier }}</span>
+        <span class="analytics-badge">RPM: {{ d.limits.rpmLimit }}</span>
+        <span class="analytics-badge">TPM: {{ d.limits.tpmLimit.toLocaleString() }}</span>
+      </div>
+    }
+  }
+</div>
