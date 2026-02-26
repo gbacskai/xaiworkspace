@@ -142,6 +142,12 @@
     &:active { opacity: 0.8; }
   }
 
+  &--pay {
+    background: #4caf50;
+    color: #fff;
+    &:active { opacity: 0.8; }
+  }
+
   &--back {
     background: transparent;
     color: var(--tg-theme-hint-color);

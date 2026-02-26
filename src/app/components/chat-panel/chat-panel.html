@@ -53,6 +53,7 @@
                   } @else if (btn.callback_data) {
                     <button class="chat-btn chat-btn--action"
                       [class.chat-btn--back]="btn.callback_data === '__back__'"
+                      [class.chat-btn--pay]="btn.text.startsWith('Pay ')"
                       (click)="onCallback(btn.callback_data!, msg)">{{ btn.text }}</button>
                   }
                 }
