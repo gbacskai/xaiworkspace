@@ -38,9 +38,12 @@
               [(ngModel)]="newAgentContent"
               rows="12"></textarea>
           }
+          @if (createValidationError; as err) {
+            <div class="agents-validation-error">{{ err }}</div>
+          }
           <button
             class="agents-btn-primary"
-            [disabled]="!newAgentName.trim() || agents.isSaving()"
+            [disabled]="isCreateDisabled"
             (click)="submitCreate()">
             {{ agents.isSaving() ? i18n.t('agents.saving') : i18n.t('agents.createSave') }}
           </button>

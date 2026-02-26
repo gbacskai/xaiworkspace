@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, computed, signal, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
 import { AgentsService, AgentDetail } from '../../services/agents.service';
 import { ChatService } from '../../services/chat.service';
@@ -56,6 +57,7 @@ const AGENT_TEMPLATES: AgentTemplate[] = [
 export class AgentsPanelComponent implements OnInit {
   agents = inject(AgentsService);
   private chat = inject(ChatService);
+  private sanitizer = inject(DomSanitizer);
   i18n = inject(I18nService);
 
   @ViewChild('editTextarea') editTextareaRef?: ElementRef<HTMLTextAreaElement>;
@@ -79,13 +81,13 @@ export class AgentsPanelComponent implements OnInit {
   // Preview state
   showEditPreview = signal(false);
   showCreatePreview = signal(false);
-  editPreviewHtml = '';
-  createPreviewHtml = '';
+  editPreviewHtml: SafeHtml = '';
+  createPreviewHtml: SafeHtml = '';
 
   renderedContent = computed(() => {
     const agent = this.agents.selectedAgent();
     if (!agent?.content) return '';
-    return marked.parse(agent.content.trim()) as string;
+    return this.sanitizer.bypassSecurityTrustHtml(marked.parse(agent.content.trim()) as string);
   });
 
   ngOnInit() {
@@ -115,14 +117,14 @@ export class AgentsPanelComponent implements OnInit {
   toggleEditPreview(): void {
     this.showEditPreview.update(v => !v);
     if (this.showEditPreview()) {
-      this.editPreviewHtml = marked.parse(this.editContent.trim()) as string;
+      this.editPreviewHtml = this.sanitizer.bypassSecurityTrustHtml(marked.parse(this.editContent.trim()) as string);
     }
   }
 
   toggleCreatePreview(): void {
     this.showCreatePreview.update(v => !v);
     if (this.showCreatePreview()) {
-      this.createPreviewHtml = marked.parse(this.newAgentContent.trim()) as string;
+      this.createPreviewHtml = this.sanitizer.bypassSecurityTrustHtml(marked.parse(this.newAgentContent.trim()) as string);
     }
   }
 
@@ -178,6 +180,23 @@ export class AgentsPanelComponent implements OnInit {
       this.agents.saveAgent(agent.filename, this.editContent);
       this.isEditing.set(false);
     }
+  }
+
+  // --- Validation ---
+  validateAgentContent(content: string): string | null {
+    if (!/^# .+/m.test(content)) return 'Missing required field: Title';
+    if (!/\*\*Model\*\*\s*:\s*\S+/.test(content)) return 'Missing required field: Model';
+    if (!/\*\*Purpose\*\*\s*:\s*\S+/.test(content)) return 'Missing required field: Purpose';
+    if (!/\*\*Behavior\*\*/.test(content)) return 'Missing required field: Behavior';
+    return null;
+  }
+
+  get createValidationError(): string | null {
+    return this.validateAgentContent(this.newAgentContent);
+  }
+
+  get isCreateDisabled(): boolean {
+    return !this.newAgentName.trim() || !!this.createValidationError || this.agents.isSaving();
   }
 
   // --- Create ---
