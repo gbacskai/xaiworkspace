@@ -5,7 +5,7 @@ export const ARTICLES_HU: Record<string, LocalizedArticle> = {
     title: 'Üdvözlünk az xAI Workspace-ben',
     subtitle: 'Személyes AI ügynököd',
     content: `
-Az **xAI Workspace** egy dedikált AI ügynököt biztosít számodra, közvetlenül a Telegramon belül — nem kell alkalmazást telepítened, nem kell fiókot létrehoznod.
+Az **xAI Workspace** egy dedikált AI ügynököt biztosít számodra, közvetlenül az xAI Workspace-en belül — nem kell alkalmazást telepítened, nem kell fiókot létrehoznod.
 
 ## Hogyan működik
 
@@ -18,7 +18,7 @@ Az **xAI Workspace** egy dedikált AI ügynököt biztosít számodra, közvetle
 - **Privát** — A beszélgetéseid a dedikált példányodon maradnak
 - **Állandó** — Az ügynököd megjegyzi a kontextust a munkamenetek között
 - **Hatékony** — A Claude, az egyik legképesebb AI modell hajtja
-- **Egyszerű** — Csak Telegram. Nincs új alkalmazás, nincs tanulási görbe
+- **Egyszerű** — Csak xAI Workspace. Nincs új alkalmazás, nincs tanulási görbe
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ Az **xAI Workspace** egy dedikált AI ügynököt biztosít számodra, közvetle
     content: `
 ## 1. Indítsd el a botot
 
-Nyisd meg a Telegramot, és küldj egy \`/start\` üzenetet a **@xAIWorkspaceBot**-nak. Az ingyenes próbaverzió azonnal elindul — bankkártya nem szükséges.
+Nyisd meg az xAI Workspace-t, és küldj egy \`/start\` üzenetet a **@xAIWorkspaceBot**-nak. Az ingyenes próbaverzió azonnal elindul — bankkártya nem szükséges.
 
 ## 2. Várd meg az üzembe helyezést
 
@@ -89,7 +89,7 @@ Minden xAI Workspace példány a saját dedikált géped. SSH-n vagy SFTP-n kere
 
 ## Kulcs beszerzése
 
-1. Küldj \`/ssh\` üzenetet a Telegram chatben
+1. Küldj \`/ssh\` üzenetet az xAI Workspace chatben
 2. A bot küld egy \`.pem\` kulcsfájlt a csatlakozási adatokkal
 3. Mentsd el a fájlt, és állítsd be a jogosultságokat csatlakozás előtt
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-Cseréld ki a \`<chatId>\`-t a Telegram chat azonosítódra (a kulcsfájl nevében látható).
+Cseréld ki a \`<chatId>\`-t az xAI Workspace chat azonosítódra (a kulcsfájl nevében látható).
 
 > Ha "permission denied" hibát kapsz, ellenőrizd, hogy lefuttattad-e a \`chmod 600\` parancsot a kulcsfájlon.
 
@@ -189,7 +189,7 @@ Ha a munkaterületed még üzembe helyezés alatt van, a bot értesít erről. V
 - Minden munkaterülethez egyedi ed25519 titkosítási kulcs generálódik a beállítás során
 - A jelszavas bejelentkezés le van tiltva — csak a személyes kulcsfájlod működik
 - A root hozzáférés biztonsági okokból korlátozott
-- A kulcsod titkosítva van tárolva az S3-ban, és csak a Telegram chateden keresztül kerül kézbesítésre
+- A kulcsod titkosítva van tárolva az S3-ban, és csak az xAI Workspace chateden keresztül kerül kézbesítésre
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ Küldj \`/language\` üzenetet a 10 támogatott nyelv közüli választáshoz:
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-A nyelvi beállításod automatikusan felismerésre kerül a Telegram beállításaidból az első használatkor, de bármikor megváltoztathatod. Minden bot-üzenet a kiválasztott nyelven jelenik meg.
+A nyelvi beállításod automatikusan felismerésre kerül az xAI Workspace beállításaidból az első használatkor, de bármikor megváltoztathatod. Minden bot-üzenet a kiválasztott nyelven jelenik meg.
 
 ## Régió megváltoztatása
 
@@ -285,7 +285,7 @@ Az elérhető régiók megjelennek, és a jelenlegi kijelölésed ki van emelve.
     content: `
 ## Adatvédelmi beállítások
 
-Az xAI Workspace teljes körű ellenőrzést biztosít személyes adataid felett, közvetlenül a Telegramon belül:
+Az xAI Workspace teljes körű ellenőrzést biztosít személyes adataid felett, közvetlenül az xAI Workspace-en belül:
 
 - \`/privacy\` — Adatvédelmi szabályzat és Szolgáltatási feltételek megtekintése
 - \`/my_data\` — Összes személyes adatod exportálása JSON fájlként

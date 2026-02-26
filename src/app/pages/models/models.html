@@ -3,12 +3,12 @@
 <div class="models">
   <div class="models-header">
     <span class="models-icon">🧠</span>
-    <h1>AI Models</h1>
-    <p class="models-sub">Choose the right model for your task</p>
+    <h1>{{ i18n.t('models.title') }}</h1>
+    <p class="models-sub">{{ i18n.t('models.subtitle') }}</p>
   </div>
 
   <div class="models-tip">
-    💡 Switch models anytime with <code>/models</code> in the chat
+    💡 {{ i18n.t('models.tip') }}
   </div>
 
   @for (group of providerGroups; track group.provider) {
@@ -27,11 +27,11 @@
             </div>
             <p class="model-card-desc">{{ model.description }}</p>
             <div class="model-card-section">
-              <span class="model-card-label">Recommended for</span>
+              <span class="model-card-label">{{ i18n.t('models.recommendedFor') }}</span>
               <span class="model-card-value">{{ model.bestFor }}</span>
             </div>
             <div class="model-card-section">
-              <span class="model-card-label">Example</span>
+              <span class="model-card-label">{{ i18n.t('models.example') }}</span>
               <code class="model-card-example">"{{ model.example }}"</code>
             </div>
             <div class="model-card-benefit">⚡ {{ model.benefit }}</div>

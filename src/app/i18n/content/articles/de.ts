@@ -5,7 +5,7 @@ export const ARTICLES_DE: Record<string, LocalizedArticle> = {
     title: 'Willkommen bei xAI Workspace',
     subtitle: 'Dein persönlicher KI-Agent',
     content: `
-**xAI Workspace** stellt dir einen dedizierten KI-Agenten direkt in Telegram zur Verfügung — keine Apps installieren, keine Konten erstellen.
+**xAI Workspace** stellt dir einen dedizierten KI-Agenten direkt in xAI Workspace zur Verfügung — keine Apps installieren, keine Konten erstellen.
 
 ## So funktioniert es
 
@@ -18,7 +18,7 @@ export const ARTICLES_DE: Record<string, LocalizedArticle> = {
 - **Privat** — Deine Gespräche bleiben auf deiner dedizierten Instanz
 - **Dauerhaft** — Dein Agent erinnert sich über Sitzungen hinweg an den Kontext
 - **Leistungsstark** — Angetrieben von Claude, einem der leistungsfähigsten KI-Modelle
-- **Einfach** — Es ist einfach Telegram. Keine neuen Apps, keine Einarbeitungszeit
+- **Einfach** — Es ist einfach xAI Workspace. Keine neuen Apps, keine Einarbeitungszeit
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_DE: Record<string, LocalizedArticle> = {
     content: `
 ## 1. Bot starten
 
-Öffne Telegram und sende \`/start\` an **@xAIWorkspaceBot**. Deine kostenlose Testphase beginnt sofort — keine Kreditkarte erforderlich.
+Öffne xAI Workspace und sende \`/start\` an **@xAIWorkspaceBot**. Deine kostenlose Testphase beginnt sofort — keine Kreditkarte erforderlich.
 
 ## 2. Bereitstellung abwarten
 
@@ -89,7 +89,7 @@ Jede xAI Workspace-Instanz ist dein eigener dedizierter Rechner. Du kannst dich 
 
 ## Deinen Schlüssel abrufen
 
-1. Sende \`/ssh\` im Telegram-Chat
+1. Sende \`/ssh\` im xAI Workspace-Chat
 2. Der Bot schickt dir eine \`.pem\`-Schlüsseldatei mit Verbindungsdaten
 3. Speichere die Datei und setze die Berechtigungen, bevor du dich verbindest
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-Ersetze \`<chatId>\` mit deiner Telegram-Chat-ID (im Dateinamen des Schlüssels angegeben).
+Ersetze \`<chatId>\` mit deiner xAI Workspace-Chat-ID (im Dateinamen des Schlüssels angegeben).
 
 > Falls du eine "permission denied"-Fehlermeldung erhältst, prüfe, ob du \`chmod 600\` auf die Schlüsseldatei angewendet hast.
 
@@ -189,7 +189,7 @@ Wenn dein Workspace noch bereitgestellt wird, informiert dich der Bot darüber. 
 - Ein einzigartiger ed25519-Verschlüsselungsschlüssel wird für jeden Workspace bei der Einrichtung generiert
 - Passwort-Login ist deaktiviert — nur deine persönliche Schlüsseldatei funktioniert
 - Root-Zugriff ist aus Sicherheitsgründen eingeschränkt
-- Dein Schlüssel wird verschlüsselt in S3 gespeichert und nur an deinen Telegram-Chat übermittelt
+- Dein Schlüssel wird verschlüsselt in S3 gespeichert und nur an deinen xAI Workspace-Chat übermittelt
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ Sende \`/language\`, um aus 10 unterstützten Sprachen zu wählen:
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-Deine Spracheinstellung wird bei der ersten Nutzung automatisch aus deinen Telegram-Einstellungen erkannt, kann aber jederzeit geändert werden. Alle Bot-Nachrichten erscheinen in deiner gewählten Sprache.
+Deine Spracheinstellung wird bei der ersten Nutzung automatisch aus deinen xAI Workspace-Einstellungen erkannt, kann aber jederzeit geändert werden. Alle Bot-Nachrichten erscheinen in deiner gewählten Sprache.
 
 ## Region ändern
 
@@ -285,7 +285,7 @@ Die verfügbaren Regionen werden mit deiner aktuellen Auswahl hervorgehoben ange
     content: `
 ## Datenschutzeinstellungen
 
-xAI Workspace gibt dir die vollständige Kontrolle über deine persönlichen Daten, direkt in Telegram:
+xAI Workspace gibt dir die vollständige Kontrolle über deine persönlichen Daten, direkt in xAI Workspace:
 
 - \`/privacy\` — Datenschutzrichtlinie und Nutzungsbedingungen anzeigen
 - \`/my_data\` — Alle deine persönlichen Daten als JSON-Datei exportieren

@@ -4,9 +4,11 @@
       <span class="chat-header-title">xAI Workspace</span>
       <span class="chat-header-status"
         [class.chat-header-status--connected]="chat.connectionState() === 'connected'"
+        [class.chat-header-status--reconnecting]="chat.connectionState() === 'reconnecting'"
         [class.chat-header-status--error]="chat.connectionState() === 'error'">
         @switch (chat.connectionState()) {
           @case ('connected') { {{ i18n.t('chat.connected') }} }
+          @case ('reconnecting') { Reconnecting ({{ chat.reconnectAttempt() }}/5)... }
           @case ('error') { {{ i18n.t('chat.disconnected') }} }
           @case ('disconnected') { {{ i18n.t('chat.disconnected') }} }
           @default { {{ i18n.t('chat.connecting') }} }
@@ -24,7 +26,7 @@
               <button class="account-item"
                 [class.active]="s.chatId === chat.currentChatId()"
                 (click)="selectAccount(s.chatId)">
-                {{ s.chatId }}
+                {{ accountDisplayName(s) }}
               </button>
             }
           </div>
@@ -34,7 +36,7 @@
     <button class="chat-close" (click)="chat.toggle()" aria-label="Close chat">&times;</button>
   </div>
 
-  <div class="chat-messages" #messageList>
+  <div class="chat-messages" #messageList aria-live="polite" aria-relevant="additions">
     @for (msg of chat.messages(); track msg.id) {
       <div class="chat-bubble"
         [class.chat-bubble--user]="msg.sender === 'user'"
@@ -43,6 +45,7 @@
         <span class="chat-bubble-text"
         [class.chat-bubble-text--command]="msg.sender === 'user' && msg.text.startsWith('/')"
         (click)="msg.sender === 'user' && msg.text.startsWith('/') && copyToInput(msg.text)">{{ msg.text }}</span>
+        <span class="chat-bubble-time">{{ formatTime(msg.timestamp) }}@if (msg.sender === 'user' && msg.status === 'sending') { · sending}@if (msg.sender === 'user' && msg.status === 'failed') { · failed}</span>
         @if (msg.buttons) {
           <div class="chat-buttons">
             @for (row of msg.buttons; track $index) {
@@ -66,8 +69,22 @@
         }
       </div>
     }
-    @if (chat.messages().length === 0) {
-      <div class="chat-empty">{{ i18n.t('chat.empty') }}</div>
+    @if (chat.botTyping()) {
+      <div class="chat-typing">
+        <span class="chat-typing-dot"></span>
+        <span class="chat-typing-dot"></span>
+        <span class="chat-typing-dot"></span>
+      </div>
+    }
+    @if (chat.connectionState() === 'error') {
+      <div class="chat-reconnect-wrap">
+        <button class="chat-reconnect-btn" (click)="chat.reconnect()">Reconnect</button>
+      </div>
+    }
+    @if (chat.messages().length === 0 && !chat.botTyping()) {
+      <div class="chat-empty">
+        <div class="chat-empty-hint">Type <strong>/help</strong> to see available commands</div>
+      </div>
     }
   </div>
 
@@ -85,14 +102,20 @@
   }
 
   <div class="chat-input-bar">
-    <textarea
-      #chatInput
-      class="chat-input"
-      [(ngModel)]="messageText"
-      [placeholder]="i18n.t('chat.placeholder')"
-      (keydown)="onKeydown($event)"
-      (input)="onInput()"
-      rows="1"></textarea>
+    <div class="chat-input-wrap">
+      <textarea
+        #chatInput
+        class="chat-input"
+        [(ngModel)]="messageText"
+        [placeholder]="i18n.t('chat.placeholder')"
+        (keydown)="onKeydown($event)"
+        (input)="onInput()"
+        aria-label="Message input"
+        rows="1"></textarea>
+      @if (messageText.length > 0) {
+        <span class="chat-char-count" [class.chat-char-count--over]="messageText.length > 3500">{{ messageText.length }}</span>
+      }
+    </div>
     <button class="chat-send"
       [disabled]="!messageText.trim()"
       (click)="send()">

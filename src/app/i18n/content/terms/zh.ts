@@ -1,13 +1,13 @@
 export const TERMS_ZH = `
 ## 服务说明
 
-OpenClaw AI 是由 xShopper Pty Ltd 运营的个人 AI 助手服务，通过 Telegram 提供。每位订阅用户将获得一个专属 AI 助手实例。
+OpenClaw AI 是由 xShopper Pty Ltd 运营的个人 AI 助手服务，通过 xAI Workspace 提供。每位订阅用户将获得一个专属 AI 助手实例。
 
 ---
 
 ## 接受条款
 
-在 Telegram 机器人中点击"接受并继续"，即表示您同意本服务条款及我们的隐私政策。
+在 xAI Workspace 中点击"接受并继续"，即表示您同意本服务条款及我们的隐私政策。
 
 ---
 

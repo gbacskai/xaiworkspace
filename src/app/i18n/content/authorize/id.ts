@@ -7,7 +7,7 @@ Perintah \`/authorize\` menghubungkan layanan pihak ketiga (seperti Google, GitH
 
 ## Cara Kerjanya
 
-1. Kirim \`/authorize\` di chat Telegram Anda
+1. Kirim \`/authorize\` di chat xAI Workspace Anda
 2. Pilih penyedia dari tombol-tombol yang tersedia (misalnya Google)
 3. Agen Anda menerima permintaan dan mengirimkan tautan otorisasi
 4. Klik tautan tersebut, masuk ke akun penyedia, dan berikan akses

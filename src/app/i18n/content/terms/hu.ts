@@ -1,13 +1,13 @@
 export const TERMS_HU = `
 ## Szolgáltatás leírása
 
-Az OpenClaw AI egy személyes AI asszisztens szolgáltatás, amelyet az xShopper Pty Ltd üzemeltet és Telegramon keresztül nyújt. Minden előfizető egy dedikált AI ügynök példányt kap.
+Az OpenClaw AI egy személyes AI asszisztens szolgáltatás, amelyet az xShopper Pty Ltd üzemeltet és xAI Workspace-en keresztül nyújt. Minden előfizető egy dedikált AI ügynök példányt kap.
 
 ---
 
 ## Elfogadás
 
-A Telegram botban az "Accept & Continue" gombra koppintva elfogadod ezeket a Szolgáltatási feltételeket és az Adatvédelmi szabályzatunkat.
+Az xAI Workspace-ben az "Accept & Continue" gombra koppintva elfogadod ezeket a Szolgáltatási feltételeket és az Adatvédelmi szabályzatunkat.
 
 ---
 

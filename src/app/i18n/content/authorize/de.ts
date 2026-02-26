@@ -7,7 +7,7 @@ Der Befehl \`/authorize\` verbindet Drittanbieterdienste (wie Google, GitHub ode
 
 ## So funktioniert es
 
-1. Sende \`/authorize\` in deinem Telegram-Chat
+1. Sende \`/authorize\` in deinem xAI Workspace-Chat
 2. Wähle einen Anbieter aus den Schaltflächen (z. B. Google)
 3. Dein Agent empfängt die Anfrage und sendet dir einen Autorisierungslink
 4. Klicke auf den Link, melde dich beim Anbieter an und erteile den Zugriff

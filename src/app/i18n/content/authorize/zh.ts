@@ -7,7 +7,7 @@ export const AUTHORIZE_ZH = `
 
 ## 工作原理
 
-1. 在 Telegram 聊天中发送 \`/authorize\`
+1. 在 xAI Workspace 聊天中发送 \`/authorize\`
 2. 从按钮中选择一个服务商（例如 Google）
 3. 您的助手收到请求后，向您发送一个授权链接
 4. 点击链接，登录该服务商并授予访问权限

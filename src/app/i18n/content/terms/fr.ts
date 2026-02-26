@@ -1,13 +1,13 @@
 export const TERMS_FR = `
 ## Description du service
 
-OpenClaw AI est un service d'assistant IA personnel exploité par xShopper Pty Ltd, accessible via Telegram. Chaque abonné dispose d'une instance d'agent IA dédiée.
+OpenClaw AI est un service d'assistant IA personnel exploité par xShopper Pty Ltd, accessible via xAI Workspace. Chaque abonné dispose d'une instance d'agent IA dédiée.
 
 ---
 
 ## Acceptation
 
-En appuyant sur "Accepter et continuer" dans le bot Telegram, vous acceptez les présentes conditions d'utilisation ainsi que notre politique de confidentialité.
+En appuyant sur "Accepter et continuer" dans xAI Workspace, vous acceptez les présentes conditions d'utilisation ainsi que notre politique de confidentialité.
 
 ---
 

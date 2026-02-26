@@ -7,7 +7,7 @@ Az \`/authorize\` parancs harmadik fél szolgáltatásokat (mint a Google, GitHu
 
 ## Hogyan működik
 
-1. Küldj \`/authorize\` üzenetet a Telegram chatben
+1. Küldj \`/authorize\` üzenetet a xAI Workspace chatben
 2. Válassz egy szolgáltatót a gombok közül (pl. Google)
 3. Az ügynököd fogadja a kérést, és küld egy engedélyezési hivatkozást
 4. Kattints a hivatkozásra, jelentkezz be a szolgáltatónál, és add meg a hozzáférést

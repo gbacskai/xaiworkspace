@@ -16,7 +16,8 @@
             class="agents-name-input"
             type="text"
             [(ngModel)]="newAgentName"
-            [placeholder]="i18n.t('agents.namePlaceholder')" />
+            [placeholder]="i18n.t('agents.namePlaceholder')"
+            aria-label="Agent filename" />
           <div class="agents-md-toolbar">
             <button type="button" class="agents-md-toolbar-btn" title="Bold" (click)="insertMarkdown('create','**','**','bold')"><b>B</b></button>
             <button type="button" class="agents-md-toolbar-btn" title="Italic" (click)="insertMarkdown('create','*','*','italic')"><i>I</i></button>
@@ -36,6 +37,7 @@
               #createTextarea
               class="agents-edit-textarea agents-md-textarea"
               [(ngModel)]="newAgentContent"
+              aria-label="Agent content"
               rows="12"></textarea>
           }
           @if (createValidationError; as err) {
@@ -55,7 +57,7 @@
       <div class="agents-detail">
         @if (showDeleteConfirm()) {
           <div class="agents-delete-bar">
-            <span class="agents-delete-msg">{{ i18n.t('agents.deleteConfirm') }}</span>
+            <span class="agents-delete-msg">Delete '{{ agent.name }}'? This cannot be undone.</span>
             <div class="agents-delete-actions">
               <button
                 class="agents-btn-danger"
@@ -106,6 +108,8 @@
                 #editTextarea
                 class="agents-edit-textarea agents-md-textarea"
                 [(ngModel)]="editContent"
+                (ngModelChange)="scheduleDraftSave()"
+                aria-label="Agent content"
                 rows="12"></textarea>
             }
             <div class="agents-edit-actions">
@@ -134,13 +138,20 @@
           }
         </select>
       </div>
+      @if (agents.agents().length >= 4) {
+        <input class="agents-search" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" placeholder="Search agents..." aria-label="Search agents" />
+      }
       @if (agents.isLoading()) {
-        <div class="agents-empty">{{ i18n.t('agents.loading') }}</div>
+        <div class="agents-skeleton">
+          @for (i of [1, 2, 3, 4, 5]; track i) {
+            <div class="skeleton-row"></div>
+          }
+        </div>
       } @else if (agents.agents().length === 0) {
         <div class="agents-empty">{{ i18n.t('agents.empty') }}</div>
       } @else {
         <div class="agents-list">
-          @for (agent of agents.agents(); track agent.filename) {
+          @for (agent of filteredAgents(); track agent.filename) {
             <div class="agents-list-item">
               <button class="agents-list-name" (click)="selectAgent(agent.filename)">
                 {{ agent.name }}
@@ -159,12 +170,24 @@
     }
   </div>
 
+  @if (confirmAction(); as action) {
+    <div class="agents-confirm-overlay" (click)="confirmAction.set(null)">
+      <div class="agents-confirm-dialog" (click)="$event.stopPropagation()">
+        <p class="agents-confirm-msg">{{ action.message }}</p>
+        <div class="agents-confirm-actions">
+          <button class="agents-btn-primary" (click)="action.onConfirm()">Yes</button>
+          <button class="agents-btn-secondary" (click)="dismissConfirm()">No</button>
+        </div>
+      </div>
+    </div>
+  }
+
   @if (showInvite()) {
     <div class="agents-invite">
-      <div class="agents-invite-title">Invite Friends</div>
-      <input type="email" class="agents-invite-input" [(ngModel)]="inviteEmail" placeholder="Email address" />
-      <textarea class="agents-invite-textarea" [(ngModel)]="inviteMessage" placeholder="Personal message (optional)" rows="2"></textarea>
-      <button class="agents-btn-primary" [disabled]="!inviteEmail.trim()" (click)="sendInvite()">Send Invite</button>
+      <div class="agents-invite-title">{{ i18n.t('agents.inviteTitle') }}</div>
+      <input type="email" class="agents-invite-input" [(ngModel)]="inviteEmail" [placeholder]="i18n.t('agents.inviteEmailPlaceholder')" aria-label="Invite email address" />
+      <textarea class="agents-invite-textarea" [(ngModel)]="inviteMessage" [placeholder]="i18n.t('agents.inviteMessagePlaceholder')" aria-label="Personal message" rows="2"></textarea>
+      <button class="agents-btn-primary" [disabled]="!inviteEmail.trim()" (click)="sendInvite()">{{ i18n.t('agents.inviteSend') }}</button>
     </div>
   }
 </div>

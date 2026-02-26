@@ -68,6 +68,7 @@
   font-size: 14px;
   line-height: 1.45;
   word-wrap: break-word;
+  animation: fadeIn 0.2s ease;
 
   &--user {
     align-self: flex-end;
@@ -90,6 +91,14 @@
     font-size: 12px;
     font-style: italic;
   }
+}
+
+.chat-bubble-time {
+  display: block;
+  font-size: 10px;
+  color: inherit;
+  opacity: 0.5;
+  margin-top: 4px;
 }
 
 .chat-bubble-text {
@@ -175,6 +184,70 @@
   padding: 24px;
 }
 
+.chat-empty-hint {
+  strong {
+    color: var(--tg-theme-button-color);
+  }
+}
+
+// Typing indicator
+.chat-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  padding: 10px 14px;
+  background: var(--tg-theme-secondary-bg-color);
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tg-theme-hint-color);
+  animation: typingDot 1.2s infinite ease-in-out;
+
+  &:nth-child(2) { animation-delay: 0.15s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+}
+
+// Reconnect button
+.chat-reconnect-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+}
+
+.chat-reconnect-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 16px;
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+// Reconnecting status
+.chat-header-status--reconnecting {
+  color: #fb8c00;
+  animation: reconnectPulse 1.5s infinite;
+}
+
+@keyframes reconnectPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 .command-menu {
   max-height: 280px;
   overflow-y: auto;
@@ -226,8 +299,27 @@
   flex-shrink: 0;
 }
 
-.chat-input {
+.chat-input-wrap {
   flex: 1;
+  position: relative;
+}
+
+.chat-char-count {
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+  font-size: 10px;
+  color: var(--tg-theme-hint-color);
+  pointer-events: none;
+
+  &--over {
+    color: #e53935;
+  }
+}
+
+.chat-input {
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid rgba(128, 128, 128, 0.25);
   border-radius: 18px;
   padding: 8px 14px;

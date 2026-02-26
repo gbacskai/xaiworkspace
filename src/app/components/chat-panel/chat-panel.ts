@@ -1,6 +1,7 @@
-import { Component, inject, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, signal, computed, effect } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, HostListener, signal, computed, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChatService, ChatMessage, FileAttachment } from '../../services/chat.service';
+import { TelegramService } from '../../services/telegram.service';
 import { I18nService } from '../../i18n/i18n.service';
 
 const COMMANDS: { command: string; description: string }[] = [
@@ -33,6 +34,7 @@ const COMMANDS: { command: string; description: string }[] = [
 export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
   chat = inject(ChatService);
   i18n = inject(I18nService);
+  private tg = inject(TelegramService);
 
   messageText = '';
 
@@ -44,6 +46,7 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('chatInput') chatInputRef?: ElementRef<HTMLTextAreaElement>;
 
   private prevMessageCount = 0;
+  private userHasScrolledUp = false;
 
   accountMenuOpen = signal(false);
   currentAccountLabel = computed(() => {
@@ -60,6 +63,21 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.chat.switchAccount(chatId);
   }
 
+  private autoFocusEffect = effect(() => {
+    if (this.chat.isOpen() && window.innerWidth > 860) {
+      setTimeout(() => this.chatInputRef?.nativeElement?.focus(), 100);
+    }
+  });
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!this.accountMenuOpen()) return;
+    const target = event.target as HTMLElement;
+    if (!target.closest('.account-switcher')) {
+      this.accountMenuOpen.set(false);
+    }
+  }
+
   private pendingInputEffect = effect(() => {
     const text = this.chat.pendingInput();
     if (text !== null) {
@@ -73,6 +91,15 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   ngOnInit() {
     this.chat.connect();
+    // Track scroll position for smart-scroll
+    setTimeout(() => {
+      const el = this.messageList?.nativeElement;
+      if (el) {
+        el.addEventListener('scroll', () => {
+          this.userHasScrolledUp = (el.scrollHeight - el.scrollTop - el.clientHeight) > 100;
+        });
+      }
+    });
   }
 
   ngOnDestroy() {
@@ -83,7 +110,9 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
     const count = this.chat.messages().length;
     if (count !== this.prevMessageCount) {
       this.prevMessageCount = count;
-      this.scrollToBottom();
+      if (!this.userHasScrolledUp) {
+        this.scrollToBottom();
+      }
     }
   }
 
@@ -91,6 +120,7 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
     this.commandMenuOpen.set(false);
     const text = this.messageText.trim();
     if (!text) return;
+    this.tg.haptic();
     this.chat.send(text);
     this.messageText = '';
     requestAnimationFrame(() => this.autoResize());
@@ -147,6 +177,7 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   selectCommand(cmd: { command: string; description: string }): void {
+    this.tg.haptic();
     this.messageText = cmd.command + ' ';
     this.commandMenuOpen.set(false);
   }
@@ -156,6 +187,7 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   onCallback(data: string, msg?: ChatMessage): void {
+    this.tg.haptic();
     if (data === '__back__' && msg) {
       this.chat.restoreMessage(msg.id);
       return;
@@ -172,6 +204,19 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
     a.download = file.name;
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  formatTime(ts: number): string {
+    const diff = Date.now() - ts;
+    if (diff < 60000) return 'just now';
+    if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
+    if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
+    return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  }
+
+  accountDisplayName(session: { chatId: string; provider: string }): string {
+    if (session.provider) return session.provider.charAt(0).toUpperCase() + session.provider.slice(1);
+    return session.chatId.startsWith('w_') ? session.chatId.substring(0, 10) : session.chatId;
   }
 
   private scrollToBottom(): void {

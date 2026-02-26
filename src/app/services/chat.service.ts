@@ -1,6 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { TelegramService } from './telegram.service';
 import { AuthService } from './auth.service';
+import { ToastService } from './toast.service';
 import { environment } from '../../environments/environment';
 
 export interface InlineButton {
@@ -22,6 +23,7 @@ export interface ChatMessage {
   timestamp: number;
   buttons?: InlineButton[][];   // rows of buttons
   file?: FileAttachment;
+  status?: 'sending' | 'sent' | 'failed';
   _originalText?: string;
   _originalButtons?: InlineButton[][];
 }
@@ -30,6 +32,7 @@ export interface ChatMessage {
 export class ChatService {
   private tg = inject(TelegramService);
   private auth = inject(AuthService);
+  private toast = inject(ToastService);
 
   private ws: WebSocket | null = null;
   private _pendingCallbackSource: { messageId: string; originalText: string; originalButtons: InlineButton[][] } | null = null;
@@ -39,8 +42,11 @@ export class ChatService {
   private sessionToken: string | null = null;
 
   readonly messages = signal<ChatMessage[]>([]);
-  readonly connectionState = signal<'disconnected' | 'connecting' | 'connected' | 'error'>('disconnected');
+  readonly connectionState = signal<'disconnected' | 'connecting' | 'connected' | 'reconnecting' | 'error'>('disconnected');
   readonly isOpen = signal(false);
+  readonly botTyping = signal(false);
+  readonly reconnectAttempt = signal(0);
+  private pendingQueue: string[] = [];
   readonly linkCode = signal<{ code: string; botUrl: string } | null>(null);
   readonly linkedProviders = signal<{ provider: string; email?: string; displayName?: string }[]>([]);
   readonly sessions = signal<{ chatId: string; sessionToken: string; provider: string }[]>([]);
@@ -48,7 +54,16 @@ export class ChatService {
   readonly pendingInput = signal<string | null>(null);
   readonly currentTier = signal<string>('trial');
 
+  private static readonly MAX_MESSAGES = 500;
+
   onAgentMessage: ((msg: any) => void) | null = null;
+
+  private addMessage(msg: ChatMessage): void {
+    this.messages.update(msgs => {
+      const updated = [...msgs, msg];
+      return updated.length > ChatService.MAX_MESSAGES ? updated.slice(updated.length - ChatService.MAX_MESSAGES) : updated;
+    });
+  }
 
   constructor() {
     const stored = localStorage.getItem('chat_sessions');
@@ -106,6 +121,18 @@ export class ChatService {
           authenticated = true;
           this.connectionState.set('connected');
           this.reconnectAttempts = 0;
+          this.reconnectAttempt.set(0);
+          // Replay any pending messages queued while disconnected
+          if (this.pendingQueue.length > 0) {
+            const queue = [...this.pendingQueue];
+            this.pendingQueue = [];
+            for (const text of queue) {
+              this.ws!.send(JSON.stringify({ type: 'message', text }));
+            }
+            this.messages.update(msgs => msgs.map(m =>
+              m.sender === 'user' && m.status === 'sending' ? { ...m, status: 'sent' as const } : m
+            ));
+          }
           if (msg.tier) this.currentTier.set(msg.tier);
           if (msg.chatId && msg.sessionToken) {
             this.sessionToken = msg.sessionToken;
@@ -132,12 +159,12 @@ export class ChatService {
 
         if (msg.type === 'auth_error') {
           this.connectionState.set('error');
-          this.messages.update(msgs => [...msgs, {
+          this.addMessage({
             id: crypto.randomUUID(),
             text: msg.error || 'Authentication failed',
             sender: 'system',
             timestamp: Date.now(),
-          }]);
+          });
           return;
         }
 
@@ -157,24 +184,24 @@ export class ChatService {
           localStorage.setItem('chat_sessions', JSON.stringify(this.sessions()));
           this.sessionToken = null;
           this.connectionState.set('error');
-          this.messages.update(msgs => [...msgs, {
+          this.addMessage({
             id: crypto.randomUUID(),
             text: 'Session expired. Please log in again.',
             sender: 'system',
             timestamp: Date.now(),
-          }]);
+          });
           return;
         }
 
         // Handle status messages (auto-wake progress)
         if (msg.type === 'status') {
           this.connectionState.set('connecting');
-          this.messages.update(msgs => [...msgs, {
+          this.addMessage({
             id: crypto.randomUUID(),
             text: msg.message || 'Starting...',
             sender: 'system',
             timestamp: Date.now(),
-          }]);
+          });
           return;
         }
 
@@ -186,12 +213,12 @@ export class ChatService {
 
         // Handle link success
         if (msg.type === 'link_success') {
-          this.messages.update(msgs => [...msgs, {
+          this.addMessage({
             id: crypto.randomUUID(),
             text: 'Account linked!',
             sender: 'system',
             timestamp: Date.now(),
-          }]);
+          });
           // Refresh linked providers
           this.requestAuthLinks();
           return;
@@ -204,12 +231,12 @@ export class ChatService {
             return [...filtered, { chatId: msg.chatId, sessionToken: msg.sessionToken, provider: '' }];
           });
           localStorage.setItem('chat_sessions', JSON.stringify(this.sessions()));
-          this.messages.update(msgs => [...msgs, {
+          this.addMessage({
             id: crypto.randomUUID(),
             text: 'Another account found — use the account switcher to access it.',
             sender: 'system',
             timestamp: Date.now(),
-          }]);
+          });
           return;
         }
 
@@ -227,6 +254,11 @@ export class ChatService {
 
         // Handle chat messages
         if (msg.type === 'message' || msg.type === 'chat') {
+          this.botTyping.set(false);
+          // Mark pending user messages as sent
+          this.messages.update(msgs => msgs.map(m =>
+            m.sender === 'user' && m.status === 'sending' ? { ...m, status: 'sent' as const } : m
+          ));
           const incoming: ChatMessage = {
             id: msg.id ?? crypto.randomUUID(),
             text: msg.text ?? msg.payload?.text ?? '',
@@ -254,7 +286,7 @@ export class ChatService {
             }));
           } else {
             this._pendingCallbackSource = null;
-            this.messages.update(msgs => [...msgs, incoming]);
+            this.addMessage(incoming);
           }
         }
       } catch { /* ignore malformed messages */ }
@@ -274,19 +306,21 @@ export class ChatService {
   }
 
   sendCallback(data: string, sourceMessageId?: string): void {
-    if (this.ws?.readyState === WebSocket.OPEN) {
-      if (sourceMessageId) {
-        const msg = this.messages().find(m => m.id === sourceMessageId);
-        if (msg) {
-          this._pendingCallbackSource = {
-            messageId: sourceMessageId,
-            originalText: msg.text,
-            originalButtons: msg.buttons || [],
-          };
-        }
-      }
-      this.ws.send(JSON.stringify({ type: 'callback', data }));
+    if (this.ws?.readyState !== WebSocket.OPEN) {
+      this.toast.show('Not connected', 'error');
+      return;
     }
+    if (sourceMessageId) {
+      const msg = this.messages().find(m => m.id === sourceMessageId);
+      if (msg) {
+        this._pendingCallbackSource = {
+          messageId: sourceMessageId,
+          originalText: msg.text,
+          originalButtons: msg.buttons || [],
+        };
+      }
+    }
+    this.ws.send(JSON.stringify({ type: 'callback', data }));
   }
 
   restoreMessage(messageId: string): void {
@@ -308,13 +342,16 @@ export class ChatService {
     const trimmed = text.trim();
     if (!trimmed) return;
 
+    const isConnected = this.ws && this.ws.readyState === WebSocket.OPEN && this.connectionState() === 'connected';
+
     const msg: ChatMessage = {
       id: crypto.randomUUID(),
       text: trimmed,
       sender: 'user',
       timestamp: Date.now(),
+      status: isConnected ? 'sent' : 'sending',
     };
-    this.messages.update(msgs => [...msgs, msg]);
+    this.addMessage(msg);
 
     // Intercept /whoami locally
     if (trimmed === '/whoami') {
@@ -322,8 +359,11 @@ export class ChatService {
       return;
     }
 
-    if (this.ws && this.ws.readyState === WebSocket.OPEN && this.connectionState() === 'connected') {
-      this.ws.send(JSON.stringify({ type: 'message', text: trimmed }));
+    if (isConnected) {
+      this.ws!.send(JSON.stringify({ type: 'message', text: trimmed }));
+      this.botTyping.set(true);
+    } else {
+      this.pendingQueue.push(trimmed);
     }
   }
 
@@ -353,7 +393,7 @@ export class ChatService {
       lines.push(`Provider: GitHub`);
     } else if (this.tg.isTelegram) {
       const u = this.tg.user();
-      lines.push(`Channel: Telegram App`);
+      lines.push(`Channel: xAI Workspace`);
       if (u) {
         lines.push(`Name: ${u.first_name}${u.last_name ? ' ' + u.last_name : ''}`);
         if (u.username) lines.push(`Username: @${u.username}`);
@@ -376,12 +416,12 @@ export class ChatService {
       }
     }
 
-    this.messages.update(msgs => [...msgs, {
+    this.addMessage({
       id: crypto.randomUUID(),
       text: lines.join('\n'),
       sender: 'bot',
       timestamp: Date.now(),
-    }]);
+    });
   }
 
   disconnect(): void {
@@ -402,6 +442,16 @@ export class ChatService {
     this.messages.set([]);
     this.sessionToken = session.sessionToken;
     this.setupWs({ type: 'auth', sessionToken: session.sessionToken });
+  }
+
+  getSessionToken(): string | null {
+    return this.sessionToken;
+  }
+
+  reconnect(): void {
+    this.reconnectAttempts = 0;
+    this.reconnectAttempt.set(0);
+    this.connect();
   }
 
   toggle(): void {
@@ -433,10 +483,21 @@ export class ChatService {
   }
 
   private scheduleReconnect(): void {
-    if (this.reconnectAttempts >= this.maxReconnectAttempts) return;
+    if (this.reconnectAttempts >= this.maxReconnectAttempts) {
+      this.connectionState.set('error');
+      this.addMessage({
+        id: crypto.randomUUID(),
+        text: 'Unable to connect. Please refresh.',
+        sender: 'system',
+        timestamp: Date.now(),
+      });
+      return;
+    }
 
+    this.connectionState.set('reconnecting');
     const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts), 16000);
     this.reconnectAttempts++;
+    this.reconnectAttempt.set(this.reconnectAttempts);
 
     this.reconnectTimer = setTimeout(() => {
       this.reconnectTimer = null;

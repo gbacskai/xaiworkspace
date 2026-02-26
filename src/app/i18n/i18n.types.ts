@@ -78,6 +78,19 @@ export interface UiStrings {
   'invite.ctaGeneric': string;
   'invite.noCode': string;
   'invite.footer': string;
+  'purchase.thankYou': string;
+  'purchase.success': string;
+  'purchase.backHome': string;
+  'models.title': string;
+  'models.subtitle': string;
+  'models.tip': string;
+  'models.recommendedFor': string;
+  'models.example': string;
+  'agents.inviteTitle': string;
+  'agents.inviteEmailPlaceholder': string;
+  'agents.inviteMessagePlaceholder': string;
+  'agents.inviteSend': string;
+  'chat.reconnect': string;
 }
 
 export interface LocalizedArticle {

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, OnDestroy, ViewChild, ElementRef, signal } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, ViewChild, ElementRef, signal, effect } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 import { TelegramService } from '../../services/telegram.service';
@@ -45,6 +45,17 @@ export class AnalyticsPage implements OnInit, OnDestroy {
 
   private charts: Chart[] = [];
 
+  private themeEffect = effect(() => {
+    // Watch for theme changes
+    this.tg.colorScheme();
+    const d = this.data();
+    if (d && this.charts.length > 0) {
+      this.charts.forEach(c => c.destroy());
+      this.charts = [];
+      setTimeout(() => this.renderCharts(d), 0);
+    }
+  });
+
   ngOnInit() {
     this.tg.showBackButton(() => this.router.navigate(['/']));
     this.fetchData();
@@ -55,8 +66,16 @@ export class AnalyticsPage implements OnInit, OnDestroy {
     this.charts.forEach(c => c.destroy());
   }
 
+  retry(): void {
+    this.error.set('');
+    this.loading.set(true);
+    this.charts.forEach(c => c.destroy());
+    this.charts = [];
+    this.fetchData();
+  }
+
   private async fetchData() {
-    const token = this.chat['sessionToken'];
+    const token = this.chat.getSessionToken();
     if (!token) {
       this.error.set('Not authenticated');
       this.loading.set(false);

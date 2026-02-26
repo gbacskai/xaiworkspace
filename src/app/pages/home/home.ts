@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { TelegramService } from '../../services/telegram.service';
 import { AuthService } from '../../services/auth.service';
 import { ChatService } from '../../services/chat.service';
+import { ToastService } from '../../services/toast.service';
 import { I18nService, LOCALE_LABELS } from '../../i18n/i18n.service';
 import { FullArticle, SupportedLocale, SUPPORTED_LOCALES } from '../../i18n/i18n.types';
 
@@ -19,7 +20,10 @@ export class HomePage implements OnInit, OnDestroy {
   tg = inject(TelegramService);
   auth = inject(AuthService);
   i18n = inject(I18nService);
+  private toast = inject(ToastService);
   private linkTimers: ReturnType<typeof setTimeout>[] = [];
+
+  linkingProvider = signal<string | null>(null);
 
   locales = SUPPORTED_LOCALES;
   localeLabels = LOCALE_LABELS;
@@ -72,52 +76,106 @@ export class HomePage implements OnInit, OnDestroy {
     this.langOpen.set(false);
   }
 
+  onLangKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.langOpen.set(false);
+      return;
+    }
+    if (!this.langOpen()) return;
+    const idx = this.locales.indexOf(this.i18n.locale());
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      const next = (idx + 1) % this.locales.length;
+      this.selectLang(this.locales[next]);
+      this.langOpen.set(true);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      const prev = (idx - 1 + this.locales.length) % this.locales.length;
+      this.selectLang(this.locales[prev]);
+      this.langOpen.set(true);
+    }
+  }
+
   loginWithTelegram() {
+    this.tg.haptic();
+    this.linkingProvider.set('telegram');
     this.auth.openTelegramLogin();
+    this.startLinkingTimeout();
   }
 
   loginWithGoogle() {
+    this.tg.haptic();
+    this.linkingProvider.set('google');
     this.auth.loginWithGoogle();
+    this.startLinkingTimeout();
   }
 
   loginWithGithub() {
+    this.tg.haptic();
+    this.linkingProvider.set('github');
     this.auth.loginWithGithub();
+    this.startLinkingTimeout();
   }
 
   loginWithLinkedin() {
+    this.tg.haptic();
+    this.linkingProvider.set('linkedin');
     this.auth.loginWithLinkedin();
+    this.startLinkingTimeout();
+  }
+
+  private startLinkingTimeout(): void {
+    const timer = setTimeout(() => {
+      if (this.linkingProvider()) {
+        this.toast.show('Popup may be blocked. Check your browser settings.', 'error', 5000);
+        this.linkingProvider.set(null);
+      }
+    }, 30000);
+    this.linkTimers.push(timer);
   }
 
   linkTelegram() {
+    this.tg.haptic();
+    this.linkingProvider.set('telegram');
     this.auth.openTelegramLogin();
     this.pollUntil(
       () => !!this.auth.webUser(),
-      () => this.chat.sendLinkProvider('telegram', { ...this.auth.webUser()! }),
+      () => { this.linkingProvider.set(null); this.chat.sendLinkProvider('telegram', { ...this.auth.webUser()! }); },
     );
+    this.startLinkingTimeout();
   }
 
   linkGoogle() {
+    this.tg.haptic();
+    this.linkingProvider.set('google');
     this.auth.loginWithGoogle();
     this.pollUntil(
       () => !!this.auth.getGoogleAuthPayload(),
-      () => this.chat.sendLinkProvider('google', { code: this.auth.getGoogleAuthPayload()!.code }),
+      () => { this.linkingProvider.set(null); this.chat.sendLinkProvider('google', { code: this.auth.getGoogleAuthPayload()!.code }); },
     );
+    this.startLinkingTimeout();
   }
 
   linkGithub() {
+    this.tg.haptic();
+    this.linkingProvider.set('github');
     this.auth.loginWithGithub();
     this.pollUntil(
       () => !!this.auth.githubUser(),
-      () => this.chat.sendLinkProvider('github', { code: this.auth.githubUser()!.code }),
+      () => { this.linkingProvider.set(null); this.chat.sendLinkProvider('github', { code: this.auth.githubUser()!.code }); },
     );
+    this.startLinkingTimeout();
   }
 
   linkLinkedin() {
+    this.tg.haptic();
+    this.linkingProvider.set('linkedin');
     this.auth.loginWithLinkedin();
     this.pollUntil(
       () => !!this.auth.linkedinUser(),
-      () => this.chat.sendLinkProvider('linkedin', { code: this.auth.linkedinUser()!.code }),
+      () => { this.linkingProvider.set(null); this.chat.sendLinkProvider('linkedin', { code: this.auth.linkedinUser()!.code }); },
     );
+    this.startLinkingTimeout();
   }
 
   logoutProvider(provider: string) {

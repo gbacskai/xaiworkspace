@@ -5,7 +5,7 @@ export const ARTICLES_KO: Record<string, LocalizedArticle> = {
     title: 'xAI Workspace에 오신 것을 환영합니다',
     subtitle: '나만의 AI 에이전트',
     content: `
-**xAI Workspace**는 Telegram 안에서 바로 사용할 수 있는 전용 AI 에이전트입니다. 앱 설치도, 계정 생성도 필요 없습니다.
+**xAI Workspace**는 xAI Workspace 안에서 바로 사용할 수 있는 전용 AI 에이전트입니다. 앱 설치도, 계정 생성도 필요 없습니다.
 
 ## 사용 방법
 
@@ -18,7 +18,7 @@ export const ARTICLES_KO: Record<string, LocalizedArticle> = {
 - **프라이버시** — 대화 내용이 전용 인스턴스에만 저장됩니다
 - **지속성** — 세션이 바뀌어도 에이전트가 맥락을 기억합니다
 - **강력함** — 가장 뛰어난 AI 모델 중 하나인 Claude로 구동됩니다
-- **간편함** — Telegram만 있으면 됩니다. 새 앱도, 학습 곡선도 없습니다
+- **간편함** — xAI Workspace만 있으면 됩니다. 새 앱도, 학습 곡선도 없습니다
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_KO: Record<string, LocalizedArticle> = {
     content: `
 ## 1. 봇 시작하기
 
-Telegram을 열고 **@xAIWorkspaceBot**에게 \`/start\`를 보내세요. 무료 체험이 즉시 시작됩니다 — 신용카드가 필요 없습니다.
+xAI Workspace를 열고 **@xAIWorkspaceBot**에게 \`/start\`를 보내세요. 무료 체험이 즉시 시작됩니다 — 신용카드가 필요 없습니다.
 
 ## 2. 프로비저닝 대기
 
@@ -89,7 +89,7 @@ xAI Workspace는 여러 제공업체의 다양한 AI 모델을 지원합니다. 
 
 ## 키 받기
 
-1. Telegram 채팅에서 \`/ssh\`를 보내세요
+1. xAI Workspace 채팅에서 \`/ssh\`를 보내세요
 2. 봇이 접속 정보가 포함된 \`.pem\` 키 파일을 보내줍니다
 3. 파일을 저장하고 접속 전에 권한을 설정하세요
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-\`<chatId>\`를 본인의 Telegram 채팅 ID로 바꾸세요 (키 파일명에 표시되어 있습니다).
+\`<chatId>\`를 본인의 xAI Workspace 채팅 ID로 바꾸세요 (키 파일명에 표시되어 있습니다).
 
 > "permission denied" 오류가 발생하면, 키 파일에 \`chmod 600\`을 실행했는지 다시 확인하세요.
 
@@ -189,7 +189,7 @@ FileZilla를 실행하고 **File → Site Manager**로 이동하세요 (Windows/
 - 설정 시 각 워크스페이스에 고유한 ed25519 암호화 키가 생성됩니다
 - 비밀번호 로그인은 비활성화되어 있습니다 — 개인 키 파일로만 접속 가능합니다
 - 안전을 위해 루트 접근이 제한되어 있습니다
-- 키는 S3에 암호화되어 저장되며 Telegram 채팅으로만 전달됩니다
+- 키는 S3에 암호화되어 저장되며 xAI Workspace 채팅으로만 전달됩니다
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ FileZilla를 실행하고 **File → Site Manager**로 이동하세요 (Windows/
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-언어 설정은 처음 사용 시 Telegram 설정에서 자동으로 감지되지만, 언제든지 변경할 수 있습니다. 모든 봇 메시지가 선택한 언어로 표시됩니다.
+언어 설정은 처음 사용 시 xAI Workspace 설정에서 자동으로 감지되지만, 언제든지 변경할 수 있습니다. 모든 봇 메시지가 선택한 언어로 표시됩니다.
 
 ## 지역 변경
 
@@ -285,7 +285,7 @@ FileZilla를 실행하고 **File → Site Manager**로 이동하세요 (Windows/
     content: `
 ## 개인정보 관리
 
-xAI Workspace에서는 Telegram 안에서 직접 개인 데이터를 완전히 관리할 수 있습니다:
+xAI Workspace에서는 xAI Workspace 안에서 직접 개인 데이터를 완전히 관리할 수 있습니다:
 
 - \`/privacy\` — 개인정보 처리방침 및 서비스 이용약관 보기
 - \`/my_data\` — 모든 개인 데이터를 JSON 파일로 내보내기

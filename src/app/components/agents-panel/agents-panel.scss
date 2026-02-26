@@ -88,6 +88,51 @@
   }
 }
 
+// --- Search ---
+.agents-search {
+  width: 100%;
+  padding: 8px 14px;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+  outline: none;
+  box-sizing: border-box;
+  margin: 8px 16px;
+  width: calc(100% - 32px);
+
+  &::placeholder {
+    color: var(--tg-theme-hint-color);
+  }
+
+  &:focus {
+    border-color: var(--tg-theme-button-color);
+  }
+}
+
+// --- Skeleton loading ---
+.agents-skeleton {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-row {
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(128, 128, 128, 0.1) 25%, rgba(128, 128, 128, 0.2) 50%, rgba(128, 128, 128, 0.1) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 // --- List ---
 .agents-empty {
   display: flex;
@@ -507,6 +552,38 @@
   &:focus {
     border-color: var(--tg-theme-button-color);
   }
+}
+
+// --- Confirm overlay ---
+.agents-confirm-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.agents-confirm-dialog {
+  background: var(--tg-theme-section-bg-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px;
+  max-width: 280px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.agents-confirm-msg {
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.agents-confirm-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
 // --- Invite section ---

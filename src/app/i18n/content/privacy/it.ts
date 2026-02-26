@@ -1,7 +1,7 @@
 export const PRIVACY_IT = `
 ## Chi siamo
 
-xShopper Pty Ltd ("xShopper", "noi", "ci") gestisce il servizio OpenClaw AI, accessibile tramite Telegram.
+xShopper Pty Ltd ("xShopper", "noi", "ci") gestisce il servizio OpenClaw AI, accessibile tramite xAI Workspace.
 Titolare del trattamento: xShopper Pty Ltd, Australia.
 Contatto: privacy@xshopper.com
 
@@ -11,7 +11,7 @@ Contatto: privacy@xshopper.com
 
 Quando utilizzi OpenClaw AI, raccogliamo:
 
-- **Identificativo utente Telegram** (chat_id) — il tuo ID Telegram univoco, utilizzato per identificare il tuo account in tutto il servizio
+- **Identificativo utente xAI Workspace** (chat_id) — il tuo ID xAI Workspace univoco, utilizzato per identificare il tuo account in tutto il servizio
 - **Indirizzo email** — se ti registri o vieni invitato, conserviamo la tua email per gestire il tuo account e inviarti comunicazioni di servizio
 - **Indirizzi IP** — gli indirizzi IP della tua istanza server dedicata, utilizzati per instradare i tuoi messaggi
 - **Dati di pagamento** — importi degli abbonamenti, date, ID cliente Stripe e ultime 4 cifre della carta di pagamento (i dati della carta di pagamento sono conservati da Stripe, non da noi)
@@ -74,7 +74,7 @@ Se ti trovi nell'UE/SEE o nel Regno Unito, hai i seguenti diritti ai sensi del G
 - **Diritto alla portabilità dei dati** — ricevere i tuoi dati in un formato strutturato e leggibile da dispositivo automatico
 - **Diritto di opposizione** — opporsi al trattamento basato su interessi legittimi
 
-Puoi esercitare diversi di questi diritti direttamente da Telegram:
+Puoi esercitare diversi di questi diritti direttamente da xAI Workspace:
 
 - Invia \`/my_data\` per esportare i tuoi dati personali
 - Invia \`/delete_my_data\` per richiedere l'eliminazione di tutti i tuoi dati

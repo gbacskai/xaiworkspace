@@ -7,12 +7,14 @@ import { ChatService } from './services/chat.service';
 import { AgentsService } from './services/agents.service';
 import { ChatPanelComponent } from './components/chat-panel/chat-panel';
 import { AgentsPanelComponent } from './components/agents-panel/agents-panel';
+import { ToastComponent } from './components/toast/toast';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ChatPanelComponent, AgentsPanelComponent],
+  imports: [RouterOutlet, ChatPanelComponent, AgentsPanelComponent, ToastComponent],
   template: `
-    <div class="content-frame" [class.content-frame--collapsed]="sidebarCollapsed()">
+    <app-toast />
+    <div id="main-content" class="content-frame" [class.content-frame--collapsed]="sidebarCollapsed()">
       @if (!sidebarCollapsed()) {
         <router-outlet />
       }
@@ -48,10 +50,10 @@ import { AgentsPanelComponent } from './components/agents-panel/agents-panel';
         }
       </button>
       @if (chat.isOpen()) {
-        <div class="chat-backdrop" (click)="chat.toggle()"></div>
+        <div class="chat-backdrop" (click)="chat.toggle()" (keydown.enter)="chat.toggle()" (keydown.space)="chat.toggle()" role="button" tabindex="0" aria-label="Close chat"></div>
       }
       @if (agents.isOpen()) {
-        <div class="agents-backdrop" (click)="agents.toggle()"></div>
+        <div class="agents-backdrop" (click)="agents.toggle()" (keydown.enter)="agents.toggle()" (keydown.space)="agents.toggle()" role="button" tabindex="0" aria-label="Close agents"></div>
       }
     }
   `,
@@ -74,6 +76,10 @@ import { AgentsPanelComponent } from './components/agents-panel/agents-panel';
       @media (min-width: 1220px) {
         max-width: 1230px;
       }
+    }
+
+    router-outlet + * {
+      animation: fadeIn 0.2s ease;
     }
 
     .content-frame {
@@ -105,8 +111,8 @@ import { AgentsPanelComponent } from './components/agents-panel/agents-panel';
         width: 20px;
         background: var(--tg-theme-secondary-bg-color);
         border: none;
-        border-left: 1px solid rgba(0, 0, 0, 0.08);
-        border-right: 1px solid rgba(0, 0, 0, 0.08);
+        border-left: 1px solid rgba(128, 128, 128, 0.15);
+        border-right: 1px solid rgba(128, 128, 128, 0.15);
         cursor: pointer;
         padding: 0;
         color: var(--tg-theme-hint-color);
@@ -136,8 +142,8 @@ import { AgentsPanelComponent } from './components/agents-panel/agents-panel';
         width: 20px;
         background: var(--tg-theme-secondary-bg-color);
         border: none;
-        border-left: 1px solid rgba(0, 0, 0, 0.08);
-        border-right: 1px solid rgba(0, 0, 0, 0.08);
+        border-left: 1px solid rgba(128, 128, 128, 0.15);
+        border-right: 1px solid rgba(128, 128, 128, 0.15);
         cursor: pointer;
         padding: 0;
         color: var(--tg-theme-hint-color);

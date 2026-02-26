@@ -5,7 +5,7 @@ export const ARTICLES_NL: Record<string, LocalizedArticle> = {
     title: 'Welkom bij xAI Workspace',
     subtitle: 'Jouw persoonlijke AI-agent',
     content: `
-**xAI Workspace** geeft je een eigen AI-agent die rechtstreeks in Telegram werkt — geen apps om te installeren, geen accounts om aan te maken.
+**xAI Workspace** geeft je een eigen AI-agent die rechtstreeks in xAI Workspace werkt — geen apps om te installeren, geen accounts om aan te maken.
 
 ## Hoe het werkt
 
@@ -18,7 +18,7 @@ export const ARTICLES_NL: Record<string, LocalizedArticle> = {
 - **Privé** — Je gesprekken blijven op jouw eigen instantie
 - **Persistent** — Je agent onthoudt context over sessies heen
 - **Krachtig** — Aangedreven door Claude, een van de krachtigste AI-modellen
-- **Eenvoudig** — Het is gewoon Telegram. Geen nieuwe apps, geen leercurve
+- **Eenvoudig** — Het is gewoon xAI Workspace. Geen nieuwe apps, geen leercurve
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_NL: Record<string, LocalizedArticle> = {
     content: `
 ## 1. Start de bot
 
-Open Telegram en stuur \`/start\` naar **@xAIWorkspaceBot**. Je gratis proefperiode begint direct — geen creditcard nodig.
+Open xAI Workspace en stuur \`/start\` naar **@xAIWorkspaceBot**. Je gratis proefperiode begint direct — geen creditcard nodig.
 
 ## 2. Wacht op de inrichting
 
@@ -89,7 +89,7 @@ Elke xAI Workspace-instantie is je eigen dedicated machine. Je kunt verbinding m
 
 ## Je sleutel ophalen
 
-1. Stuur \`/ssh\` in de Telegram-chat
+1. Stuur \`/ssh\` in de xAI Workspace-chat
 2. De bot stuurt je een \`.pem\`-sleutelbestand met verbindingsgegevens
 3. Sla het bestand op en stel de machtigingen in voordat je verbinding maakt
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-Vervang \`<chatId>\` door je Telegram chat-ID (te zien in de bestandsnaam van de sleutel).
+Vervang \`<chatId>\` door je xAI Workspace chat-ID (te zien in de bestandsnaam van de sleutel).
 
 > Als je een "permission denied"-fout krijgt, controleer dan of je \`chmod 600\` hebt uitgevoerd op het sleutelbestand.
 
@@ -189,7 +189,7 @@ Als je workspace nog wordt ingericht, laat de bot je dat weten. Wacht een paar m
 - Er wordt een unieke ed25519-encryptiesleutel gegenereerd voor elke workspace tijdens de installatie
 - Wachtwoordinlog is uitgeschakeld — alleen je persoonlijke sleutelbestand werkt
 - Root-toegang is beperkt voor de veiligheid
-- Je sleutel wordt versleuteld opgeslagen in S3 en alleen bezorgd in je Telegram-chat
+- Je sleutel wordt versleuteld opgeslagen in S3 en alleen bezorgd in je xAI Workspace-chat
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ Stuur \`/language\` om te kiezen uit 10 ondersteunde talen:
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-Je taalvoorkeur wordt bij eerste gebruik automatisch gedetecteerd op basis van je Telegram-instellingen, maar je kunt deze op elk moment wijzigen. Alle botberichten verschijnen in de door jou gekozen taal.
+Je taalvoorkeur wordt bij eerste gebruik automatisch gedetecteerd op basis van je xAI Workspace-instellingen, maar je kunt deze op elk moment wijzigen. Alle botberichten verschijnen in de door jou gekozen taal.
 
 ## Regio wijzigen
 
@@ -285,7 +285,7 @@ Beschikbare regio's worden getoond met je huidige selectie gemarkeerd.
     content: `
 ## Privacyinstellingen
 
-xAI Workspace geeft je volledige controle over je persoonlijke gegevens, rechtstreeks in Telegram:
+xAI Workspace geeft je volledige controle over je persoonlijke gegevens, rechtstreeks in xAI Workspace:
 
 - \`/privacy\` — Bekijk het Privacybeleid en de Servicevoorwaarden
 - \`/my_data\` — Exporteer al je persoonlijke gegevens als JSON-bestand

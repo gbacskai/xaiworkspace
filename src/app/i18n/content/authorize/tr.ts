@@ -7,7 +7,7 @@ export const AUTHORIZE_TR = `
 
 ## Nasil Calisir
 
-1. Telegram sohbetinizde \`/authorize\` gonderin
+1. xAI Workspace sohbetinizde \`/authorize\` gonderin
 2. Dugmelerden bir saglayici secin (ornegin Google)
 3. Ajaniniz istegi alir ve size bir yetkilendirme baglantisi gonderir
 4. Baglantiya tiklayin, saglayicida oturum acin ve erisim izni verin

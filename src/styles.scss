@@ -73,8 +73,8 @@ a {
 // Telegram-style list cards
 .card-list {
   background: var(--tg-theme-section-bg-color);
-  border-top: 0.5px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  border-top: 0.5px solid rgba(128, 128, 128, 0.15);
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.15);
 }
 
 .card-item {
@@ -86,7 +86,7 @@ a {
   transition: background 0.15s;
 
   &:not(:last-child) {
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.15);
     margin-left: 52px; // Telegram-style indented separator
     padding-left: 0;
   }
@@ -121,4 +121,48 @@ a {
 ::-webkit-scrollbar-thumb {
   background: var(--tg-theme-hint-color);
   border-radius: 2px;
+}
+
+// Skip to content link
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+
+  &:focus {
+    left: 0;
+  }
+}
+
+// Accessibility: focus-visible outlines
+:focus-visible {
+  outline: 2px solid var(--tg-theme-button-color);
+  outline-offset: 2px;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Shared animations
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typingDot {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-4px); }
 }

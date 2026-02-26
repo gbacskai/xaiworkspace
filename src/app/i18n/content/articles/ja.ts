@@ -5,7 +5,7 @@ export const ARTICLES_JA: Record<string, LocalizedArticle> = {
     title: 'xAI Workspace へようこそ',
     subtitle: 'あなた専用の AI エージェント',
     content: `
-**xAI Workspace** は、Telegram の中で使える専用 AI エージェントです。アプリのインストールも、新規アカウントの作成も不要です。
+**xAI Workspace** は、xAI Workspace の中で使える専用 AI エージェントです。アプリのインストールも、新規アカウントの作成も不要です。
 
 ## 使い方
 
@@ -18,7 +18,7 @@ export const ARTICLES_JA: Record<string, LocalizedArticle> = {
 - **プライベート** — 会話は専用インスタンス内に保持されます
 - **持続性** — セッションをまたいで文脈を記憶します
 - **高性能** — 最高クラスの AI モデル Claude を搭載
-- **シンプル** — Telegram だけで使えます。新しいアプリも学習コストも不要
+- **シンプル** — xAI Workspace だけで使えます。新しいアプリも学習コストも不要
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_JA: Record<string, LocalizedArticle> = {
     content: `
 ## 1. ボットを起動する
 
-Telegram を開き、**@xAIWorkspaceBot** に \`/start\` を送信してください。クレジットカード不要で、すぐに無料トライアルが始まります。
+xAI Workspace を開き、**@xAIWorkspaceBot** に \`/start\` を送信してください。クレジットカード不要で、すぐに無料トライアルが始まります。
 
 ## 2. プロビジョニングを待つ
 
@@ -89,7 +89,7 @@ xAI Workspace のインスタンスはあなた専用のマシンです。SSH �
 
 ## 鍵ファイルの取得
 
-1. Telegram チャットで \`/ssh\` を送信する
+1. xAI Workspace チャットで \`/ssh\` を送信する
 2. ボットから接続情報を含む \`.pem\` 鍵ファイルが送られてくる
 3. ファイルを保存し、接続前にパーミッションを設定する
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-\`<chatId>\` は鍵ファイルのファイル名に示されている Telegram チャット ID に置き換えてください。
+\`<chatId>\` は鍵ファイルのファイル名に示されている xAI Workspace チャット ID に置き換えてください。
 
 > 「permission denied」エラーが表示される場合は、鍵ファイルに \`chmod 600\` を実行したか確認してください。
 
@@ -189,7 +189,7 @@ FileZilla を起動し、**ファイル → サイトマネージャー** を開
 - セットアップ時にワークスペースごとに固有の ed25519 暗号化鍵が生成されます
 - パスワードログインは無効化されています — あなたの鍵ファイルのみが有効です
 - 安全のため、root アクセスは制限されています
-- 鍵は S3 に暗号化して保存され、あなたの Telegram チャットにのみ配信されます
+- 鍵は S3 に暗号化して保存され、あなたの xAI Workspace チャットにのみ配信されます
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ FileZilla を起動し、**ファイル → サイトマネージャー** を開
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-言語設定は初回利用時に Telegram の設定から自動検出されますが、いつでも変更できます。選択した言語でボットのすべてのメッセージが表示されます。
+言語設定は初回利用時に xAI Workspace の設定から自動検出されますが、いつでも変更できます。選択した言語でボットのすべてのメッセージが表示されます。
 
 ## 地域を変更する
 
@@ -285,7 +285,7 @@ FileZilla を起動し、**ファイル → サイトマネージャー** を開
     content: `
 ## プライバシーコントロール
 
-xAI Workspace では、Telegram から直接、個人データを完全にコントロールできます：
+xAI Workspace では、xAI Workspace から直接、個人データを完全にコントロールできます：
 
 - \`/privacy\` — プライバシーポリシーと利用規約を表示する
 - \`/my_data\` — すべての個人データを JSON ファイルとしてエクスポートする

@@ -5,7 +5,7 @@ export const ARTICLES_ID: Record<string, LocalizedArticle> = {
     title: 'Selamat Datang di xAI Workspace',
     subtitle: 'Agen AI pribadi Anda',
     content: `
-**xAI Workspace** memberi Anda agen AI khusus yang dapat diakses langsung di dalam Telegram — tanpa perlu menginstal aplikasi, tanpa perlu membuat akun.
+**xAI Workspace** memberi Anda agen AI khusus yang dapat diakses langsung di dalam xAI Workspace — tanpa perlu menginstal aplikasi, tanpa perlu membuat akun.
 
 ## Cara kerjanya
 
@@ -18,7 +18,7 @@ export const ARTICLES_ID: Record<string, LocalizedArticle> = {
 - **Privat** — Percakapan Anda tetap berada di instance khusus Anda
 - **Persisten** — Agen Anda mengingat konteks di seluruh sesi
 - **Powerful** — Didukung oleh Claude, salah satu model AI paling canggih
-- **Simpel** — Hanya menggunakan Telegram. Tanpa aplikasi baru, tanpa kurva pembelajaran
+- **Simpel** — Hanya menggunakan xAI Workspace. Tanpa aplikasi baru, tanpa kurva pembelajaran
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_ID: Record<string, LocalizedArticle> = {
     content: `
 ## 1. Mulai bot
 
-Buka Telegram dan kirim \`/start\` ke **@xAIWorkspaceBot**. Uji coba gratis Anda langsung dimulai — tanpa perlu kartu kredit.
+Buka xAI Workspace dan kirim \`/start\` ke **@xAIWorkspaceBot**. Uji coba gratis Anda langsung dimulai — tanpa perlu kartu kredit.
 
 ## 2. Tunggu proses penyiapan
 
@@ -89,7 +89,7 @@ Setiap instance xAI Workspace adalah mesin khusus milik Anda. Anda dapat terhubu
 
 ## Mendapatkan kunci Anda
 
-1. Kirim \`/ssh\` di chat Telegram
+1. Kirim \`/ssh\` di chat xAI Workspace
 2. Bot akan mengirimkan file kunci \`.pem\` beserta detail koneksi
 3. Simpan file tersebut dan atur izin sebelum terhubung
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-Ganti \`<chatId>\` dengan ID chat Telegram Anda (tertera pada nama file kunci).
+Ganti \`<chatId>\` dengan ID chat xAI Workspace Anda (tertera pada nama file kunci).
 
 > Jika Anda mendapat error "permission denied", pastikan Anda sudah menjalankan \`chmod 600\` pada file kunci.
 
@@ -189,7 +189,7 @@ Jika workspace Anda masih dalam proses provisi, bot akan memberi tahu Anda. Tung
 - Kunci enkripsi ed25519 unik dihasilkan untuk setiap workspace saat penyiapan
 - Login dengan kata sandi dinonaktifkan — hanya file kunci pribadi Anda yang dapat digunakan
 - Akses root dibatasi untuk keamanan
-- Kunci Anda disimpan terenkripsi di S3 dan hanya dikirimkan ke chat Telegram Anda
+- Kunci Anda disimpan terenkripsi di S3 dan hanya dikirimkan ke chat xAI Workspace Anda
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ Kirim \`/language\` untuk memilih dari 10 bahasa yang didukung:
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-Preferensi bahasa Anda terdeteksi secara otomatis dari pengaturan Telegram Anda pada penggunaan pertama, tetapi Anda dapat mengubahnya kapan saja. Semua pesan bot akan ditampilkan dalam bahasa yang Anda pilih.
+Preferensi bahasa Anda terdeteksi secara otomatis dari pengaturan xAI Workspace Anda pada penggunaan pertama, tetapi Anda dapat mengubahnya kapan saja. Semua pesan bot akan ditampilkan dalam bahasa yang Anda pilih.
 
 ## Ubah wilayah
 
@@ -285,7 +285,7 @@ Wilayah yang tersedia ditampilkan dengan pilihan Anda saat ini yang disorot.
     content: `
 ## Kontrol privasi
 
-xAI Workspace memberi Anda kendali penuh atas data pribadi Anda, langsung di dalam Telegram:
+xAI Workspace memberi Anda kendali penuh atas data pribadi Anda, langsung di dalam xAI Workspace:
 
 - \`/privacy\` — Lihat Kebijakan Privasi dan Ketentuan Layanan
 - \`/my_data\` — Ekspor semua data pribadi Anda sebagai file JSON

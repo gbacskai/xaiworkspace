@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { TelegramService } from '../../services/telegram.service';
+import { I18nService } from '../../i18n/i18n.service';
 import { BackButtonComponent } from '../../components/back-button/back-button';
 
 interface ModelInfo {
@@ -259,6 +260,7 @@ const PROVIDER_GROUPS: ProviderGroup[] = [
 export class ModelsPage implements OnInit, OnDestroy {
   private router = inject(Router);
   private tg = inject(TelegramService);
+  i18n = inject(I18nService);
 
   providerGroups = PROVIDER_GROUPS;
 

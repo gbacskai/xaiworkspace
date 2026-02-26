@@ -1,6 +1,6 @@
 <div class="purchase-complete">
   <div class="purchase-complete-icon">&#10003;</div>
-  <h1 class="purchase-complete-title">Thank You!</h1>
-  <p class="purchase-complete-message">Your purchase was completed successfully.</p>
-  <button class="purchase-complete-btn" (click)="goHome()">Back to Home</button>
+  <h1 class="purchase-complete-title">{{ i18n.t('purchase.thankYou') }}</h1>
+  <p class="purchase-complete-message">{{ i18n.t('purchase.success') }}</p>
+  <button class="purchase-complete-btn" (click)="goHome()">{{ i18n.t('purchase.backHome') }}</button>
 </div>

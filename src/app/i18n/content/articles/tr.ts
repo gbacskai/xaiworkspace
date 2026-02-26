@@ -5,7 +5,7 @@ export const ARTICLES_TR: Record<string, LocalizedArticle> = {
     title: 'xAI Workspace\'a Hosgeldiniz',
     subtitle: 'Kisisel AI ajansiniz',
     content: `
-**xAI Workspace**, size dogrudan Telegram icinde erisilebilen ozel bir AI ajani sunar — uygulama yuklemenize veya hesap olusturmaniza gerek yok.
+**xAI Workspace**, size dogrudan xAI Workspace icinde erisilebilen ozel bir AI ajani sunar — uygulama yuklemenize veya hesap olusturmaniza gerek yok.
 
 ## Nasil calisir
 
@@ -18,7 +18,7 @@ export const ARTICLES_TR: Record<string, LocalizedArticle> = {
 - **Gizli** — Konusmalariniz size ozel sunucunuzda kalir
 - **Kalici** — Ajaniniz oturumlar arasinda baglami hatirlar
 - **Guclu** — En yetenekli AI modellerinden biri olan Claude tarafindan desteklenir
-- **Basit** — Sadece Telegram. Yeni uygulama yok, ogrenme sureci yok
+- **Basit** — Sadece xAI Workspace. Yeni uygulama yok, ogrenme sureci yok
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_TR: Record<string, LocalizedArticle> = {
     content: `
 ## 1. Botu baslatin
 
-Telegram'i acin ve **@xAIWorkspaceBot**'a \`/start\` gonderin. Ucretsiz denemeniz hemen baslar — kredi karti gerekmez.
+xAI Workspace'i acin ve **@xAIWorkspaceBot**'a \`/start\` gonderin. Ucretsiz denemeniz hemen baslar — kredi karti gerekmez.
 
 ## 2. Hazirlanmasini bekleyin
 
@@ -89,7 +89,7 @@ Her xAI Workspace sunucusu size ozel bir makinedir. Dosyalari yonetmek, araclar 
 
 ## Anahtarinizi alma
 
-1. Telegram sohbetinde \`/ssh\` gonderin
+1. xAI Workspace sohbetinde \`/ssh\` gonderin
 2. Bot size baglanti detaylariyla birlikte bir \`.pem\` anahtar dosyasi gonderir
 3. Baglanmadan once dosyayi kaydedin ve izinleri ayarlayin
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-\`<chatId>\` yerine Telegram sohbet kimliginizi yazin (anahtar dosya adinda gosterilir).
+\`<chatId>\` yerine xAI Workspace sohbet kimliginizi yazin (anahtar dosya adinda gosterilir).
 
 > "Permission denied" hatasi aliyorsaniz, anahtar dosyasinda \`chmod 600\` komutunu calistirdiginizdan emin olun.
 
@@ -189,7 +189,7 @@ Calisma alaniniz hala hazirlaniyorsa, bot size bildirecektir. Birka dakika bekle
 - Kurulum sirasinda her calisma alani icin benzersiz bir ed25519 sifreleme anahtari olusturulur
 - Parola ile giris devre disi birakilmistir — yalnizca kisisel anahtar dosyaniz calisir
 - Root erisimi guvenlik icin kisitlanmistir
-- Anahtariniz S3'te sifrelenmis olarak saklanir ve yalnizca Telegram sohbetinize teslim edilir
+- Anahtariniz S3'te sifrelenmis olarak saklanir ve yalnizca xAI Workspace sohbetinize teslim edilir
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ Token tuketiminizi takip etmek icin duzenlii olarak \`/usage\` kontrol edin. Ile
 | 🇫🇷 Francais | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-Dil tercihiniz ilk kullanimda Telegram ayarlarinizdan otomatik olarak alginlanir, ancak istediginiz zaman degistirebilirsiniz. Tum bot mesajlari sectiginiz dilde gorunecektir.
+Dil tercihiniz ilk kullanimda xAI Workspace ayarlarinizdan otomatik olarak alginlanir, ancak istediginiz zaman degistirebilirsiniz. Tum bot mesajlari sectiginiz dilde gorunecektir.
 
 ## Bolge degistirme
 
@@ -285,7 +285,7 @@ Mevcut bolgeniz vurgulanmis olarak mevcut bolgeler gosterilir.
     content: `
 ## Gizlilik kontrolleri
 
-xAI Workspace, kisisel verileriniz uzerinde tam kontrol saglar, dogrudan Telegram icerisinde:
+xAI Workspace, kisisel verileriniz uzerinde tam kontrol saglar, dogrudan xAI Workspace icerisinde:
 
 - \`/privacy\` — Gizlilik Politikasini ve Hizmet Sartlarini goruntuleyIn
 - \`/my_data\` — Tum kisisel verilerinizi JSON dosyasi olarak disari aktarin

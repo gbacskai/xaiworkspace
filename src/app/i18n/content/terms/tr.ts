@@ -1,13 +1,13 @@
 export const TERMS_TR = `
 ## Hizmet Tanimi
 
-OpenClaw AI, xShopper Pty Ltd tarafindan isletilen ve Telegram uzerinden sunulan kisisel bir AI asistan hizmetidir. Her abone, ozel bir AI ajan sunucusu alir.
+OpenClaw AI, xShopper Pty Ltd tarafindan isletilen ve xAI Workspace uzerinden sunulan kisisel bir AI asistan hizmetidir. Her abone, ozel bir AI ajan sunucusu alir.
 
 ---
 
 ## Kabul
 
-Telegram botundaki "Kabul Et ve Devam Et" dugmesine dokunarak bu Hizmet Sartlarini ve Gizlilik Politikamizi kabul etmis olursunuz.
+xAI Workspace'teki "Kabul Et ve Devam Et" dugmesine dokunarak bu Hizmet Sartlarini ve Gizlilik Politikamizi kabul etmis olursunuz.
 
 ---
 

@@ -7,7 +7,7 @@ export const AUTHORIZE_JA = `
 
 ## 使い方
 
-1. Telegram チャットで \`/authorize\` を送信する
+1. xAI Workspace チャットで \`/authorize\` を送信する
 2. ボタンからプロバイダーを選択する（例：Google）
 3. エージェントがリクエストを受け取り、認証リンクを送信する
 4. リンクをクリックし、プロバイダーにサインインしてアクセスを許可する

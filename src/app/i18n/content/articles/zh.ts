@@ -5,7 +5,7 @@ export const ARTICLES_ZH: Record<string, LocalizedArticle> = {
     title: '欢迎使用 xAI Workspace',
     subtitle: '您的专属 AI 助手',
     content: `
-**xAI Workspace** 为您提供一个专属 AI 助手，直接在 Telegram 中使用 — 无需安装任何应用，也无需注册新账号。
+**xAI Workspace** 为您提供一个专属 AI 助手，直接在 xAI Workspace 中使用 — 无需安装任何应用，也无需注册新账号。
 
 ## 工作原理
 
@@ -18,7 +18,7 @@ export const ARTICLES_ZH: Record<string, LocalizedArticle> = {
 - **私密** — 您的对话仅保存在您的专属实例中
 - **持久** — 助手在会话间保持上下文记忆
 - **强大** — 由 Claude 驱动，这是目前最强大的 AI 模型之一
-- **简单** — 就是 Telegram，无需新应用，无需学习成本
+- **简单** — 就是 xAI Workspace，无需新应用，无需学习成本
     `,
   },
   'first-steps': {
@@ -27,7 +27,7 @@ export const ARTICLES_ZH: Record<string, LocalizedArticle> = {
     content: `
 ## 1. 启动机器人
 
-打开 Telegram，向 **@xAIWorkspaceBot** 发送 \`/start\`。免费试用立即开始 — 无需绑定信用卡。
+打开 xAI Workspace，向 **@xAIWorkspaceBot** 发送 \`/start\`。免费试用立即开始 — 无需绑定信用卡。
 
 ## 2. 等待初始化
 
@@ -89,7 +89,7 @@ xAI Workspace 支持来自多个服务商的 AI 模型，使用 \`/models\` 即�
 
 ## 获取密钥
 
-1. 在 Telegram 聊天中发送 \`/ssh\`
+1. 在 xAI Workspace 聊天中发送 \`/ssh\`
 2. 机器人会向您发送一个包含连接信息的 \`.pem\` 密钥文件
 3. 保存文件，并在连接前设置正确的权限
 
@@ -103,7 +103,7 @@ chmod 600 <chatId>-xaiworkspace.pem
 ssh -i <chatId>-xaiworkspace.pem xai<chatId>@ssh.xaiworkspace.com
 \`\`\`
 
-将 \`<chatId>\` 替换为您的 Telegram 聊天 ID（显示在密钥文件名中）。
+将 \`<chatId>\` 替换为您的 xAI Workspace 聊天 ID（显示在密钥文件名中）。
 
 > 如果出现"permission denied"错误，请确认已对密钥文件执行了 \`chmod 600\`。
 
@@ -189,7 +189,7 @@ FileZilla 是一个免费的跨平台 SFTP 客户端。按以下步骤连接到�
 - 每个工作区在初始化时生成唯一的 ed25519 加密密钥
 - 密码登录已禁用 — 仅您的个人密钥文件有效
 - 出于安全考虑，Root 访问受限
-- 您的密钥以加密形式存储于 S3，仅通过您的 Telegram 聊天下发
+- 您的密钥以加密形式存储于 S3，仅通过您的 xAI Workspace 聊天下发
     `,
   },
   billing: {
@@ -270,7 +270,7 @@ FileZilla 是一个免费的跨平台 SFTP 客户端。按以下步骤连接到�
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
 
-首次使用时，系统会根据您的 Telegram 设置自动检测语言，但您随时可以更改。所有机器人消息将以您选择的语言显示。
+首次使用时，系统会根据您的 xAI Workspace 设置自动检测语言，但您随时可以更改。所有机器人消息将以您选择的语言显示。
 
 ## 更改地区
 
@@ -285,7 +285,7 @@ FileZilla 是一个免费的跨平台 SFTP 客户端。按以下步骤连接到�
     content: `
 ## 隐私控制
 
-xAI Workspace 让您直接在 Telegram 中全面掌控您的个人数据：
+xAI Workspace 让您直接在 xAI Workspace 中全面掌控您的个人数据：
 
 - \`/privacy\` — 查看隐私政策和服务条款
 - \`/my_data\` — 将您的所有个人数据导出为 JSON 文件

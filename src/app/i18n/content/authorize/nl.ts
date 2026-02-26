@@ -7,7 +7,7 @@ Het commando \`/authorize\` koppelt externe diensten (zoals Google, GitHub of Mi
 
 ## Hoe het werkt
 
-1. Stuur \`/authorize\` in je Telegram-chat
+1. Stuur \`/authorize\` in je xAI Workspace-chat
 2. Kies een provider uit de knoppen (bijv. Google)
 3. Je agent ontvangt het verzoek en stuurt je een autorisatielink
 4. Klik op de link, log in bij de provider en verleen toegang

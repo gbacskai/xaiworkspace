@@ -5,9 +5,17 @@
   </div>
 
   @if (loading()) {
-    <div class="analytics-loading">Loading...</div>
+    <div class="analytics-skeleton">
+      @for (i of [1, 2, 3]; track i) {
+        <div class="skeleton-section">
+          <div class="skeleton-title"></div>
+          <div class="skeleton-chart"></div>
+        </div>
+      }
+    </div>
   } @else if (error()) {
     <div class="analytics-error">{{ error() }}</div>
+    <button class="analytics-retry" (click)="retry()">Retry</button>
   } @else {
     <div class="analytics-chart-section">
       <div class="analytics-chart-title">Last 16 Hours</div>

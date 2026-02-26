@@ -7,7 +7,7 @@ export const AUTHORIZE_KO = `
 
 ## 작동 방식
 
-1. Telegram 채팅에서 \`/authorize\`를 보내세요
+1. xAI Workspace 채팅에서 \`/authorize\`를 보내세요
 2. 버튼에서 제공업체를 선택하세요 (예: Google)
 3. 에이전트가 요청을 수신하고 인증 링크를 보내줍니다
 4. 링크를 클릭하고 제공업체에 로그인한 후 접근을 허용하세요

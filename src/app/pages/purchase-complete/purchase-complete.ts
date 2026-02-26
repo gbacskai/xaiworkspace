@@ -1,6 +1,8 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 import { TelegramService } from '../../services/telegram.service';
+import { I18nService } from '../../i18n/i18n.service';
 
 @Component({
   selector: 'app-purchase-complete',
@@ -12,6 +14,7 @@ export class PurchaseCompletePage implements OnInit, OnDestroy {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private tg = inject(TelegramService);
+  i18n = inject(I18nService);
 
   sessionId = '';
 
@@ -21,7 +24,7 @@ export class PurchaseCompletePage implements OnInit, OnDestroy {
   };
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.pipe(take(1)).subscribe(params => {
       this.sessionId = params['session_id'] || '';
     });
     this.tg.showBackButton(this.backHandler);

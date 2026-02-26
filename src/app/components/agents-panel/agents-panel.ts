@@ -1,9 +1,11 @@
-import { Component, inject, OnInit, computed, signal, ViewChild, ElementRef } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, computed, signal, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
 import { AgentsService, AgentDetail } from '../../services/agents.service';
 import { ChatService } from '../../services/chat.service';
+import { TelegramService } from '../../services/telegram.service';
+import { ToastService } from '../../services/toast.service';
 import { I18nService } from '../../i18n/i18n.service';
 
 const AGENT_TEMPLATE = `# Agent Name
@@ -55,9 +57,11 @@ const AGENT_TEMPLATES: AgentTemplate[] = [
   templateUrl: './agents-panel.html',
   styleUrl: './agents-panel.scss',
 })
-export class AgentsPanelComponent implements OnInit {
+export class AgentsPanelComponent implements OnInit, OnDestroy {
   agents = inject(AgentsService);
   private chat = inject(ChatService);
+  private tg = inject(TelegramService);
+  private toast = inject(ToastService);
   private sanitizer = inject(DomSanitizer);
   i18n = inject(I18nService);
 
@@ -79,6 +83,9 @@ export class AgentsPanelComponent implements OnInit {
   // Delete state
   showDeleteConfirm = signal(false);
 
+  // Confirmation modal
+  confirmAction = signal<{ message: string; onConfirm: () => void } | null>(null);
+
   // Invite state
   inviteEmail = '';
   inviteMessage = '';
@@ -87,32 +94,80 @@ export class AgentsPanelComponent implements OnInit {
     return tier !== 'professional' && tier !== 'enterprise' && tier !== 'ultimate';
   });
 
+  // Search/filter
+  searchQuery = signal('');
+  filteredAgents = computed(() => {
+    const q = this.searchQuery().toLowerCase();
+    if (!q) return this.agents.agents();
+    return this.agents.agents().filter(a => a.name.toLowerCase().includes(q));
+  });
+
+  // Draft auto-save
+  private draftTimer: ReturnType<typeof setTimeout> | null = null;
+  private connectionCheckInterval: ReturnType<typeof setInterval> | null = null;
+  private connectionCheckTimeout: ReturnType<typeof setTimeout> | null = null;
+
   // Preview state
   showEditPreview = signal(false);
   showCreatePreview = signal(false);
   editPreviewHtml: SafeHtml = '';
   createPreviewHtml: SafeHtml = '';
 
+  // MD render cache
+  private renderedCache = new Map<string, SafeHtml>();
+  private static readonly MAX_CACHE = 20;
+
   renderedContent = computed(() => {
     const agent = this.agents.selectedAgent();
     if (!agent?.content) return '';
-    return this.sanitizer.bypassSecurityTrustHtml(marked.parse(agent.content.trim()) as string);
+    const key = agent.filename + ':' + agent.content.length;
+    let cached = this.renderedCache.get(key);
+    if (!cached) {
+      cached = this.sanitizer.bypassSecurityTrustHtml(marked.parse(agent.content.trim()) as string);
+      if (this.renderedCache.size >= AgentsPanelComponent.MAX_CACHE) {
+        const firstKey = this.renderedCache.keys().next().value!;
+        this.renderedCache.delete(firstKey);
+      }
+      this.renderedCache.set(key, cached);
+    }
+    return cached;
   });
+
+  ngOnDestroy() {
+    if (this.draftTimer) clearTimeout(this.draftTimer);
+    if (this.connectionCheckInterval) clearInterval(this.connectionCheckInterval);
+    if (this.connectionCheckTimeout) clearTimeout(this.connectionCheckTimeout);
+  }
+
+  scheduleDraftSave(): void {
+    if (this.draftTimer) clearTimeout(this.draftTimer);
+    this.draftTimer = setTimeout(() => {
+      const agent = this.agents.selectedAgent();
+      if (agent && this.isEditing()) {
+        localStorage.setItem('agent_draft_' + agent.filename, this.editContent);
+      }
+    }, 3000);
+  }
 
   ngOnInit() {
     if (this.chat.connectionState() === 'connected') {
       this.agents.refreshList();
     }
-    const checkConnection = setInterval(() => {
+    this.connectionCheckInterval = setInterval(() => {
       if (this.chat.connectionState() === 'connected' && this.agents.agents().length === 0 && !this.agents.isLoading()) {
         this.agents.refreshList();
-        clearInterval(checkConnection);
+        if (this.connectionCheckInterval) clearInterval(this.connectionCheckInterval);
+        this.connectionCheckInterval = null;
       }
     }, 1000);
-    setTimeout(() => clearInterval(checkConnection), 30000);
+    this.connectionCheckTimeout = setTimeout(() => {
+      if (this.connectionCheckInterval) clearInterval(this.connectionCheckInterval);
+      this.connectionCheckInterval = null;
+    }, 30000);
   }
 
   selectAgent(filename: string): void {
+    this.tg.haptic();
     this.resetState();
     this.agents.getAgent(filename);
   }
@@ -170,6 +225,34 @@ export class AgentsPanelComponent implements OnInit {
   startEdit(): void {
     const agent = this.agents.selectedAgent();
     if (agent) {
+      const draft = localStorage.getItem('agent_draft_' + agent.filename);
+      if (draft && draft !== agent.content) {
+        this.confirmAction.set({
+          message: 'Restore unsaved draft?',
+          onConfirm: () => {
+            this.editContent = draft;
+            this.isEditing.set(true);
+            this.showDeleteConfirm.set(false);
+            this.showEditPreview.set(false);
+            this.confirmAction.set(null);
+          },
+        });
+        // If user dismisses, use original content
+        return;
+      }
+      this.editContent = agent.content;
+      this.isEditing.set(true);
+      this.showDeleteConfirm.set(false);
+      this.showEditPreview.set(false);
+    }
+  }
+
+  dismissConfirm(): void {
+    const action = this.confirmAction();
+    this.confirmAction.set(null);
+    // For startEdit dismiss: load original content
+    const agent = this.agents.selectedAgent();
+    if (agent && !this.isEditing()) {
       this.editContent = agent.content;
       this.isEditing.set(true);
       this.showDeleteConfirm.set(false);
@@ -178,6 +261,21 @@ export class AgentsPanelComponent implements OnInit {
   }
 
   cancelEdit(): void {
+    const agent = this.agents.selectedAgent();
+    if (agent && this.editContent !== agent.content) {
+      this.confirmAction.set({
+        message: 'Discard unsaved changes?',
+        onConfirm: () => {
+          if (agent) localStorage.removeItem('agent_draft_' + agent.filename);
+          this.isEditing.set(false);
+          this.editContent = '';
+          this.showEditPreview.set(false);
+          this.confirmAction.set(null);
+        },
+      });
+      return;
+    }
+    if (agent) localStorage.removeItem('agent_draft_' + agent.filename);
     this.isEditing.set(false);
     this.editContent = '';
     this.showEditPreview.set(false);
@@ -186,8 +284,11 @@ export class AgentsPanelComponent implements OnInit {
   saveEdit(): void {
     const agent = this.agents.selectedAgent();
     if (agent) {
+      this.tg.haptic();
       this.agents.saveAgent(agent.filename, this.editContent);
+      localStorage.removeItem('agent_draft_' + agent.filename);
       this.isEditing.set(false);
+      this.toast.show('Agent saved!', 'success');
     }
   }
 
@@ -229,6 +330,19 @@ export class AgentsPanelComponent implements OnInit {
   }
 
   cancelCreate(): void {
+    if (this.newAgentContent !== AGENT_TEMPLATE || this.newAgentName.trim()) {
+      this.confirmAction.set({
+        message: 'Discard unsaved changes?',
+        onConfirm: () => {
+          this.isCreating.set(false);
+          this.newAgentName = '';
+          this.newAgentContent = AGENT_TEMPLATE;
+          this.showCreatePreview.set(false);
+          this.confirmAction.set(null);
+        },
+      });
+      return;
+    }
     this.isCreating.set(false);
     this.newAgentName = '';
     this.newAgentContent = AGENT_TEMPLATE;
@@ -238,8 +352,10 @@ export class AgentsPanelComponent implements OnInit {
   submitCreate(): void {
     const name = this.newAgentName.trim();
     if (!name) return;
+    this.tg.haptic();
     this.agents.createAgent(name, this.newAgentContent);
     this.isCreating.set(false);
+    this.toast.show('Agent created!', 'success');
   }
 
   // --- Delete ---
@@ -254,30 +370,44 @@ export class AgentsPanelComponent implements OnInit {
   confirmDelete(): void {
     const agent = this.agents.selectedAgent();
     if (agent) {
+      this.tg.haptic();
       this.agents.deleteAgent(agent.filename);
       this.showDeleteConfirm.set(false);
+      this.toast.show('Agent deleted!', 'success');
     }
   }
 
   // --- Run ---
   runAgent(agent: AgentDetail): void {
+    if (!agent.content?.trim()) {
+      this.toast.show('Agent has no content', 'error');
+      return;
+    }
+    this.tg.haptic();
     const modelMatch = agent.content.match(/\*\*Model\*\*:\s*(\S+)/);
     const model = modelMatch?.[1] || 'claude-sonnet-4-6';
     const cmd = `/subagents spawn main "Read and execute Agents/${agent.filename}" --model ${model}`;
     this.chat.isOpen.set(true);
     this.chat.pendingInput.set(cmd);
+    this.toast.show('Command copied to chat', 'info');
   }
 
   // --- Invite ---
   sendInvite(): void {
     const email = this.inviteEmail.trim();
     if (!email) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      this.toast.show('Please enter a valid email address', 'error');
+      return;
+    }
+    this.tg.haptic();
     const msg = this.inviteMessage.trim();
     const cmd = msg ? `/invite ${email} "${msg}"` : `/invite ${email}`;
     this.chat.send(cmd);
     this.chat.isOpen.set(true);
     this.inviteEmail = '';
     this.inviteMessage = '';
+    this.toast.show('Invite sent!', 'success');
   }
 
   private resetState(): void {
