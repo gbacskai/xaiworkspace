@@ -1,0 +1,43 @@
+<app-back-button />
+
+<div class="models">
+  <div class="models-header">
+    <span class="models-icon">🧠</span>
+    <h1>AI Models</h1>
+    <p class="models-sub">Choose the right model for your task</p>
+  </div>
+
+  <div class="models-tip">
+    💡 Switch models anytime with <code>/models</code> in the chat
+  </div>
+
+  @for (group of providerGroups; track group.provider) {
+    <div class="provider-group">
+      <div class="provider-header">
+        <span class="provider-badge" [attr.data-provider]="group.provider">{{ group.provider }}</span>
+        <span class="provider-desc">{{ group.description }}</span>
+      </div>
+
+      <div class="models-grid">
+        @for (model of group.models; track model.id) {
+          <div class="model-card">
+            <div class="model-card-head">
+              <h2 class="model-name">{{ model.name }}</h2>
+              <code class="model-id">{{ model.id }}</code>
+            </div>
+            <p class="model-card-desc">{{ model.description }}</p>
+            <div class="model-card-section">
+              <span class="model-card-label">Recommended for</span>
+              <span class="model-card-value">{{ model.bestFor }}</span>
+            </div>
+            <div class="model-card-section">
+              <span class="model-card-label">Example</span>
+              <code class="model-card-example">"{{ model.example }}"</code>
+            </div>
+            <div class="model-card-benefit">⚡ {{ model.benefit }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>
