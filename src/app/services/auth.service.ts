@@ -153,21 +153,29 @@ export class AuthService {
     const routerUrl = environment.routerUrl;
     if (!routerUrl) return;
 
-    const popup = window.open(
+    window.open(
       `${routerUrl}/auth/github/start`,
       'github_auth',
       'width=600,height=700,left=200,top=100',
     );
 
-    const handler = (event: MessageEvent) => {
-      if (event.data?.type === 'github_auth' && event.data.code) {
-        window.removeEventListener('message', handler);
-        const user: GitHubUser = { provider: 'github', code: event.data.code };
-        this.githubUser.set(user);
-        sessionStorage.setItem('github_user', JSON.stringify(user));
+    // The OAuth callback redirects to /github-auth.html on our origin,
+    // which writes the code to localStorage. Listen for that storage event.
+    const storageHandler = (event: StorageEvent) => {
+      if (event.key === 'github_auth' && event.newValue) {
+        window.removeEventListener('storage', storageHandler);
+        try {
+          const data = JSON.parse(event.newValue);
+          localStorage.removeItem('github_auth');
+          if (data.code) {
+            const user: GitHubUser = { provider: 'github', code: data.code };
+            this.githubUser.set(user);
+            sessionStorage.setItem('github_user', JSON.stringify(user));
+          }
+        } catch { /* ignore */ }
       }
     };
-    window.addEventListener('message', handler);
+    window.addEventListener('storage', storageHandler);
   }
 
   hasLinkedProvider(provider: 'telegram' | 'google' | 'github'): boolean {

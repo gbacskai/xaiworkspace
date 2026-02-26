@@ -69,7 +69,16 @@ export class HomePage implements OnInit {
   }
 
   linkTelegram() {
-    this.chat.sendLinkRequest('telegram');
+    this.auth.openTelegramLogin();
+    const check = () => {
+      const tgUser = this.auth.webUser();
+      if (tgUser) {
+        this.chat.sendLinkProvider('telegram', { ...tgUser });
+      } else {
+        setTimeout(check, 500);
+      }
+    };
+    setTimeout(check, 1000);
   }
 
   linkGoogle() {
