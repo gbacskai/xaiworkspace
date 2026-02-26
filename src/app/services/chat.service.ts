@@ -294,6 +294,7 @@ export class ChatService {
     const tgUser = this.auth.webUser();
     const googleUser = this.auth.googleUser();
     const githubUser = this.auth.githubUser();
+    const linkedinUser = this.auth.linkedinUser();
     const chatId = this.currentChatId();
     const linked = this.linkedProviders();
 
@@ -308,6 +309,8 @@ export class ChatService {
       lines.push(`Provider: Google`);
       if (googleUser.name) lines.push(`Name: ${googleUser.name}`);
       if (googleUser.email) lines.push(`Email: ${googleUser.email}`);
+    } else if (provider === 'linkedin' && linkedinUser) {
+      lines.push(`Provider: LinkedIn`);
     } else if (provider === 'github' && githubUser) {
       lines.push(`Provider: GitHub`);
     } else if (this.tg.isTelegram) {

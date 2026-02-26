@@ -24,6 +24,11 @@ export interface GitHubUser {
   code: string;
 }
 
+export interface LinkedInUser {
+  provider: 'linkedin';
+  code: string;
+}
+
 declare const google: any;
 
 @Injectable({ providedIn: 'root' })
@@ -31,8 +36,10 @@ export class AuthService {
   readonly webUser = signal<TelegramLoginUser | null>(null);
   readonly googleUser = signal<GoogleUser | null>(null);
   readonly githubUser = signal<GitHubUser | null>(null);
-  readonly isAuthenticated = computed(() => !!this.webUser() || !!this.googleUser() || !!this.githubUser());
-  readonly currentProvider = computed<'telegram' | 'google' | 'github' | null>(() => {
+  readonly linkedinUser = signal<LinkedInUser | null>(null);
+  readonly isAuthenticated = computed(() => !!this.webUser() || !!this.googleUser() || !!this.githubUser() || !!this.linkedinUser());
+  readonly currentProvider = computed<'telegram' | 'google' | 'github' | 'linkedin' | null>(() => {
+    if (this.linkedinUser()) return 'linkedin';
     if (this.githubUser()) return 'github';
     if (this.googleUser()) return 'google';
     if (this.webUser()) return 'telegram';
@@ -44,6 +51,8 @@ export class AuthService {
 
   private ghStorageHandler: ((event: StorageEvent) => void) | null = null;
   private ghStorageTimeout: ReturnType<typeof setTimeout> | null = null;
+  private liStorageHandler: ((event: StorageEvent) => void) | null = null;
+  private liStorageTimeout: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     // Fetch public config (Google client ID) from the router
@@ -73,6 +82,12 @@ export class AuthService {
         this.githubUser.set(JSON.parse(githubStored));
       } catch { /* ignore corrupt data */ }
     }
+    const linkedinStored = sessionStorage.getItem('linkedin_user');
+    if (linkedinStored) {
+      try {
+        this.linkedinUser.set(JSON.parse(linkedinStored));
+      } catch { /* ignore corrupt data */ }
+    }
   }
 
   login(user: TelegramLoginUser): void {
@@ -84,9 +99,11 @@ export class AuthService {
     this.webUser.set(null);
     this.googleUser.set(null);
     this.githubUser.set(null);
+    this.linkedinUser.set(null);
     sessionStorage.removeItem('tg_web_user');
     sessionStorage.removeItem('google_user');
     sessionStorage.removeItem('github_user');
+    sessionStorage.removeItem('linkedin_user');
   }
 
   logoutProvider(provider: string): void {
@@ -99,10 +116,15 @@ export class AuthService {
     } else if (provider === 'github') {
       this.githubUser.set(null);
       sessionStorage.removeItem('github_user');
+    } else if (provider === 'linkedin') {
+      this.linkedinUser.set(null);
+      sessionStorage.removeItem('linkedin_user');
     }
   }
 
-  getAuthPayload(): (TelegramLoginUser | { type: 'auth'; provider: 'google'; code: string } | { type: 'auth'; provider: 'github'; code: string }) | null {
+  getAuthPayload(): (TelegramLoginUser | { type: 'auth'; provider: string; code: string }) | null {
+    const li = this.linkedinUser();
+    if (li) return { type: 'auth', provider: 'linkedin', code: li.code };
     const gh = this.githubUser();
     if (gh) return { type: 'auth', provider: 'github', code: gh.code };
     const g = this.googleUser();
@@ -210,10 +232,60 @@ export class AuthService {
     this.ghStorageTimeout = setTimeout(cleanup, 60000);
   }
 
-  hasLinkedProvider(provider: 'telegram' | 'google' | 'github'): boolean {
+  loginWithLinkedin(): void {
+    const routerUrl = environment.routerUrl;
+    if (!routerUrl) return;
+
+    const state = crypto.randomUUID();
+    sessionStorage.setItem('linkedin_oauth_state', state);
+
+    window.open(
+      `${routerUrl}/auth/linkedin/start?state=${encodeURIComponent(state)}`,
+      'linkedin_auth',
+      'width=600,height=700,left=200,top=100',
+    );
+
+    if (this.liStorageHandler) {
+      window.removeEventListener('storage', this.liStorageHandler);
+      this.liStorageHandler = null;
+    }
+    if (this.liStorageTimeout) {
+      clearTimeout(this.liStorageTimeout);
+      this.liStorageTimeout = null;
+    }
+
+    const cleanup = () => {
+      window.removeEventListener('storage', handler);
+      this.liStorageHandler = null;
+      if (this.liStorageTimeout) { clearTimeout(this.liStorageTimeout); this.liStorageTimeout = null; }
+    };
+    const handler = (event: StorageEvent) => {
+      if (event.key === 'linkedin_auth' && event.newValue) {
+        cleanup();
+        try {
+          const data = JSON.parse(event.newValue);
+          localStorage.removeItem('linkedin_auth');
+          const savedState = sessionStorage.getItem('linkedin_oauth_state');
+          sessionStorage.removeItem('linkedin_oauth_state');
+          if (!savedState || data.state !== savedState) return;
+          if (data.code) {
+            const user: LinkedInUser = { provider: 'linkedin', code: data.code };
+            this.linkedinUser.set(user);
+            sessionStorage.setItem('linkedin_user', JSON.stringify(user));
+          }
+        } catch { /* ignore */ }
+      }
+    };
+    this.liStorageHandler = handler;
+    window.addEventListener('storage', handler);
+    this.liStorageTimeout = setTimeout(cleanup, 60000);
+  }
+
+  hasLinkedProvider(provider: 'telegram' | 'google' | 'github' | 'linkedin'): boolean {
     if (provider === 'telegram') return !!this.webUser();
     if (provider === 'google') return !!this.googleUser();
     if (provider === 'github') return !!this.githubUser();
+    if (provider === 'linkedin') return !!this.linkedinUser();
     return false;
   }
 }

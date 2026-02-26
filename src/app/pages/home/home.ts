@@ -31,6 +31,7 @@ export class HomePage implements OnInit, OnDestroy {
     if (this.auth.webUser()) list.push({ key: 'telegram', label: 'Telegram' });
     if (this.auth.googleUser()) list.push({ key: 'google', label: 'Google' });
     if (this.auth.githubUser()) list.push({ key: 'github', label: 'GitHub' });
+    if (this.auth.linkedinUser()) list.push({ key: 'linkedin', label: 'LinkedIn' });
     return list;
   });
 
@@ -83,6 +84,10 @@ export class HomePage implements OnInit, OnDestroy {
     this.auth.loginWithGithub();
   }
 
+  loginWithLinkedin() {
+    this.auth.loginWithLinkedin();
+  }
+
   linkTelegram() {
     this.auth.openTelegramLogin();
     this.pollUntil(
@@ -104,6 +109,14 @@ export class HomePage implements OnInit, OnDestroy {
     this.pollUntil(
       () => !!this.auth.githubUser(),
       () => this.chat.sendLinkProvider('github', { code: this.auth.githubUser()!.code }),
+    );
+  }
+
+  linkLinkedin() {
+    this.auth.loginWithLinkedin();
+    this.pollUntil(
+      () => !!this.auth.linkedinUser(),
+      () => this.chat.sendLinkProvider('linkedin', { code: this.auth.linkedinUser()!.code }),
     );
   }
 

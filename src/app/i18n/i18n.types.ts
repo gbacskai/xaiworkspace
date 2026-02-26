@@ -37,8 +37,10 @@ export interface UiStrings {
   'chat.loginHint': string;
   'chat.linkTelegram': string;
   'chat.loginGithub': string;
+  'chat.loginLinkedin': string;
   'chat.linkGoogle': string;
   'chat.linkGithub': string;
+  'chat.linkLinkedin': string;
   'chat.linkSuccess': string;
   'chat.disconnected': string;
   'footer.logout': string;
