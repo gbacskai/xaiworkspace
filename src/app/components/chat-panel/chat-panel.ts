@@ -19,6 +19,7 @@ const COMMANDS: { command: string; description: string }[] = [
   { command: '/invite',     description: 'Invite someone and earn free tokens' },
   { command: '/invites',    description: 'List your sent invitations' },
   { command: '/workspace',  description: 'View workspace file info' },
+  { command: '/whoami',     description: 'Show your identity and linked accounts' },
   { command: '/help',       description: 'Show all available commands' },
 ];
 

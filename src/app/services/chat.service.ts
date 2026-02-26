@@ -278,9 +278,69 @@ export class ChatService {
     };
     this.messages.update(msgs => [...msgs, msg]);
 
+    // Intercept /whoami locally
+    if (trimmed === '/whoami') {
+      this.handleWhoami();
+      return;
+    }
+
     if (this.ws && this.ws.readyState === WebSocket.OPEN && this.connectionState() === 'connected') {
       this.ws.send(JSON.stringify({ type: 'message', text: trimmed }));
     }
+  }
+
+  private handleWhoami(): void {
+    const provider = this.auth.currentProvider();
+    const tgUser = this.auth.webUser();
+    const googleUser = this.auth.googleUser();
+    const githubUser = this.auth.githubUser();
+    const chatId = this.currentChatId();
+    const linked = this.linkedProviders();
+
+    const lines: string[] = ['\ud83e\udded Identity'];
+
+    if (provider === 'telegram' && tgUser) {
+      lines.push(`Provider: Telegram`);
+      lines.push(`Name: ${tgUser.first_name}${tgUser.last_name ? ' ' + tgUser.last_name : ''}`);
+      if (tgUser.username) lines.push(`Username: @${tgUser.username}`);
+      lines.push(`User ID: ${tgUser.id}`);
+    } else if (provider === 'google' && googleUser) {
+      lines.push(`Provider: Google`);
+      if (googleUser.name) lines.push(`Name: ${googleUser.name}`);
+      if (googleUser.email) lines.push(`Email: ${googleUser.email}`);
+    } else if (provider === 'github' && githubUser) {
+      lines.push(`Provider: GitHub`);
+    } else if (this.tg.isTelegram) {
+      const u = this.tg.user();
+      lines.push(`Channel: Telegram App`);
+      if (u) {
+        lines.push(`Name: ${u.first_name}${u.last_name ? ' ' + u.last_name : ''}`);
+        if (u.username) lines.push(`Username: @${u.username}`);
+        lines.push(`User ID: ${u.id}`);
+      }
+    } else {
+      lines.push(`Provider: Unknown`);
+    }
+
+    if (chatId) lines.push(`Chat ID: ${chatId}`);
+
+    if (linked.length > 0) {
+      lines.push('');
+      lines.push('\ud83d\udd17 Linked accounts');
+      for (const l of linked) {
+        const parts = [l.provider];
+        if (l.displayName) parts.push(l.displayName);
+        if (l.email) parts.push(l.email);
+        lines.push(`  \u2022 ${parts.join(' \u2014 ')}`);
+      }
+    }
+
+    this.messages.update(msgs => [...msgs, {
+      id: crypto.randomUUID(),
+      text: lines.join('\n'),
+      sender: 'bot',
+      timestamp: Date.now(),
+    }]);
   }
 
   disconnect(): void {

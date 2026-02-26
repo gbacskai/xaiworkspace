@@ -17,10 +17,27 @@
             type="text"
             [(ngModel)]="newAgentName"
             [placeholder]="i18n.t('agents.namePlaceholder')" />
-          <textarea
-            class="agents-edit-textarea"
-            [(ngModel)]="newAgentContent"
-            rows="12"></textarea>
+          <div class="agents-md-toolbar">
+            <button type="button" class="agents-md-toolbar-btn" title="Bold" (click)="insertMarkdown('create','**','**','bold')"><b>B</b></button>
+            <button type="button" class="agents-md-toolbar-btn" title="Italic" (click)="insertMarkdown('create','*','*','italic')"><i>I</i></button>
+            <button type="button" class="agents-md-toolbar-btn" title="Heading" (click)="insertMarkdown('create','## ','','heading')">H</button>
+            <button type="button" class="agents-md-toolbar-btn" title="Link" (click)="insertMarkdown('create','[','](url)','link text')">&#128279;</button>
+            <button type="button" class="agents-md-toolbar-btn" title="Bullet list" (click)="insertMarkdown('create','- ','','item')">&#8226;</button>
+            <button type="button" class="agents-md-toolbar-btn" title="Numbered list" (click)="insertMarkdown('create','1. ','','item')">1.</button>
+            <button type="button" class="agents-md-toolbar-btn" title="Horizontal rule" (click)="insertMarkdown('create','\n---\n','','')">&#8212;</button>
+            <button type="button" class="agents-md-toolbar-btn" title="Code" (click)="insertMarkdown('create','`','`','code')">``</button>
+            <span class="agents-md-toolbar-sep"></span>
+            <button type="button" class="agents-md-toolbar-btn" [class.active]="showCreatePreview()" title="Preview" (click)="toggleCreatePreview()">&#128065;</button>
+          </div>
+          @if (showCreatePreview()) {
+            <div class="agents-md-preview agents-detail-content" [innerHTML]="createPreviewHtml"></div>
+          } @else {
+            <textarea
+              #createTextarea
+              class="agents-edit-textarea agents-md-textarea"
+              [(ngModel)]="newAgentContent"
+              rows="12"></textarea>
+          }
           <button
             class="agents-btn-primary"
             [disabled]="!newAgentName.trim() || agents.isSaving()"
@@ -67,10 +84,27 @@
 
         @if (isEditing()) {
           <div class="agents-edit-section">
-            <textarea
-              class="agents-edit-textarea"
-              [(ngModel)]="editContent"
-              rows="12"></textarea>
+            <div class="agents-md-toolbar">
+              <button type="button" class="agents-md-toolbar-btn" title="Bold" (click)="insertMarkdown('edit','**','**','bold')"><b>B</b></button>
+              <button type="button" class="agents-md-toolbar-btn" title="Italic" (click)="insertMarkdown('edit','*','*','italic')"><i>I</i></button>
+              <button type="button" class="agents-md-toolbar-btn" title="Heading" (click)="insertMarkdown('edit','## ','','heading')">H</button>
+              <button type="button" class="agents-md-toolbar-btn" title="Link" (click)="insertMarkdown('edit','[','](url)','link text')">&#128279;</button>
+              <button type="button" class="agents-md-toolbar-btn" title="Bullet list" (click)="insertMarkdown('edit','- ','','item')">&#8226;</button>
+              <button type="button" class="agents-md-toolbar-btn" title="Numbered list" (click)="insertMarkdown('edit','1. ','','item')">1.</button>
+              <button type="button" class="agents-md-toolbar-btn" title="Horizontal rule" (click)="insertMarkdown('edit','\n---\n','','')">&#8212;</button>
+              <button type="button" class="agents-md-toolbar-btn" title="Code" (click)="insertMarkdown('edit','`','`','code')">``</button>
+              <span class="agents-md-toolbar-sep"></span>
+              <button type="button" class="agents-md-toolbar-btn" [class.active]="showEditPreview()" title="Preview" (click)="toggleEditPreview()">&#128065;</button>
+            </div>
+            @if (showEditPreview()) {
+              <div class="agents-md-preview agents-detail-content" [innerHTML]="editPreviewHtml"></div>
+            } @else {
+              <textarea
+                #editTextarea
+                class="agents-edit-textarea agents-md-textarea"
+                [(ngModel)]="editContent"
+                rows="12"></textarea>
+            }
             <div class="agents-edit-actions">
               <button
                 class="agents-btn-primary"
