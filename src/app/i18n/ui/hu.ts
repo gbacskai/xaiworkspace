@@ -83,4 +83,12 @@ export const HU: UiStrings = {
   'agents.inviteMessagePlaceholder': 'Személyes üzenet (opcionális)',
   'agents.inviteSend': 'Meghívó küldése',
   'chat.reconnect': 'Újrakapcsolódás',
+  'panel.agents': 'Ügynökök',
+  'panel.analytics': 'Elemzés',
+  'panel.recommendations': 'Tippek',
+  'recommendations.empty': 'Kezdj el csevegni személyre szabott tippekért',
+  'recommendations.help': 'Mit tudsz csinálni?',
+  'recommendations.usage': 'Használat ellenőrzése',
+  'recommendations.newAgent': 'Új ügynök létrehozása',
+  'recommendations.summarize': 'Beszélgetés összefoglalása',
 };

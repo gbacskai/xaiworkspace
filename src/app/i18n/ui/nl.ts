@@ -83,4 +83,12 @@ export const NL: UiStrings = {
   'agents.inviteMessagePlaceholder': 'Persoonlijk bericht (optioneel)',
   'agents.inviteSend': 'Uitnodiging versturen',
   'chat.reconnect': 'Opnieuw verbinden',
+  'panel.agents': 'Agenten',
+  'panel.analytics': 'Analyse',
+  'panel.recommendations': 'Tips',
+  'recommendations.empty': 'Begin te chatten voor gepersonaliseerde tips',
+  'recommendations.help': 'Wat kun je doen?',
+  'recommendations.usage': 'Mijn gebruik bekijken',
+  'recommendations.newAgent': 'Nieuwe agent aanmaken',
+  'recommendations.summarize': 'Gesprek samenvatten',
 };

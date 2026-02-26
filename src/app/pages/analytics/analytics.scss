@@ -1,5 +1,18 @@
 .analytics {
   padding: 0 16px 32px;
+
+  &--embedded {
+    padding: 0 12px 16px;
+
+    .analytics-chart-section {
+      margin-top: 12px;
+      padding: 12px;
+    }
+
+    .analytics-chart-wrap {
+      height: 180px;
+    }
+  }
 }
 
 .analytics-header {

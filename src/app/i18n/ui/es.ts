@@ -83,4 +83,12 @@ export const ES: UiStrings = {
   'agents.inviteMessagePlaceholder': 'Mensaje personal (opcional)',
   'agents.inviteSend': 'Enviar invitación',
   'chat.reconnect': 'Reconectar',
+  'panel.agents': 'Agentes',
+  'panel.analytics': 'Analíticas',
+  'panel.recommendations': 'Tips',
+  'recommendations.empty': 'Empieza a chatear para obtener tips personalizados',
+  'recommendations.help': '¿Qué puedes hacer?',
+  'recommendations.usage': 'Ver mi uso',
+  'recommendations.newAgent': 'Crear un nuevo agente',
+  'recommendations.summarize': 'Resumir conversación',
 };

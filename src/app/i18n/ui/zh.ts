@@ -83,4 +83,12 @@ export const ZH: UiStrings = {
   'agents.inviteMessagePlaceholder': '个人留言（可选）',
   'agents.inviteSend': '发送邀请',
   'chat.reconnect': '重新连接',
+  'panel.agents': '代理',
+  'panel.analytics': '分析',
+  'panel.recommendations': '提示',
+  'recommendations.empty': '开始聊天以获取个性化提示',
+  'recommendations.help': '你能做什么？',
+  'recommendations.usage': '查看我的使用量',
+  'recommendations.newAgent': '创建新代理',
+  'recommendations.summarize': '总结对话',
 };

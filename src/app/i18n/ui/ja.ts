@@ -83,4 +83,12 @@ export const JA: UiStrings = {
   'agents.inviteMessagePlaceholder': '個人メッセージ（任意）',
   'agents.inviteSend': '招待を送信',
   'chat.reconnect': '再接続',
+  'panel.agents': 'エージェント',
+  'panel.analytics': 'アナリティクス',
+  'panel.recommendations': 'ヒント',
+  'recommendations.empty': 'チャットを始めてパーソナライズされたヒントを取得',
+  'recommendations.help': '何ができますか？',
+  'recommendations.usage': '使用状況を確認',
+  'recommendations.newAgent': '新しいエージェントを作成',
+  'recommendations.summarize': '会話を要約',
 };

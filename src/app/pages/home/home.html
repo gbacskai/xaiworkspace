@@ -128,19 +128,6 @@
     </div>
   }
 
-  @if (auth.isAuthenticated()) {
-    <div class="card-list">
-      <a class="card-item" routerLink="/analytics">
-        <span class="card-icon">📊</span>
-        <div class="card-text">
-          <div class="card-title">Analytics</div>
-          <div class="card-sub">Usage charts and rate limits</div>
-        </div>
-        <span class="card-chevron">›</span>
-      </a>
-    </div>
-  }
-
   <!-- Getting Started -->
   <div class="section-header">{{ i18n.t('section.gettingStarted') }}</div>
   <div class="card-list">

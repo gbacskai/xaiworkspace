@@ -83,4 +83,12 @@ export const ID: UiStrings = {
   'agents.inviteMessagePlaceholder': 'Pesan pribadi (opsional)',
   'agents.inviteSend': 'Kirim Undangan',
   'chat.reconnect': 'Sambungkan Ulang',
+  'panel.agents': 'Agen',
+  'panel.analytics': 'Analitik',
+  'panel.recommendations': 'Tips',
+  'recommendations.empty': 'Mulai mengobrol untuk mendapatkan tips yang dipersonalisasi',
+  'recommendations.help': 'Apa yang bisa kamu lakukan?',
+  'recommendations.usage': 'Periksa penggunaan saya',
+  'recommendations.newAgent': 'Buat agen baru',
+  'recommendations.summarize': 'Rangkum percakapan',
 };

@@ -83,4 +83,12 @@ export const TR: UiStrings = {
   'agents.inviteMessagePlaceholder': 'Kişisel mesaj (isteğe bağlı)',
   'agents.inviteSend': 'Davet Gönder',
   'chat.reconnect': 'Yeniden Bağlan',
+  'panel.agents': 'Ajanlar',
+  'panel.analytics': 'Analitik',
+  'panel.recommendations': 'İpuçları',
+  'recommendations.empty': 'Kişiselleştirilmiş ipuçları almak için sohbete başlayın',
+  'recommendations.help': 'Ne yapabilirsin?',
+  'recommendations.usage': 'Kullanımımı kontrol et',
+  'recommendations.newAgent': 'Yeni ajan oluştur',
+  'recommendations.summarize': 'Sohbeti özetle',
 };

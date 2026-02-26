@@ -83,4 +83,12 @@ export const KO: UiStrings = {
   'agents.inviteMessagePlaceholder': '개인 메시지 (선택)',
   'agents.inviteSend': '초대 보내기',
   'chat.reconnect': '재연결',
+  'panel.agents': '에이전트',
+  'panel.analytics': '분석',
+  'panel.recommendations': '팁',
+  'recommendations.empty': '맞춤 팁을 받으려면 대화를 시작하세요',
+  'recommendations.help': '무엇을 할 수 있나요?',
+  'recommendations.usage': '사용량 확인',
+  'recommendations.newAgent': '새 에이전트 만들기',
+  'recommendations.summarize': '대화 요약',
 };

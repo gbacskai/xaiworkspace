@@ -91,6 +91,14 @@ export interface UiStrings {
   'agents.inviteMessagePlaceholder': string;
   'agents.inviteSend': string;
   'chat.reconnect': string;
+  'panel.agents': string;
+  'panel.analytics': string;
+  'panel.recommendations': string;
+  'recommendations.empty': string;
+  'recommendations.help': string;
+  'recommendations.usage': string;
+  'recommendations.newAgent': string;
+  'recommendations.summarize': string;
 }
 
 export interface LocalizedArticle {

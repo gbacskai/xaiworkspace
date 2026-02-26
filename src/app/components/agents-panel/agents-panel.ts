@@ -8,6 +8,15 @@ import { TelegramService } from '../../services/telegram.service';
 import { ToastService } from '../../services/toast.service';
 import { I18nService } from '../../i18n/i18n.service';
 
+type PanelTab = 'agents' | 'analytics' | 'recommendations';
+
+interface Recommendation {
+  icon: string;
+  text: string;
+  prompt: string;
+  action?: () => void;
+}
+
 const AGENT_TEMPLATE = `# Agent Name
 **Model**: claude-sonnet-4-6
 **Priority**: medium
@@ -50,16 +59,18 @@ const AGENT_TEMPLATES: AgentTemplate[] = [
   { name: 'crm-updater', label: 'CRM Updater', content: `# CRM Updater\n**Model**: claude-sonnet-4-6\n**Priority**: medium\n**Purpose**: Keep CRM records up to date\n**Trigger**: After client interactions or deal updates\n**Behavior**:\n- Extract key details from emails, meetings, and notes\n- Update the relevant CRM fields including contact info, deal stage, and next steps\n- Flag records that need manual review\n**Run**: \`/subagents spawn main "Read and execute Agents/CRMUpdater.md" --model claude-sonnet-4-6\`` },
 ];
 
+import { AnalyticsPage } from '../../pages/analytics/analytics';
+
 @Component({
   selector: 'app-agents-panel',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AnalyticsPage],
   templateUrl: './agents-panel.html',
   styleUrl: './agents-panel.scss',
 })
 export class AgentsPanelComponent implements OnInit, OnDestroy {
   agents = inject(AgentsService);
-  private chat = inject(ChatService);
+  chat = inject(ChatService);
   private tg = inject(TelegramService);
   private toast = inject(ToastService);
   private sanitizer = inject(DomSanitizer);
@@ -67,6 +78,9 @@ export class AgentsPanelComponent implements OnInit, OnDestroy {
 
   @ViewChild('editTextarea') editTextareaRef?: ElementRef<HTMLTextAreaElement>;
   @ViewChild('createTextarea') createTextareaRef?: ElementRef<HTMLTextAreaElement>;
+
+  // Tab state
+  activeTab = signal<PanelTab>('agents');
 
   // Edit state
   isEditing = signal(false);
@@ -416,5 +430,63 @@ export class AgentsPanelComponent implements OnInit, OnDestroy {
     this.showDeleteConfirm.set(false);
     this.editContent = '';
     this.agents.operationError.set(null);
+  }
+
+  // --- Tabs ---
+  switchTab(tab: PanelTab): void {
+    this.tg.haptic();
+    this.activeTab.set(tab);
+  }
+
+  // --- Recommendations ---
+  recommendations = computed<Recommendation[]>(() => {
+    const recs: Recommendation[] = [];
+
+    // Dynamic recommendations based on chat history
+    const msgs = this.chat.messages();
+    const userMsgs = msgs
+      .filter(m => m.sender === 'user')
+      .slice(-10)
+      .map(m => m.text.toLowerCase());
+    const recentText = userMsgs.join(' ');
+
+    const KEYWORD_MAP: { keywords: string[]; icon: string; text: string; prompt: string }[] = [
+      { keywords: ['email', 'mail', 'inbox'], icon: '📧', text: 'Draft a reply to the last email', prompt: 'Draft a reply to the last email we discussed' },
+      { keywords: ['code', 'review', 'pr', 'pull request'], icon: '🔍', text: 'Review my latest code changes', prompt: 'Review my latest code changes' },
+      { keywords: ['schedule', 'meeting', 'calendar', 'call'], icon: '📅', text: 'Prepare for my next meeting', prompt: 'Help me prepare for my next meeting' },
+      { keywords: ['document', 'doc', 'write', 'draft'], icon: '📝', text: 'Help draft a document', prompt: 'Help me draft a document based on our discussion' },
+      { keywords: ['bug', 'error', 'fix', 'issue'], icon: '🐛', text: 'Debug the issue we discussed', prompt: 'Help me debug the issue we were discussing' },
+      { keywords: ['data', 'analyze', 'report', 'chart'], icon: '📊', text: 'Analyze the data', prompt: 'Analyze the data we were discussing and create a summary' },
+    ];
+
+    if (recentText) {
+      for (const entry of KEYWORD_MAP) {
+        if (entry.keywords.some(kw => recentText.includes(kw))) {
+          recs.push({ icon: entry.icon, text: entry.text, prompt: entry.prompt });
+        }
+      }
+    }
+
+    // Static recommendations (always shown)
+    recs.push(
+      { icon: '❓', text: this.i18n.t('recommendations.help'), prompt: '/help' },
+      { icon: '📊', text: this.i18n.t('recommendations.usage'), prompt: '', action: () => this.switchTab('analytics') },
+      { icon: '🤖', text: this.i18n.t('recommendations.newAgent'), prompt: '', action: () => { this.switchTab('agents'); this.startCreate(); } },
+      { icon: '📋', text: this.i18n.t('recommendations.summarize'), prompt: 'Summarize our conversation so far' },
+    );
+
+    return recs;
+  });
+
+  executeRecommendation(rec: Recommendation): void {
+    this.tg.haptic();
+    if (rec.action) {
+      rec.action();
+      return;
+    }
+    if (rec.prompt) {
+      this.chat.send(rec.prompt);
+      this.chat.isOpen.set(true);
+    }
   }
 }

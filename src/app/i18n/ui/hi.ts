@@ -83,4 +83,12 @@ export const HI: UiStrings = {
   'agents.inviteMessagePlaceholder': 'व्यक्तिगत संदेश (वैकल्पिक)',
   'agents.inviteSend': 'आमंत्रण भेजें',
   'chat.reconnect': 'पुनः कनेक्ट करें',
+  'panel.agents': 'एजेंट',
+  'panel.analytics': 'एनालिटिक्स',
+  'panel.recommendations': 'सुझाव',
+  'recommendations.empty': 'व्यक्तिगत सुझाव पाने के लिए चैट शुरू करें',
+  'recommendations.help': 'आप क्या कर सकते हैं?',
+  'recommendations.usage': 'मेरा उपयोग देखें',
+  'recommendations.newAgent': 'नया एजेंट बनाएं',
+  'recommendations.summarize': 'बातचीत का सारांश',
 };

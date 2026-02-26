@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, OnDestroy, ViewChild, ElementRef, signal, effect } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, ViewChild, ElementRef, signal, effect, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
 import { TelegramService } from '../../services/telegram.service';
@@ -31,6 +31,8 @@ interface AnalyticsData {
   styleUrl: './analytics.scss',
 })
 export class AnalyticsPage implements OnInit, OnDestroy {
+  @Input() embedded = false;
+
   private chat = inject(ChatService);
   private tg = inject(TelegramService);
   private router = inject(Router);
@@ -57,12 +59,16 @@ export class AnalyticsPage implements OnInit, OnDestroy {
   });
 
   ngOnInit() {
-    this.tg.showBackButton(() => this.router.navigate(['/']));
+    if (!this.embedded) {
+      this.tg.showBackButton(() => this.router.navigate(['/']));
+    }
     this.fetchData();
   }
 
   ngOnDestroy() {
-    this.tg.hideBackButton();
+    if (!this.embedded) {
+      this.tg.hideBackButton();
+    }
     this.charts.forEach(c => c.destroy());
   }
 

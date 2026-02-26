@@ -1,8 +1,12 @@
-<app-back-button />
-<div class="analytics">
-  <div class="analytics-header">
-    <h1>Analytics</h1>
-  </div>
+@if (!embedded) {
+  <app-back-button />
+}
+<div class="analytics" [class.analytics--embedded]="embedded">
+  @if (!embedded) {
+    <div class="analytics-header">
+      <h1>Analytics</h1>
+    </div>
+  }
 
   @if (loading()) {
     <div class="analytics-skeleton">

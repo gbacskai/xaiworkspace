@@ -83,4 +83,12 @@ export const RU: UiStrings = {
   'agents.inviteMessagePlaceholder': 'Личное сообщение (необязательно)',
   'agents.inviteSend': 'Отправить приглашение',
   'chat.reconnect': 'Переподключиться',
+  'panel.agents': 'Агенты',
+  'panel.analytics': 'Аналитика',
+  'panel.recommendations': 'Советы',
+  'recommendations.empty': 'Начните чат, чтобы получить персональные советы',
+  'recommendations.help': 'Что ты умеешь?',
+  'recommendations.usage': 'Проверить использование',
+  'recommendations.newAgent': 'Создать нового агента',
+  'recommendations.summarize': 'Подвести итог беседы',
 };

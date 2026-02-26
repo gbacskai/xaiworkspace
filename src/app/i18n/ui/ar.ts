@@ -83,4 +83,12 @@ export const AR: UiStrings = {
   'agents.inviteMessagePlaceholder': 'رسالة شخصية (اختياري)',
   'agents.inviteSend': 'إرسال الدعوة',
   'chat.reconnect': 'إعادة الاتصال',
+  'panel.agents': 'الوكلاء',
+  'panel.analytics': 'التحليلات',
+  'panel.recommendations': 'نصائح',
+  'recommendations.empty': 'ابدأ المحادثة للحصول على نصائح مخصصة',
+  'recommendations.help': 'ماذا يمكنك أن تفعل؟',
+  'recommendations.usage': 'تحقق من استخدامي',
+  'recommendations.newAgent': 'إنشاء وكيل جديد',
+  'recommendations.summarize': 'تلخيص المحادثة',
 };
