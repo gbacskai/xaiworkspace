@@ -279,7 +279,11 @@ export class ChatService {
     this.messages.update(msgs => [...msgs, msg]);
 
     if (this.ws && this.ws.readyState === WebSocket.OPEN && this.connectionState() === 'connected') {
-      this.ws.send(JSON.stringify({ type: 'message', text: trimmed }));
+      const isCommand = trimmed.startsWith('/');
+      this.ws.send(JSON.stringify({
+        type: isCommand ? 'message' : 'openclaw',
+        text: trimmed,
+      }));
     }
   }
 
