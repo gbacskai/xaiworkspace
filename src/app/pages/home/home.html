@@ -38,6 +38,33 @@
     }
   </div>
 
+  <!-- Trust strip -->
+  <div class="trust-strip">
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-title">{{ i18n.t('trust.dedicated') }}</div>
+        <div class="trust-desc">{{ i18n.t('trust.dedicatedDesc') }}</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🧠</div>
+        <div class="trust-title">{{ i18n.t('trust.memory') }}</div>
+        <div class="trust-desc">{{ i18n.t('trust.memoryDesc') }}</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🤖</div>
+        <div class="trust-title">{{ i18n.t('trust.models') }}</div>
+        <div class="trust-desc">{{ i18n.t('trust.modelsDesc') }}</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <div class="trust-title">{{ i18n.t('trust.privacy') }}</div>
+        <div class="trust-desc">{{ i18n.t('trust.privacyDesc') }}</div>
+      </div>
+    </div>
+    <p class="trust-statement">{{ i18n.t('trust.statement') }}</p>
+  </div>
+
   @if (!tg.isTelegram) {
     <div class="login-box">
       <div class="login-box-list">
@@ -125,6 +152,33 @@
           <span class="login-box-chevron">&#8250;</span>
         </button>
       </div>
+    </div>
+  }
+
+  @if (!tg.isTelegram) {
+    <div class="waitlist-box">
+      <p class="waitlist-heading">Get early access</p>
+      <p class="waitlist-sub">Join the waitlist for launch updates.</p>
+      @if (waitlistSubmitted()) {
+        <p class="waitlist-success">You're on the list!</p>
+      } @else {
+        <form class="waitlist-form" (submit)="submitWaitlist($event)">
+          <input
+            type="email"
+            class="waitlist-input"
+            placeholder="you@example.com"
+            [value]="waitlistEmail()"
+            (input)="waitlistEmail.set($any($event.target).value)"
+            required />
+          <button class="waitlist-btn" type="submit" [disabled]="waitlistLoading()">
+            @if (waitlistLoading()) {
+              <span class="waitlist-spinner"></span>
+            } @else {
+              Join
+            }
+          </button>
+        </form>
+      }
     </div>
   }
 

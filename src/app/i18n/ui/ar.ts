@@ -210,4 +210,13 @@ export const AR: UiStrings = {
   'recommendations.usage': 'تحقق من استخدامي',
   'recommendations.newAgent': 'إنشاء وكيل جديد',
   'recommendations.summarize': 'تلخيص المحادثة',
+  'trust.dedicated': 'نسخة مخصصة',
+  'trust.dedicatedDesc': 'خادمك الخاص، وليس روبوت دردشة مشترك',
+  'trust.memory': 'ذاكرة دائمة',
+  'trust.memoryDesc': 'يتذكر السياق عبر الجلسات',
+  'trust.models': '20+ نموذج ذكاء اصطناعي',
+  'trust.modelsDesc': 'Claude، GPT-4o، Gemini، Mistral والمزيد',
+  'trust.privacy': 'الخصوصية أولاً',
+  'trust.privacyDesc': 'المحادثات تبقى على نسختك',
+  'trust.statement': 'على عكس روبوتات الدردشة المشتركة، يعمل وكيل الذكاء الاصطناعي الخاص بك على خادمه الخاص مع ذاكرة دائمة وبيانات خاصة وتخصيص كامل.',
 };

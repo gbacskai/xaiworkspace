@@ -210,4 +210,13 @@ export const ID: UiStrings = {
   'recommendations.usage': 'Periksa penggunaan saya',
   'recommendations.newAgent': 'Buat agen baru',
   'recommendations.summarize': 'Rangkum percakapan',
+  'trust.dedicated': 'Instansi Khusus',
+  'trust.dedicatedDesc': 'Server Anda sendiri, bukan chatbot bersama',
+  'trust.memory': 'Memori Persisten',
+  'trust.memoryDesc': 'Mengingat konteks antar sesi',
+  'trust.models': '20+ Model AI',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral & lainnya',
+  'trust.privacy': 'Privasi Utama',
+  'trust.privacyDesc': 'Percakapan tetap di instansi Anda',
+  'trust.statement': 'Berbeda dengan chatbot bersama, agen AI Anda berjalan di servernya sendiri dengan memori persisten, data pribadi, dan kustomisasi penuh.',
 };

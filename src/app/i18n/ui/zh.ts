@@ -210,4 +210,13 @@ export const ZH: UiStrings = {
   'recommendations.usage': '查看我的使用量',
   'recommendations.newAgent': '创建新代理',
   'recommendations.summarize': '总结对话',
+  'trust.dedicated': '专属实例',
+  'trust.dedicatedDesc': '您自己的服务器，而非共享聊天机器人',
+  'trust.memory': '持久记忆',
+  'trust.memoryDesc': '跨会话记住上下文',
+  'trust.models': '20+ AI 模型',
+  'trust.modelsDesc': 'Claude、GPT-4o、Gemini、Mistral 等',
+  'trust.privacy': '隐私优先',
+  'trust.privacyDesc': '对话保留在您的实例上',
+  'trust.statement': '与共享聊天机器人不同，您的 AI 代理运行在自己的服务器上，拥有持久记忆、私有数据和完全自定义。',
 };

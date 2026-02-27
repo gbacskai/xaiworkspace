@@ -210,4 +210,13 @@ export const NL: UiStrings = {
   'recommendations.usage': 'Mijn gebruik bekijken',
   'recommendations.newAgent': 'Nieuwe agent aanmaken',
   'recommendations.summarize': 'Gesprek samenvatten',
+  'trust.dedicated': 'Dedicated instantie',
+  'trust.dedicatedDesc': 'Uw eigen server, geen gedeelde chatbot',
+  'trust.memory': 'Persistent geheugen',
+  'trust.memoryDesc': 'Onthoudt context tussen sessies',
+  'trust.models': '20+ AI-modellen',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral en meer',
+  'trust.privacy': 'Privacy voorop',
+  'trust.privacyDesc': 'Gesprekken blijven op uw instantie',
+  'trust.statement': 'In tegenstelling tot gedeelde chatbots draait uw AI-agent op een eigen server met persistent geheugen, privégegevens en volledige aanpassing.',
 };

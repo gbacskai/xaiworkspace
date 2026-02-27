@@ -218,6 +218,15 @@ export interface UiStrings {
   'recommendations.usage': string;
   'recommendations.newAgent': string;
   'recommendations.summarize': string;
+  'trust.dedicated': string;
+  'trust.dedicatedDesc': string;
+  'trust.memory': string;
+  'trust.memoryDesc': string;
+  'trust.models': string;
+  'trust.modelsDesc': string;
+  'trust.privacy': string;
+  'trust.privacyDesc': string;
+  'trust.statement': string;
 }
 
 export interface LocalizedArticle {

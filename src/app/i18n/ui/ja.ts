@@ -210,4 +210,13 @@ export const JA: UiStrings = {
   'recommendations.usage': '使用状況を確認',
   'recommendations.newAgent': '新しいエージェントを作成',
   'recommendations.summarize': '会話を要約',
+  'trust.dedicated': '専用インスタンス',
+  'trust.dedicatedDesc': '共有チャットボットではなく、あなた専用のサーバー',
+  'trust.memory': '永続メモリ',
+  'trust.memoryDesc': 'セッション間でコンテキストを記憶',
+  'trust.models': '20以上のAIモデル',
+  'trust.modelsDesc': 'Claude、GPT-4o、Gemini、Mistralなど',
+  'trust.privacy': 'プライバシー最優先',
+  'trust.privacyDesc': '会話はあなたのインスタンスに保持',
+  'trust.statement': '共有チャットボットとは異なり、あなたのAIエージェントは永続メモリ、プライベートデータ、完全なカスタマイズを備えた専用サーバーで動作します。',
 };

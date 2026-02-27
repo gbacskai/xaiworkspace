@@ -210,4 +210,13 @@ export const KO: UiStrings = {
   'recommendations.usage': '사용량 확인',
   'recommendations.newAgent': '새 에이전트 만들기',
   'recommendations.summarize': '대화 요약',
+  'trust.dedicated': '전용 인스턴스',
+  'trust.dedicatedDesc': '공유 챗봇이 아닌 나만의 서버',
+  'trust.memory': '영구 메모리',
+  'trust.memoryDesc': '세션 간 컨텍스트 기억',
+  'trust.models': '20개 이상의 AI 모델',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral 외 다수',
+  'trust.privacy': '개인정보 우선',
+  'trust.privacyDesc': '대화가 내 인스턴스에 유지',
+  'trust.statement': '공유 챗봇과 달리 AI 에이전트가 영구 메모리, 비공개 데이터, 완전한 맞춤 설정을 갖춘 전용 서버에서 실행됩니다.',
 };

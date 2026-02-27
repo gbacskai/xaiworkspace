@@ -210,4 +210,13 @@ export const HI: UiStrings = {
   'recommendations.usage': 'मेरा उपयोग देखें',
   'recommendations.newAgent': 'नया एजेंट बनाएं',
   'recommendations.summarize': 'बातचीत का सारांश',
+  'trust.dedicated': 'समर्पित इंस्टेंस',
+  'trust.dedicatedDesc': 'आपका अपना सर्वर, साझा चैटबॉट नहीं',
+  'trust.memory': 'स्थायी मेमोरी',
+  'trust.memoryDesc': 'सत्रों में संदर्भ याद रखता है',
+  'trust.models': '20+ AI मॉडल',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral और अधिक',
+  'trust.privacy': 'गोपनीयता पहले',
+  'trust.privacyDesc': 'बातचीत आपके इंस्टेंस पर रहती है',
+  'trust.statement': 'साझा चैटबॉट के विपरीत, आपका AI एजेंट स्थायी मेमोरी, निजी डेटा और पूर्ण अनुकूलन के साथ अपने स्वयं के सर्वर पर चलता है।',
 };

@@ -210,4 +210,13 @@ export const TR: UiStrings = {
   'recommendations.usage': 'Kullanımımı kontrol et',
   'recommendations.newAgent': 'Yeni ajan oluştur',
   'recommendations.summarize': 'Sohbeti özetle',
+  'trust.dedicated': 'Özel Sunucu',
+  'trust.dedicatedDesc': 'Paylaşılan bir chatbot değil, kendi sunucunuz',
+  'trust.memory': 'Kalıcı Hafıza',
+  'trust.memoryDesc': 'Oturumlar arasında bağlamı hatırlar',
+  'trust.models': '20+ Yapay Zeka Modeli',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral ve daha fazlası',
+  'trust.privacy': 'Gizlilik Öncelikli',
+  'trust.privacyDesc': 'Sohbetler sunucunuzda kalır',
+  'trust.statement': 'Paylaşılan chatbotların aksine, yapay zeka ajanınız kalıcı hafıza, özel veriler ve tam özelleştirme ile kendi sunucusunda çalışır.',
 };

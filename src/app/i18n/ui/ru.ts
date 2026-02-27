@@ -210,4 +210,13 @@ export const RU: UiStrings = {
   'recommendations.usage': 'Проверить использование',
   'recommendations.newAgent': 'Создать нового агента',
   'recommendations.summarize': 'Подвести итог беседы',
+  'trust.dedicated': 'Выделенный экземпляр',
+  'trust.dedicatedDesc': 'Ваш собственный сервер, а не общий чат-бот',
+  'trust.memory': 'Постоянная память',
+  'trust.memoryDesc': 'Запоминает контекст между сессиями',
+  'trust.models': '20+ моделей ИИ',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral и другие',
+  'trust.privacy': 'Конфиденциальность прежде всего',
+  'trust.privacyDesc': 'Разговоры остаются на вашем экземпляре',
+  'trust.statement': 'В отличие от общих чат-ботов, ваш ИИ-агент работает на собственном сервере с постоянной памятью, приватными данными и полной настройкой.',
 };

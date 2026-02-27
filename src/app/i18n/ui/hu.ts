@@ -210,4 +210,13 @@ export const HU: UiStrings = {
   'recommendations.usage': 'Használat ellenőrzése',
   'recommendations.newAgent': 'Új ügynök létrehozása',
   'recommendations.summarize': 'Beszélgetés összefoglalása',
+  'trust.dedicated': 'Dedikált példány',
+  'trust.dedicatedDesc': 'Saját szerver, nem megosztott chatbot',
+  'trust.memory': 'Állandó memória',
+  'trust.memoryDesc': 'Munkamenetek közt megjegyzi a kontextust',
+  'trust.models': '20+ AI modell',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral és több',
+  'trust.privacy': 'Adatvédelem először',
+  'trust.privacyDesc': 'A beszélgetések a példányodon maradnak',
+  'trust.statement': 'A megosztott chatbotokkal ellentétben az AI ügynököd saját szerverén fut állandó memóriával, privát adatokkal és teljes testreszabással.',
 };

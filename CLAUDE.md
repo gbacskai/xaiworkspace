@@ -117,7 +117,7 @@ Scripts: `scripts/google-play-metadata.mjs` (upload), `scripts/generate-feature-
 | Type | Script | What it does |
 |------|--------|-------------|
 | Mobile fuzz | `scripts/device-farm-test.mjs` | Builds debug APK, uploads to Device Farm, runs 6000 random UI events on Android 9+ real devices |
-| Desktop browser | `scripts/device-farm-browser.mjs` | 8 Selenium smoke tests on Chrome + Firefox via Device Farm test grid |
+| Desktop browser | `scripts/device-farm-browser.mjs` | 45 public + 20 auth Selenium tests on Chrome + Firefox via Device Farm test grid |
 
 AWS profile: `aws_amplify_docflow4`, region: `us-west-2`
 

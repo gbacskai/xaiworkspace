@@ -210,4 +210,13 @@ export const ES: UiStrings = {
   'recommendations.usage': 'Ver mi uso',
   'recommendations.newAgent': 'Crear un nuevo agente',
   'recommendations.summarize': 'Resumir conversación',
+  'trust.dedicated': 'Instancia dedicada',
+  'trust.dedicatedDesc': 'Tu propio servidor, no un chatbot compartido',
+  'trust.memory': 'Memoria persistente',
+  'trust.memoryDesc': 'Recuerda el contexto entre sesiones',
+  'trust.models': '20+ modelos de IA',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral y más',
+  'trust.privacy': 'Privacidad primero',
+  'trust.privacyDesc': 'Las conversaciones permanecen en tu instancia',
+  'trust.statement': 'A diferencia de los chatbots compartidos, tu agente de IA funciona en su propio servidor con memoria persistente, datos privados y personalización completa.',
 };

@@ -210,4 +210,13 @@ export const DE: UiStrings = {
   'recommendations.usage': 'Meine Nutzung prüfen',
   'recommendations.newAgent': 'Neuen Agenten erstellen',
   'recommendations.summarize': 'Gespräch zusammenfassen',
+  'trust.dedicated': 'Dedizierte Instanz',
+  'trust.dedicatedDesc': 'Ihr eigener Server, kein gemeinsamer Chatbot',
+  'trust.memory': 'Persistenter Speicher',
+  'trust.memoryDesc': 'Merkt sich Kontext über Sitzungen hinweg',
+  'trust.models': '20+ KI-Modelle',
+  'trust.modelsDesc': 'Claude, GPT-4o, Gemini, Mistral & mehr',
+  'trust.privacy': 'Datenschutz zuerst',
+  'trust.privacyDesc': 'Gespräche bleiben auf Ihrer Instanz',
+  'trust.statement': 'Anders als gemeinsame Chatbots läuft Ihr KI-Agent auf seinem eigenen Server mit persistentem Speicher, privaten Daten und vollständiger Anpassung.',
 };

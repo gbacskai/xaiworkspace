@@ -6,6 +6,7 @@ import { ChatService } from '../../services/chat.service';
 import { ToastService } from '../../services/toast.service';
 import { I18nService, LOCALE_LABELS } from '../../i18n/i18n.service';
 import { FullArticle, SupportedLocale, SUPPORTED_LOCALES } from '../../i18n/i18n.types';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -47,6 +48,10 @@ export class HomePage implements OnInit, OnDestroy {
   essentials = computed(() => this.i18n.articles().filter(a => a.category === 'essentials'));
   features = computed(() => this.i18n.articles().filter(a => a.category === 'features'));
   guides = computed(() => this.i18n.articles().filter(a => a.category === 'guides'));
+
+  waitlistEmail = signal('');
+  waitlistLoading = signal(false);
+  waitlistSubmitted = signal(false);
 
   ngOnInit() {
     this.tg.hideBackButton();
@@ -181,6 +186,29 @@ export class HomePage implements OnInit, OnDestroy {
       () => { this.linkingProvider.set(null); this.chat.sendLinkProvider('linkedin', { code: this.auth.linkedinUser()!.code }); },
     );
     this.startLinkingTimeout();
+  }
+
+  async submitWaitlist(event: Event) {
+    event.preventDefault();
+    const email = this.waitlistEmail().trim();
+    if (!email) return;
+    this.waitlistLoading.set(true);
+    try {
+      const res = await fetch(`${environment.routerUrl}/api/waitlist`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'website' }),
+      });
+      if (res.ok) {
+        this.waitlistSubmitted.set(true);
+      } else {
+        this.toast.show('Something went wrong. Please try again.', 'error');
+      }
+    } catch {
+      this.toast.show('Network error. Please try again.', 'error');
+    } finally {
+      this.waitlistLoading.set(false);
+    }
   }
 
   logoutProvider(provider: string) {
