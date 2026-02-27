@@ -260,7 +260,7 @@ Controlla regolarmente \`/usage\` per tenere traccia del tuo consumo. La barra d
     content: `
 ## Cambia lingua
 
-Invia \`/language\` per scegliere tra 10 lingue supportate:
+Invia \`/language\` per scegliere tra 16 lingue supportate:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Invia \`/language\` per scegliere tra 10 lingue supportate:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 La tua preferenza linguistica viene rilevata automaticamente dalle impostazioni di xAI Workspace al primo utilizzo, ma puoi cambiarla in qualsiasi momento. Tutti i messaggi del bot appariranno nella lingua selezionata.
 

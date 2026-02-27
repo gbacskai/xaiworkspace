@@ -1,7 +1,7 @@
 export const TERMS_TR = `
 ## Hizmet Tanimi
 
-OpenClaw AI, xShopper Pty Ltd tarafindan isletilen ve xAI Workspace uzerinden sunulan kisisel bir AI asistan hizmetidir. Her abone, ozel bir AI ajan sunucusu alir.
+xAI Workspace, xShopper Pty Ltd tarafindan isletilen ve xAI Workspace uzerinden sunulan kisisel bir AI asistan hizmetidir. Her abone, ozel bir AI ajan sunucusu alir.
 
 ---
 
@@ -19,7 +19,7 @@ Guncel planlar ve fiyatlandirma uygulama icerisinde /billing komutu ile goruntui
 
 ## Kabul Edilebilir Kullanim
 
-OpenClaw AI'yi yasa disi icerik uretmek, ucuncu taraf fikri mulkiyet haklarini ihlal etmek veya otomatik kotuye kullanim yapmak icin kullanamazsiniz. Bu sartlari ihlal eden hesaplari askiya alma hakkimizi sakli tutariz.
+xAI Workspace'yi yasa disi icerik uretmek, ucuncu taraf fikri mulkiyet haklarini ihlal etmek veya otomatik kotuye kullanim yapmak icin kullanamazsiniz. Bu sartlari ihlal eden hesaplari askiya alma hakkimizi sakli tutariz.
 
 ---
 

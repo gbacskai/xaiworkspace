@@ -1,7 +1,7 @@
 export const TERMS_PT_BR = `
 ## Descrição do Serviço
 
-OpenClaw AI é um serviço de assistente de IA pessoal operado pela xShopper Pty Ltd, entregue via xAI Workspace. Cada assinante recebe uma instância dedicada de agente de IA.
+xAI Workspace é um serviço de assistente de IA pessoal operado pela xShopper Pty Ltd, entregue via xAI Workspace. Cada assinante recebe uma instância dedicada de agente de IA.
 
 ---
 
@@ -19,7 +19,7 @@ Os planos e preços atuais estão disponíveis no aplicativo via /billing. As as
 
 ## Uso Aceitável
 
-Você não pode usar o OpenClaw AI para gerar conteúdo ilegal, infringir propriedade intelectual de terceiros ou realizar abusos automatizados. Reservamo-nos o direito de suspender contas que violem estes termos.
+Você não pode usar o xAI Workspace para gerar conteúdo ilegal, infringir propriedade intelectual de terceiros ou realizar abusos automatizados. Reservamo-nos o direito de suspender contas que violem estes termos.
 
 ---
 

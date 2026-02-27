@@ -39,7 +39,7 @@ export class HomePage implements OnInit, OnDestroy {
     return list;
   });
 
-  gettingStarted = computed(() => this.i18n.articles().filter(a => a.category === 'getting-started'));
+  essentials = computed(() => this.i18n.articles().filter(a => a.category === 'essentials'));
   features = computed(() => this.i18n.articles().filter(a => a.category === 'features'));
   guides = computed(() => this.i18n.articles().filter(a => a.category === 'guides'));
 

@@ -128,10 +128,10 @@
     </div>
   }
 
-  <!-- Getting Started -->
-  <div class="section-header">{{ i18n.t('section.gettingStarted') }}</div>
+  <!-- Essentials -->
+  <div class="section-header">{{ i18n.t('section.essentials') }}</div>
   <div class="card-list">
-    @for (article of gettingStarted(); track article.id) {
+    @for (article of essentials(); track article.id) {
       <button class="card-item" (click)="open(article)">
         <span class="card-icon">{{ article.icon }}</span>
         <div class="card-text">
@@ -175,8 +175,14 @@
 
   <!-- Footer -->
   <div class="footer">
+    <div class="footer-brand">
+      <img src="x.png" alt="xAI" />
+      <span>xAI Workspace</span>
+    </div>
     <p>{{ i18n.t('footer.company') }}</p>
     <p class="footer-links">
+      <a routerLink="/about">{{ i18n.t('footer.about') }}</a>
+      <span class="footer-sep"> · </span>
       <a routerLink="/privacy">{{ i18n.t('footer.privacy') }}</a>
       <span class="footer-sep"> · </span>
       <a routerLink="/terms">{{ i18n.t('footer.terms') }}</a>

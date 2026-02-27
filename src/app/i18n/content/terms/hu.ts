@@ -1,7 +1,7 @@
 export const TERMS_HU = `
 ## Szolgáltatás leírása
 
-Az OpenClaw AI egy személyes AI asszisztens szolgáltatás, amelyet az xShopper Pty Ltd üzemeltet és xAI Workspace-en keresztül nyújt. Minden előfizető egy dedikált AI ügynök példányt kap.
+Az xAI Workspace egy személyes AI asszisztens szolgáltatás, amelyet az xShopper Pty Ltd üzemeltet és xAI Workspace-en keresztül nyújt. Minden előfizető egy dedikált AI ügynök példányt kap.
 
 ---
 
@@ -19,7 +19,7 @@ Az aktuális csomagok és árak az alkalmazásban a /billing paranccsal érhető
 
 ## Elfogadható használat
 
-Az OpenClaw AI-t nem használhatod illegális tartalom előállítására, harmadik fél szellemi tulajdonjogainak megsértésére, vagy automatizált visszaélés végzésére. Fenntartjuk a jogot ezen feltételeket megsértő fiókok felfüggesztésére.
+Az xAI Workspace-t nem használhatod illegális tartalom előállítására, harmadik fél szellemi tulajdonjogainak megsértésére, vagy automatizált visszaélés végzésére. Fenntartjuk a jogot ezen feltételeket megsértő fiókok felfüggesztésére.
 
 ---
 

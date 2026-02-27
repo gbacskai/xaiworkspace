@@ -92,6 +92,24 @@ import { AUTHORIZE_ID } from './content/authorize/id';
 import { AUTHORIZE_NL } from './content/authorize/nl';
 import { AUTHORIZE_HU } from './content/authorize/hu';
 
+// About content
+import { ABOUT_EN } from './content/about/en';
+import { ABOUT_ZH } from './content/about/zh';
+import { ABOUT_ES } from './content/about/es';
+import { ABOUT_AR } from './content/about/ar';
+import { ABOUT_PT_BR } from './content/about/pt-BR';
+import { ABOUT_DE } from './content/about/de';
+import { ABOUT_FR } from './content/about/fr';
+import { ABOUT_JA } from './content/about/ja';
+import { ABOUT_RU } from './content/about/ru';
+import { ABOUT_HI } from './content/about/hi';
+import { ABOUT_KO } from './content/about/ko';
+import { ABOUT_TR } from './content/about/tr';
+import { ABOUT_IT } from './content/about/it';
+import { ABOUT_ID } from './content/about/id';
+import { ABOUT_NL } from './content/about/nl';
+import { ABOUT_HU } from './content/about/hu';
+
 const UI_STRINGS: Record<SupportedLocale, UiStrings> = {
   en: EN, zh: ZH, es: ES, ar: AR, 'pt-BR': PT_BR,
   de: DE, fr: FR, ja: JA, ru: RU, hi: HI,
@@ -120,6 +138,12 @@ const AUTHORIZE_CONTENT: Record<SupportedLocale, string> = {
   en: AUTHORIZE_EN, zh: AUTHORIZE_ZH, es: AUTHORIZE_ES, ar: AUTHORIZE_AR, 'pt-BR': AUTHORIZE_PT_BR,
   de: AUTHORIZE_DE, fr: AUTHORIZE_FR, ja: AUTHORIZE_JA, ru: AUTHORIZE_RU, hi: AUTHORIZE_HI,
   ko: AUTHORIZE_KO, tr: AUTHORIZE_TR, it: AUTHORIZE_IT, id: AUTHORIZE_ID, nl: AUTHORIZE_NL, hu: AUTHORIZE_HU,
+};
+
+const ABOUT_CONTENT: Record<SupportedLocale, string> = {
+  en: ABOUT_EN, zh: ABOUT_ZH, es: ABOUT_ES, ar: ABOUT_AR, 'pt-BR': ABOUT_PT_BR,
+  de: ABOUT_DE, fr: ABOUT_FR, ja: ABOUT_JA, ru: ABOUT_RU, hi: ABOUT_HI,
+  ko: ABOUT_KO, tr: ABOUT_TR, it: ABOUT_IT, id: ABOUT_ID, nl: ABOUT_NL, hu: ABOUT_HU,
 };
 
 export const LOCALE_LABELS: Record<SupportedLocale, string> = {
@@ -200,5 +224,9 @@ export class I18nService {
 
   getAuthorizeContent(): string {
     return AUTHORIZE_CONTENT[this.locale()] ?? AUTHORIZE_CONTENT['en'];
+  }
+
+  getAboutContent(): string {
+    return ABOUT_CONTENT[this.locale()] ?? ABOUT_CONTENT['en'];
   }
 }

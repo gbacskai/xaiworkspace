@@ -12,7 +12,7 @@ export interface UiStrings {
   'hero.greeting': string;
   'hero.inviteOnly': string;
   'hero.openTelegram': string;
-  'section.gettingStarted': string;
+  'section.essentials': string;
   'section.features': string;
   'section.guides': string;
   'footer.company': string;
@@ -81,11 +81,124 @@ export interface UiStrings {
   'purchase.thankYou': string;
   'purchase.success': string;
   'purchase.backHome': string;
+  'about.title': string;
+  'footer.about': string;
   'models.title': string;
   'models.subtitle': string;
   'models.tip': string;
   'models.recommendedFor': string;
   'models.example': string;
+  'models.showMore': string;
+  'models.showLess': string;
+  // Anthropic
+  'models.desc.claude-sonnet-4-6': string;
+  'models.bestFor.claude-sonnet-4-6': string;
+  'models.example.claude-sonnet-4-6': string;
+  'models.benefit.claude-sonnet-4-6': string;
+  'models.desc.claude-opus-4-6': string;
+  'models.bestFor.claude-opus-4-6': string;
+  'models.example.claude-opus-4-6': string;
+  'models.benefit.claude-opus-4-6': string;
+  'models.desc.claude-haiku-4-5': string;
+  'models.bestFor.claude-haiku-4-5': string;
+  'models.example.claude-haiku-4-5': string;
+  'models.benefit.claude-haiku-4-5': string;
+  // OpenAI
+  'models.desc.gpt-4o': string;
+  'models.bestFor.gpt-4o': string;
+  'models.example.gpt-4o': string;
+  'models.benefit.gpt-4o': string;
+  'models.desc.gpt-4o-mini': string;
+  'models.bestFor.gpt-4o-mini': string;
+  'models.example.gpt-4o-mini': string;
+  'models.benefit.gpt-4o-mini': string;
+  'models.desc.o3-mini': string;
+  'models.bestFor.o3-mini': string;
+  'models.example.o3-mini': string;
+  'models.benefit.o3-mini': string;
+  // Google
+  'models.desc.gemini-2.5-pro': string;
+  'models.bestFor.gemini-2.5-pro': string;
+  'models.example.gemini-2.5-pro': string;
+  'models.benefit.gemini-2.5-pro': string;
+  'models.desc.gemini-2.0-flash': string;
+  'models.bestFor.gemini-2.0-flash': string;
+  'models.example.gemini-2.0-flash': string;
+  'models.benefit.gemini-2.0-flash': string;
+  // Mistral
+  'models.desc.mistral-large-latest': string;
+  'models.bestFor.mistral-large-latest': string;
+  'models.example.mistral-large-latest': string;
+  'models.benefit.mistral-large-latest': string;
+  'models.desc.mistral-small-latest': string;
+  'models.bestFor.mistral-small-latest': string;
+  'models.example.mistral-small-latest': string;
+  'models.benefit.mistral-small-latest': string;
+  'models.desc.codestral-latest': string;
+  'models.bestFor.codestral-latest': string;
+  'models.example.codestral-latest': string;
+  'models.benefit.codestral-latest': string;
+  // Groq
+  'models.desc.llama-3.3-70b-versatile': string;
+  'models.bestFor.llama-3.3-70b-versatile': string;
+  'models.example.llama-3.3-70b-versatile': string;
+  'models.benefit.llama-3.3-70b-versatile': string;
+  'models.desc.mixtral-8x7b-32768': string;
+  'models.bestFor.mixtral-8x7b-32768': string;
+  'models.example.mixtral-8x7b-32768': string;
+  'models.benefit.mixtral-8x7b-32768': string;
+  'models.desc.gemma2-9b-it': string;
+  'models.bestFor.gemma2-9b-it': string;
+  'models.example.gemma2-9b-it': string;
+  'models.benefit.gemma2-9b-it': string;
+  // Bedrock
+  'models.desc.bedrock-claude-opus-4.6': string;
+  'models.bestFor.bedrock-claude-opus-4.6': string;
+  'models.example.bedrock-claude-opus-4.6': string;
+  'models.benefit.bedrock-claude-opus-4.6': string;
+  'models.desc.bedrock-claude-sonnet-4.6': string;
+  'models.bestFor.bedrock-claude-sonnet-4.6': string;
+  'models.example.bedrock-claude-sonnet-4.6': string;
+  'models.benefit.bedrock-claude-sonnet-4.6': string;
+  'models.desc.bedrock-claude-haiku-4.5': string;
+  'models.bestFor.bedrock-claude-haiku-4.5': string;
+  'models.example.bedrock-claude-haiku-4.5': string;
+  'models.benefit.bedrock-claude-haiku-4.5': string;
+  'models.desc.nova-premier': string;
+  'models.bestFor.nova-premier': string;
+  'models.example.nova-premier': string;
+  'models.benefit.nova-premier': string;
+  'models.desc.nova-pro': string;
+  'models.bestFor.nova-pro': string;
+  'models.example.nova-pro': string;
+  'models.benefit.nova-pro': string;
+  'models.desc.nova-lite': string;
+  'models.bestFor.nova-lite': string;
+  'models.example.nova-lite': string;
+  'models.benefit.nova-lite': string;
+  'models.desc.nova-micro': string;
+  'models.bestFor.nova-micro': string;
+  'models.example.nova-micro': string;
+  'models.benefit.nova-micro': string;
+  'models.desc.bedrock-llama-4-maverick': string;
+  'models.bestFor.bedrock-llama-4-maverick': string;
+  'models.example.bedrock-llama-4-maverick': string;
+  'models.benefit.bedrock-llama-4-maverick': string;
+  'models.desc.bedrock-llama-4-scout': string;
+  'models.bestFor.bedrock-llama-4-scout': string;
+  'models.example.bedrock-llama-4-scout': string;
+  'models.benefit.bedrock-llama-4-scout': string;
+  'models.desc.titan-text-large': string;
+  'models.bestFor.titan-text-large': string;
+  'models.example.titan-text-large': string;
+  'models.benefit.titan-text-large': string;
+  // Provider descriptions
+  'models.provider.anthropic': string;
+  'models.provider.openai': string;
+  'models.provider.google': string;
+  'models.provider.mistral': string;
+  'models.provider.groq': string;
+  'models.provider.amazon-bedrock': string;
   'agents.inviteTitle': string;
   'agents.inviteEmailPlaceholder': string;
   'agents.inviteMessagePlaceholder': string;
@@ -110,7 +223,7 @@ export interface LocalizedArticle {
 export interface ArticleMeta {
   id: string;
   icon: string;
-  category: 'getting-started' | 'features' | 'guides';
+  category: 'essentials' | 'features' | 'guides';
 }
 
 export interface FullArticle extends ArticleMeta, LocalizedArticle {}

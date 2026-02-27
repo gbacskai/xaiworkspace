@@ -260,7 +260,7 @@ Controleer \`/usage\` regelmatig om je tokenverbruik te volgen. De voortgangsbal
     content: `
 ## Taal wijzigen
 
-Stuur \`/language\` om te kiezen uit 10 ondersteunde talen:
+Stuur \`/language\` om te kiezen uit 16 ondersteunde talen:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Stuur \`/language\` om te kiezen uit 10 ondersteunde talen:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Je taalvoorkeur wordt bij eerste gebruik automatisch gedetecteerd op basis van je xAI Workspace-instellingen, maar je kunt deze op elk moment wijzigen. Alle botberichten verschijnen in de door jou gekozen taal.
 

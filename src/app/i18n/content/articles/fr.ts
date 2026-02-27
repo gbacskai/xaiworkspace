@@ -260,7 +260,7 @@ Consultez régulièrement \`/usage\` pour suivre votre consommation de tokens. L
     content: `
 ## Changer de langue
 
-Envoyez \`/language\` pour choisir parmi 10 langues prises en charge :
+Envoyez \`/language\` pour choisir parmi 16 langues prises en charge :
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Envoyez \`/language\` pour choisir parmi 10 langues prises en charge :
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Votre préférence de langue est détectée automatiquement depuis vos paramètres xAI Workspace lors de la première utilisation, mais vous pouvez la modifier à tout moment. Tous les messages du bot s'afficheront dans la langue choisie.
 

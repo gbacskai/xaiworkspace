@@ -1,7 +1,7 @@
 export const AUTHORIZE_NL = `
 ## Wat is /authorize?
 
-Het commando \`/authorize\` koppelt externe diensten (zoals Google, GitHub of Microsoft) aan je OpenClaw AI-agent. Eenmaal gekoppeld kan je agent namens jou met deze diensten communiceren.
+Het commando \`/authorize\` koppelt externe diensten (zoals Google, GitHub of Microsoft) aan je xAI Workspace-agent. Eenmaal gekoppeld kan je agent namens jou met deze diensten communiceren.
 
 ---
 

@@ -15,29 +15,39 @@
     <div class="provider-group">
       <div class="provider-header">
         <span class="provider-badge" [attr.data-provider]="group.provider">{{ group.provider }}</span>
-        <span class="provider-desc">{{ group.description }}</span>
+        <span class="provider-desc">{{ mt('models.provider.' + group.providerKey) }}</span>
       </div>
 
       <div class="models-grid">
-        @for (model of group.models; track model.id) {
+        @for (model of visibleModels(group); track model.id) {
           <div class="model-card">
             <div class="model-card-head">
               <h2 class="model-name">{{ model.name }}</h2>
               <code class="model-id">{{ model.id }}</code>
             </div>
-            <p class="model-card-desc">{{ model.description }}</p>
+            <p class="model-card-desc">{{ mt('models.desc.' + model.id) }}</p>
             <div class="model-card-section">
               <span class="model-card-label">{{ i18n.t('models.recommendedFor') }}</span>
-              <span class="model-card-value">{{ model.bestFor }}</span>
+              <span class="model-card-value">{{ mt('models.bestFor.' + model.id) }}</span>
             </div>
             <div class="model-card-section">
               <span class="model-card-label">{{ i18n.t('models.example') }}</span>
-              <code class="model-card-example">"{{ model.example }}"</code>
+              <code class="model-card-example">"{{ mt('models.example.' + model.id) }}"</code>
             </div>
-            <div class="model-card-benefit">⚡ {{ model.benefit }}</div>
+            <div class="model-card-benefit">⚡ {{ mt('models.benefit.' + model.id) }}</div>
           </div>
         }
       </div>
+
+      @if (group.providerKey === 'amazon-bedrock') {
+        <button class="models-expand-btn" (click)="toggleBedrock()">
+          @if (bedrockExpanded()) {
+            {{ i18n.t('models.showLess') }}
+          } @else {
+            {{ i18n.t('models.showMore', { count: '' + bedrockHiddenCount() }) }}
+          }
+        </button>
+      }
     </div>
   }
 </div>

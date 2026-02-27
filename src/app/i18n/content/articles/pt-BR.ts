@@ -260,7 +260,7 @@ Verifique \`/usage\` regularmente para acompanhar seu consumo de tokens. A barra
     content: `
 ## Alterar idioma
 
-Envie \`/language\` para escolher entre 10 idiomas suportados:
+Envie \`/language\` para escolher entre 16 idiomas suportados:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Envie \`/language\` para escolher entre 10 idiomas suportados:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Seu idioma é detectado automaticamente pelas configurações do xAI Workspace no primeiro uso, mas você pode alterá-lo a qualquer momento. Todas as mensagens do bot aparecerão no idioma selecionado.
 

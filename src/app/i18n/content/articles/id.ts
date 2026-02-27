@@ -260,7 +260,7 @@ Cek \`/usage\` secara rutin untuk melacak konsumsi token Anda. Bilah progres men
     content: `
 ## Ubah bahasa
 
-Kirim \`/language\` untuk memilih dari 10 bahasa yang didukung:
+Kirim \`/language\` untuk memilih dari 16 bahasa yang didukung:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Kirim \`/language\` untuk memilih dari 10 bahasa yang didukung:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Preferensi bahasa Anda terdeteksi secara otomatis dari pengaturan xAI Workspace Anda pada penggunaan pertama, tetapi Anda dapat mengubahnya kapan saja. Semua pesan bot akan ditampilkan dalam bahasa yang Anda pilih.
 

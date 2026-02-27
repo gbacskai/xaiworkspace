@@ -260,7 +260,7 @@ Revisa \`/usage\` regularmente para seguir tu consumo de tokens. La barra de pro
     content: `
 ## Cambiar idioma
 
-Envía \`/language\` para elegir entre 10 idiomas disponibles:
+Envía \`/language\` para elegir entre 16 idiomas disponibles:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Envía \`/language\` para elegir entre 10 idiomas disponibles:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Tu preferencia de idioma se detecta automáticamente desde la configuración de xAI Workspace en el primer uso, pero puedes cambiarla en cualquier momento. Todos los mensajes del bot aparecerán en el idioma seleccionado.
 

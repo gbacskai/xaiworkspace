@@ -1,7 +1,7 @@
 export const AUTHORIZE_ID = `
 ## Apa itu /authorize?
 
-Perintah \`/authorize\` menghubungkan layanan pihak ketiga (seperti Google, GitHub, atau Microsoft) ke agen OpenClaw AI Anda. Setelah terhubung, agen Anda dapat berinteraksi dengan layanan-layanan tersebut atas nama Anda.
+Perintah \`/authorize\` menghubungkan layanan pihak ketiga (seperti Google, GitHub, atau Microsoft) ke agen xAI Workspace Anda. Setelah terhubung, agen Anda dapat berinteraksi dengan layanan-layanan tersebut atas nama Anda.
 
 ---
 

@@ -1,7 +1,7 @@
 export const AUTHORIZE_HU = `
 ## Mi az a /authorize?
 
-Az \`/authorize\` parancs harmadik fél szolgáltatásokat (mint a Google, GitHub vagy Microsoft) csatlakoztat az OpenClaw AI ügynöködhöz. A csatlakozás után az ügynököd a nevedben léphet kapcsolatba ezekkel a szolgáltatásokkal.
+Az \`/authorize\` parancs harmadik fél szolgáltatásokat (mint a Google, GitHub vagy Microsoft) csatlakoztat az xAI Workspace ügynöködhöz. A csatlakozás után az ügynököd a nevedben léphet kapcsolatba ezekkel a szolgáltatásokkal.
 
 ---
 

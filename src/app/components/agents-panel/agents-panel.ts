@@ -442,14 +442,19 @@ export class AgentsPanelComponent implements OnInit, OnDestroy {
   recommendations = computed<Recommendation[]>(() => {
     const recs: Recommendation[] = [];
 
-    // Dynamic recommendations based on chat history
     const msgs = this.chat.messages();
     const userMsgs = msgs
       .filter(m => m.sender === 'user')
       .slice(-10)
       .map(m => m.text.toLowerCase());
+    const botMsgs = msgs
+      .filter(m => m.sender === 'bot')
+      .slice(-5)
+      .map(m => m.text.toLowerCase());
     const recentText = userMsgs.join(' ');
+    const recentBotText = botMsgs.join(' ');
 
+    // Keyword-based contextual prompts
     const KEYWORD_MAP: { keywords: string[]; icon: string; text: string; prompt: string }[] = [
       { keywords: ['email', 'mail', 'inbox'], icon: '📧', text: 'Draft a reply to the last email', prompt: 'Draft a reply to the last email we discussed' },
       { keywords: ['code', 'review', 'pr', 'pull request'], icon: '🔍', text: 'Review my latest code changes', prompt: 'Review my latest code changes' },
@@ -464,6 +469,46 @@ export class AgentsPanelComponent implements OnInit, OnDestroy {
         if (entry.keywords.some(kw => recentText.includes(kw))) {
           recs.push({ icon: entry.icon, text: entry.text, prompt: entry.prompt });
         }
+      }
+    }
+
+    // Contextual follow-up prompts based on conversation flow
+    const lastUserMsg = userMsgs[userMsgs.length - 1] || '';
+    const lastBotMsg = botMsgs[botMsgs.length - 1] || '';
+
+    if (lastBotMsg || lastUserMsg) {
+      // If the bot gave a list or explanation, suggest going deeper
+      if (lastBotMsg.includes('1.') || lastBotMsg.includes('- ') || lastBotMsg.length > 500) {
+        recs.push({ icon: '🔎', text: 'Explain the first point in more detail', prompt: 'Can you explain the first point in more detail?' });
+      }
+      // If there's code in the conversation
+      if (recentBotText.includes('```') || recentText.includes('code') || recentText.includes('function')) {
+        recs.push(
+          { icon: '🧪', text: 'Write tests for this code', prompt: 'Write unit tests for the code we just discussed' },
+          { icon: '🔧', text: 'Refactor and improve it', prompt: 'How can this code be refactored or improved?' },
+        );
+      }
+      // If discussion involved writing/content
+      if (recentText.includes('write') || recentText.includes('draft') || recentBotText.includes('dear') || recentBotText.includes('subject:')) {
+        recs.push(
+          { icon: '✏️', text: 'Make it more concise', prompt: 'Can you make that shorter and more concise?' },
+          { icon: '🎯', text: 'Change the tone to formal', prompt: 'Rewrite that in a more formal/professional tone' },
+        );
+      }
+      // If the bot mentioned alternatives or options
+      if (recentBotText.includes('alternatively') || recentBotText.includes('option') || recentBotText.includes('approach')) {
+        recs.push({ icon: '🔄', text: 'Compare the alternatives', prompt: 'Can you compare the alternatives and recommend one?' });
+      }
+      // General follow-up prompts when there's active conversation
+      if (msgs.length >= 2) {
+        recs.push(
+          { icon: '➡️', text: 'What should I do next?', prompt: 'Based on our conversation, what should I do next?' },
+          { icon: '💡', text: 'Any other suggestions?', prompt: 'Do you have any other suggestions or ideas related to what we discussed?' },
+        );
+      }
+      // If the conversation is about a specific topic, suggest expanding
+      if (lastUserMsg.length > 20) {
+        recs.push({ icon: '🌐', text: 'Give me more examples', prompt: 'Can you give me more examples of that?' });
       }
     }
 

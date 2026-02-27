@@ -1,7 +1,7 @@
 export const AUTHORIZE_KO = `
 ## /authorize란?
 
-\`/authorize\` 명령은 Google, GitHub, Microsoft 같은 제3자 서비스를 OpenClaw AI 에이전트에 연결합니다. 연결이 완료되면 에이전트가 사용자를 대신하여 해당 서비스와 상호작용할 수 있습니다.
+\`/authorize\` 명령은 Google, GitHub, Microsoft 같은 제3자 서비스를 xAI Workspace 에이전트에 연결합니다. 연결이 완료되면 에이전트가 사용자를 대신하여 해당 서비스와 상호작용할 수 있습니다.
 
 ---
 

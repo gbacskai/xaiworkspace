@@ -1,7 +1,7 @@
 export const AUTHORIZE_ZH = `
 ## 什么是 /authorize？
 
-\`/authorize\` 命令用于将第三方服务（如 Google、GitHub 或 Microsoft）连接到您的 OpenClaw AI 助手。连接后，您的助手可以代您与这些服务进行交互。
+\`/authorize\` 命令用于将第三方服务（如 Google、GitHub 或 Microsoft）连接到您的 xAI Workspace 助手。连接后，您的助手可以代您与这些服务进行交互。
 
 ---
 

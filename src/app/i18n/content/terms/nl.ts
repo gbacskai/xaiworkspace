@@ -1,7 +1,7 @@
 export const TERMS_NL = `
 ## Dienstbeschrijving
 
-OpenClaw AI is een persoonlijke AI-assistentdienst, geëxploiteerd door xShopper Pty Ltd en geleverd via xAI Workspace. Elke abonnee krijgt een eigen dedicated AI-agentinstantie.
+xAI Workspace is een persoonlijke AI-assistentdienst, geëxploiteerd door xShopper Pty Ltd en geleverd via xAI Workspace. Elke abonnee krijgt een eigen dedicated AI-agentinstantie.
 
 ---
 
@@ -19,7 +19,7 @@ Actuele abonnementen en prijzen zijn beschikbaar in de app via /billing. Abonnem
 
 ## Aanvaardbaar gebruik
 
-Je mag OpenClaw AI niet gebruiken om illegale inhoud te genereren, intellectueel eigendom van derden te schenden of geautomatiseerd misbruik te plegen. Wij behouden ons het recht voor om accounts die deze voorwaarden schenden op te schorten.
+Je mag xAI Workspace niet gebruiken om illegale inhoud te genereren, intellectueel eigendom van derden te schenden of geautomatiseerd misbruik te plegen. Wij behouden ons het recht voor om accounts die deze voorwaarden schenden op te schorten.
 
 ---
 

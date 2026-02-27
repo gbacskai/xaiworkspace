@@ -260,7 +260,7 @@ Rendszeresen ellenőrizd a \`/usage\` parancsot a tokenfogyasztásod nyomon köv
     content: `
 ## Nyelv megváltoztatása
 
-Küldj \`/language\` üzenetet a 10 támogatott nyelv közüli választáshoz:
+Küldj \`/language\` üzenetet a 16 támogatott nyelv közüli választáshoz:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Küldj \`/language\` üzenetet a 10 támogatott nyelv közüli választáshoz:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 A nyelvi beállításod automatikusan felismerésre kerül az xAI Workspace beállításaidból az első használatkor, de bármikor megváltoztathatod. Minden bot-üzenet a kiválasztott nyelven jelenik meg.
 

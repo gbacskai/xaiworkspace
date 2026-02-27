@@ -260,7 +260,7 @@ Check \`/usage\` regularly to track your token consumption. The progress bar sho
     content: `
 ## Change language
 
-Send \`/language\` to choose from 10 supported languages:
+Send \`/language\` to choose from 16 supported languages:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Send \`/language\` to choose from 10 supported languages:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Your language preference is auto-detected from your xAI Workspace settings on first use, but you can change it anytime. All bot messages will appear in your selected language.
 

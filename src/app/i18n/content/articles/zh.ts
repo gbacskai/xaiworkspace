@@ -260,7 +260,7 @@ FileZilla 是一个免费的跨平台 SFTP 客户端。按以下步骤连接到�
     content: `
 ## 更改语言
 
-发送 \`/language\` 从 10 种支持的语言中选择：
+发送 \`/language\` 从 16 种支持的语言中选择：
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ FileZilla 是一个免费的跨平台 SFTP 客户端。按以下步骤连接到�
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 首次使用时，系统会根据您的 xAI Workspace 设置自动检测语言，但您随时可以更改。所有机器人消息将以您选择的语言显示。
 

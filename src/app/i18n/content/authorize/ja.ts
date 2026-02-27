@@ -1,7 +1,7 @@
 export const AUTHORIZE_JA = `
 ## /authorize とは？
 
-\`/authorize\` コマンドは、Google、GitHub、Microsoft などのサードパーティーサービスを OpenClaw AI エージェントに連携します。連携後、エージェントはこれらのサービスをあなたの代わりに操作できるようになります。
+\`/authorize\` コマンドは、Google、GitHub、Microsoft などのサードパーティーサービスを xAI Workspace エージェントに連携します。連携後、エージェントはこれらのサービスをあなたの代わりに操作できるようになります。
 
 ---
 

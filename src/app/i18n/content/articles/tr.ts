@@ -260,7 +260,7 @@ Token tuketiminizi takip etmek icin duzenlii olarak \`/usage\` kontrol edin. Ile
     content: `
 ## Dil degistirme
 
-10 desteklenen dil arasidan secim yapmak icin \`/language\` gonderin:
+16 desteklenen dil arasidan secim yapmak icin \`/language\` gonderin:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Token tuketiminizi takip etmek icin duzenlii olarak \`/usage\` kontrol edin. Ile
 | 🇧🇷 Portugues | 🇩🇪 Deutsch |
 | 🇫🇷 Francais | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Dil tercihiniz ilk kullanimda xAI Workspace ayarlarinizdan otomatik olarak alginlanir, ancak istediginiz zaman degistirebilirsiniz. Tum bot mesajlari sectiginiz dilde gorunecektir.
 

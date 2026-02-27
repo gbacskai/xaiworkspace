@@ -1,7 +1,7 @@
 export const AUTHORIZE_TR = `
 ## /authorize nedir?
 
-\`/authorize\` komutu, ucuncu taraf hizmetlerini (Google, GitHub veya Microsoft gibi) OpenClaw AI ajaniniza baglar. Baglandiktan sonra ajaniniz bu hizmetlerle sizin adiniza etkilesimde bulunabilir.
+\`/authorize\` komutu, ucuncu taraf hizmetlerini (Google, GitHub veya Microsoft gibi) xAI Workspace ajaniniza baglar. Baglandiktan sonra ajaniniz bu hizmetlerle sizin adiniza etkilesimde bulunabilir.
 
 ---
 

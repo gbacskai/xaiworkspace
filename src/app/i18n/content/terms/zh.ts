@@ -1,7 +1,7 @@
 export const TERMS_ZH = `
 ## 服务说明
 
-OpenClaw AI 是由 xShopper Pty Ltd 运营的个人 AI 助手服务，通过 xAI Workspace 提供。每位订阅用户将获得一个专属 AI 助手实例。
+xAI Workspace 是由 xShopper Pty Ltd 运营的个人 AI 助手服务，通过 xAI Workspace 提供。每位订阅用户将获得一个专属 AI 助手实例。
 
 ---
 
@@ -19,7 +19,7 @@ OpenClaw AI 是由 xShopper Pty Ltd 运营的个人 AI 助手服务，通过 xAI
 
 ## 合理使用
 
-您不得使用 OpenClaw AI 生成违法内容、侵犯第三方知识产权或实施自动化滥用行为。我们保留暂停违反本条款账号的权利。
+您不得使用 xAI Workspace 生成违法内容、侵犯第三方知识产权或实施自动化滥用行为。我们保留暂停违反本条款账号的权利。
 
 ---
 

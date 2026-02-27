@@ -1,7 +1,7 @@
 export const AUTHORIZE_FR = `
 ## À quoi sert /authorize ?
 
-La commande \`/authorize\` connecte des services tiers (comme Google, GitHub ou Microsoft) à votre agent OpenClaw AI. Une fois la connexion établie, votre agent peut interagir avec ces services en votre nom.
+La commande \`/authorize\` connecte des services tiers (comme Google, GitHub ou Microsoft) à votre agent xAI Workspace. Une fois la connexion établie, votre agent peut interagir avec ces services en votre nom.
 
 ---
 

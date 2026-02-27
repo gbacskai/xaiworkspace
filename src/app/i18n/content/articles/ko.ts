@@ -269,6 +269,9 @@ FileZilla를 실행하고 **File → Site Manager**로 이동하세요 (Windows/
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 언어 설정은 처음 사용 시 xAI Workspace 설정에서 자동으로 감지되지만, 언제든지 변경할 수 있습니다. 모든 봇 메시지가 선택한 언어로 표시됩니다.
 

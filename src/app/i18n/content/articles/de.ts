@@ -260,7 +260,7 @@ Prüfe regelmäßig \`/usage\`, um deinen Token-Verbrauch zu verfolgen. Der Fort
     content: `
 ## Sprache ändern
 
-Sende \`/language\`, um aus 10 unterstützten Sprachen zu wählen:
+Sende \`/language\`, um aus 16 unterstützten Sprachen zu wählen:
 
 | | |
 |---|---|
@@ -269,6 +269,9 @@ Sende \`/language\`, um aus 10 unterstützten Sprachen zu wählen:
 | 🇧🇷 Português | 🇩🇪 Deutsch |
 | 🇫🇷 Français | 🇯🇵 日本語 |
 | 🇷🇺 Русский | 🇮🇳 हिन्दी |
+| 🇰🇷 한국어 | 🇹🇷 Türkçe |
+| 🇮🇹 Italiano | 🇮🇩 Bahasa Indonesia |
+| 🇳🇱 Nederlands | 🇭🇺 Magyar |
 
 Deine Spracheinstellung wird bei der ersten Nutzung automatisch aus deinen xAI Workspace-Einstellungen erkannt, kann aber jederzeit geändert werden. Alle Bot-Nachrichten erscheinen in deiner gewählten Sprache.
 

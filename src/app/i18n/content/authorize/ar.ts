@@ -1,7 +1,7 @@
 export const AUTHORIZE_AR = `
 ## ما هو /authorize؟
 
-يربط أمر \`/authorize\` خدمات الأطراف الثالثة (مثل Google وGitHub وMicrosoft) بوكيل OpenClaw AI الخاص بك. بعد الربط، يستطيع وكيلك التفاعل مع هذه الخدمات بالنيابة عنك.
+يربط أمر \`/authorize\` خدمات الأطراف الثالثة (مثل Google وGitHub وMicrosoft) بوكيل xAI Workspace الخاص بك. بعد الربط، يستطيع وكيلك التفاعل مع هذه الخدمات بالنيابة عنك.
 
 ---
 
