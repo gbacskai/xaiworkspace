@@ -186,6 +186,8 @@
       <a routerLink="/privacy">{{ i18n.t('footer.privacy') }}</a>
       <span class="footer-sep"> · </span>
       <a routerLink="/terms">{{ i18n.t('footer.terms') }}</a>
+      <span class="footer-sep"> · </span>
+      <a routerLink="/compliance">{{ i18n.t('footer.compliance') }}</a>
       @for (p of linkedProviders(); track p.key) {
         <span class="footer-sep"> · </span>
         <button class="logout-link" (click)="logoutProvider(p.key)">{{ i18n.t('footer.logout', { provider: p.label }) }}</button>

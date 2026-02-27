@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, OnDestroy, computed, signal } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, computed, signal, effect } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { TelegramService } from '../../services/telegram.service';
 import { AuthService } from '../../services/auth.service';
@@ -24,6 +24,11 @@ export class HomePage implements OnInit, OnDestroy {
   private linkTimers: ReturnType<typeof setTimeout>[] = [];
 
   linkingProvider = signal<string | null>(null);
+
+  private authFailedEffect = effect(() => {
+    this.auth.authFailed(); // track the signal
+    this.linkingProvider.set(null);
+  }, { allowSignalWrites: true });
 
   locales = SUPPORTED_LOCALES;
   localeLabels = LOCALE_LABELS;
@@ -55,7 +60,7 @@ export class HomePage implements OnInit, OnDestroy {
     let attempts = 0;
     const poll = () => {
       if (check()) { onSuccess(); return; }
-      if (++attempts >= maxAttempts) return;
+      if (++attempts >= maxAttempts) { this.linkingProvider.set(null); return; }
       this.linkTimers.push(setTimeout(poll, 500));
     };
     this.linkTimers.push(setTimeout(poll, 1000));

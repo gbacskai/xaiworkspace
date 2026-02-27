@@ -37,6 +37,8 @@ export class AuthService {
   readonly googleUser = signal<GoogleUser | null>(null);
   readonly githubUser = signal<GitHubUser | null>(null);
   readonly linkedinUser = signal<LinkedInUser | null>(null);
+  /** Incremented whenever an auth attempt fails or is cancelled */
+  readonly authFailed = signal(0);
   readonly isAuthenticated = computed(() => !!this.webUser() || !!this.googleUser() || !!this.githubUser() || !!this.linkedinUser());
   readonly currentProvider = computed<'telegram' | 'google' | 'github' | 'linkedin' | null>(() => {
     if (this.linkedinUser()) return 'linkedin';
@@ -140,28 +142,29 @@ export class AuthService {
 
   openTelegramLogin(): void {
     const tgLogin = (window as any).Telegram?.Login;
-    if (tgLogin) {
-      tgLogin.auth(
-        { bot_id: environment.botId, request_access: 'write' },
-        (data: TelegramLoginUser | false) => {
-          if (data) {
-            this.login(data);
-          }
-        },
-      );
-    }
+    if (!tgLogin) { this.authFailed.update(n => n + 1); return; }
+    tgLogin.auth(
+      { bot_id: environment.botId, request_access: 'write' },
+      (data: TelegramLoginUser | false) => {
+        if (data) {
+          this.login(data);
+        } else {
+          this.authFailed.update(n => n + 1);
+        }
+      },
+    );
   }
 
   loginWithGoogle(): void {
-    if (typeof google === 'undefined' || !google.accounts?.oauth2) return;
-    if (!this.googleClientId) return;
+    if (typeof google === 'undefined' || !google.accounts?.oauth2) { this.authFailed.update(n => n + 1); return; }
+    if (!this.googleClientId) { this.authFailed.update(n => n + 1); return; }
 
     const codeClient = google.accounts.oauth2.initCodeClient({
       client_id: this.googleClientId,
       scope: 'openid email profile https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/calendar',
       ux_mode: 'popup',
       callback: (response: { code: string; error?: string }) => {
-        if (response.error || !response.code) return;
+        if (response.error || !response.code) { this.authFailed.update(n => n + 1); return; }
         // We only have the auth code — email/name will come from the backend after token exchange.
         // Store a minimal GoogleUser so the WS auth payload can be built.
         const user: GoogleUser = {
@@ -179,17 +182,28 @@ export class AuthService {
 
   loginWithGithub(): void {
     const routerUrl = environment.routerUrl;
-    if (!routerUrl) return;
+    if (!routerUrl) { this.authFailed.update(n => n + 1); return; }
 
     // Generate state for CSRF protection
     const state = crypto.randomUUID();
     sessionStorage.setItem('github_oauth_state', state);
 
-    window.open(
+    const popup = window.open(
       `${routerUrl}/auth/github/start?state=${encodeURIComponent(state)}`,
       'github_auth',
       'width=600,height=700,left=200,top=100',
     );
+
+    if (!popup) { this.authFailed.update(n => n + 1); return; }
+
+    // Poll for popup close — if user closes the popup without completing auth
+    const popupPoll = setInterval(() => {
+      if (popup.closed) {
+        clearInterval(popupPoll);
+        // Give a brief delay for the storage event to fire if auth succeeded
+        setTimeout(() => { if (!this.githubUser()) this.authFailed.update(n => n + 1); }, 500);
+      }
+    }, 500);
 
     // Remove previous listener if still active
     if (this.ghStorageHandler) {
@@ -234,16 +248,26 @@ export class AuthService {
 
   loginWithLinkedin(): void {
     const routerUrl = environment.routerUrl;
-    if (!routerUrl) return;
+    if (!routerUrl) { this.authFailed.update(n => n + 1); return; }
 
     const state = crypto.randomUUID();
     sessionStorage.setItem('linkedin_oauth_state', state);
 
-    window.open(
+    const popup = window.open(
       `${routerUrl}/auth/linkedin/start?state=${encodeURIComponent(state)}`,
       'linkedin_auth',
       'width=600,height=700,left=200,top=100',
     );
+
+    if (!popup) { this.authFailed.update(n => n + 1); return; }
+
+    // Poll for popup close — if user closes the popup without completing auth
+    const popupPoll = setInterval(() => {
+      if (popup.closed) {
+        clearInterval(popupPoll);
+        setTimeout(() => { if (!this.linkedinUser()) this.authFailed.update(n => n + 1); }, 500);
+      }
+    }, 500);
 
     if (this.liStorageHandler) {
       window.removeEventListener('storage', this.liStorageHandler);

@@ -1,0 +1,10 @@
+<app-back-button />
+
+<div class="compliance">
+  <div class="compliance-header">
+    <h1>{{ i18n.t('compliance.title') }}</h1>
+    <p class="compliance-sub">{{ i18n.t('compliance.lastUpdated') }}</p>
+  </div>
+
+  <div class="compliance-body" [innerHTML]="html"></div>
+</div>

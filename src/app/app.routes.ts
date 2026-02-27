@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomePage } from './pages/home/home';
 import { ArticlePage } from './pages/article/article';
 import { AboutPage } from './pages/about/about';
+import { CompliancePage } from './pages/compliance/compliance';
 import { PrivacyPage } from './pages/privacy/privacy';
 import { TermsPage } from './pages/terms/terms';
 import { AuthorizePage } from './pages/authorize/authorize';
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'analytics', loadComponent: () => import('./pages/analytics/analytics').then(m => m.AnalyticsPage) },
   { path: 'article/:id', component: ArticlePage },
   { path: 'authorize', component: AuthorizePage },
+  { path: 'compliance', component: CompliancePage },
   { path: 'invite', component: InvitePage },
   { path: 'models', component: ModelsPage },
   { path: 'privacy', component: PrivacyPage },

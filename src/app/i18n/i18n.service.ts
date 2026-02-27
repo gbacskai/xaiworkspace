@@ -92,6 +92,24 @@ import { AUTHORIZE_ID } from './content/authorize/id';
 import { AUTHORIZE_NL } from './content/authorize/nl';
 import { AUTHORIZE_HU } from './content/authorize/hu';
 
+// Compliance content
+import { COMPLIANCE_EN } from './content/compliance/en';
+import { COMPLIANCE_ZH } from './content/compliance/zh';
+import { COMPLIANCE_ES } from './content/compliance/es';
+import { COMPLIANCE_AR } from './content/compliance/ar';
+import { COMPLIANCE_PT_BR } from './content/compliance/pt-BR';
+import { COMPLIANCE_DE } from './content/compliance/de';
+import { COMPLIANCE_FR } from './content/compliance/fr';
+import { COMPLIANCE_JA } from './content/compliance/ja';
+import { COMPLIANCE_RU } from './content/compliance/ru';
+import { COMPLIANCE_HI } from './content/compliance/hi';
+import { COMPLIANCE_KO } from './content/compliance/ko';
+import { COMPLIANCE_TR } from './content/compliance/tr';
+import { COMPLIANCE_IT } from './content/compliance/it';
+import { COMPLIANCE_ID } from './content/compliance/id';
+import { COMPLIANCE_NL } from './content/compliance/nl';
+import { COMPLIANCE_HU } from './content/compliance/hu';
+
 // About content
 import { ABOUT_EN } from './content/about/en';
 import { ABOUT_ZH } from './content/about/zh';
@@ -138,6 +156,12 @@ const AUTHORIZE_CONTENT: Record<SupportedLocale, string> = {
   en: AUTHORIZE_EN, zh: AUTHORIZE_ZH, es: AUTHORIZE_ES, ar: AUTHORIZE_AR, 'pt-BR': AUTHORIZE_PT_BR,
   de: AUTHORIZE_DE, fr: AUTHORIZE_FR, ja: AUTHORIZE_JA, ru: AUTHORIZE_RU, hi: AUTHORIZE_HI,
   ko: AUTHORIZE_KO, tr: AUTHORIZE_TR, it: AUTHORIZE_IT, id: AUTHORIZE_ID, nl: AUTHORIZE_NL, hu: AUTHORIZE_HU,
+};
+
+const COMPLIANCE_CONTENT: Record<SupportedLocale, string> = {
+  en: COMPLIANCE_EN, zh: COMPLIANCE_ZH, es: COMPLIANCE_ES, ar: COMPLIANCE_AR, 'pt-BR': COMPLIANCE_PT_BR,
+  de: COMPLIANCE_DE, fr: COMPLIANCE_FR, ja: COMPLIANCE_JA, ru: COMPLIANCE_RU, hi: COMPLIANCE_HI,
+  ko: COMPLIANCE_KO, tr: COMPLIANCE_TR, it: COMPLIANCE_IT, id: COMPLIANCE_ID, nl: COMPLIANCE_NL, hu: COMPLIANCE_HU,
 };
 
 const ABOUT_CONTENT: Record<SupportedLocale, string> = {
@@ -224,6 +248,10 @@ export class I18nService {
 
   getAuthorizeContent(): string {
     return AUTHORIZE_CONTENT[this.locale()] ?? AUTHORIZE_CONTENT['en'];
+  }
+
+  getComplianceContent(): string {
+    return COMPLIANCE_CONTENT[this.locale()] ?? COMPLIANCE_CONTENT['en'];
   }
 
   getAboutContent(): string {

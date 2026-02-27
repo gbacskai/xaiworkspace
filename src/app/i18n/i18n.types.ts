@@ -18,12 +18,15 @@ export interface UiStrings {
   'footer.company': string;
   'footer.privacy': string;
   'footer.terms': string;
+  'footer.compliance': string;
   'article.back': string;
   'article.copied': string;
   'privacy.title': string;
   'privacy.lastUpdated': string;
   'terms.title': string;
   'terms.lastUpdated': string;
+  'compliance.title': string;
+  'compliance.lastUpdated': string;
   'authorize.title': string;
   'authorize.subtitle': string;
   'back': string;
