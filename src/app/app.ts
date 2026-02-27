@@ -15,9 +15,7 @@ import { ToastComponent } from './components/toast/toast';
   template: `
     <app-toast />
     <div id="main-content" class="content-frame" [class.content-frame--collapsed]="sidebarCollapsed()">
-      @if (!sidebarCollapsed()) {
-        <router-outlet />
-      }
+      <router-outlet />
     </div>
     @if (showChat()) {
       <button class="collapse-toggle" [class.collapse-toggle--labeled]="collapseLabel()" (click)="toggleSidebar()" aria-label="Toggle sidebar">
