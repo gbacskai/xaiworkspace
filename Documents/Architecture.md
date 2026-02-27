@@ -305,6 +305,12 @@ The `viewport-fit=cover` meta tag enables full-screen rendering behind the notch
 | `npm run open:ios` | Build, sync, and open Xcode |
 | `npm run open:android` | Build, sync, and open Android Studio |
 | `npm run e2e` | Run Playwright E2E tests |
+| `npm run gplay:metadata` | Upload store listings to Google Play |
+| `npm run gplay:publish` | Build + upload AAB to Google Play internal track |
+| `npm run devicefarm` | Build APK + fuzz test on real Android devices |
+| `npm run devicefarm:browser` | Smoke tests on Device Farm desktop browsers |
+| `npm run devicefarm:chrome` | Desktop browser tests (Chrome only) |
+| `npm run devicefarm:firefox` | Desktop browser tests (Firefox only) |
 
 ### Build Pipeline
 
@@ -330,7 +336,57 @@ AWS Amplify auto-deploys from the `master` branch. Configuration in `amplify.yml
 | Platform | Tool | Target |
 |----------|------|--------|
 | iOS | Xcode Archive -> App Store Connect | App Store |
-| Android | Android Studio signed AAB | Google Play Console |
+| Android | `scripts/google-play-publish.mjs` (service account JWT) | Google Play Console |
+
+### Google Play Store Listing
+
+Store metadata is managed via Fastlane directory structure in `fastlane/metadata/android/`:
+
+| Asset | Location | Details |
+|-------|----------|---------|
+| Store listings | `{locale}/title.txt`, `short_description.txt`, `full_description.txt` | 16 locales |
+| Changelogs | `{locale}/changelogs/4.txt` | Per-versionCode release notes |
+| Feature graphic | `en-US/images/featureGraphic.png` | 1024x500, blue gradient with model badges |
+| Store icon | `en-US/images/icon.png` | 512x512, resized from `public/icon-1024.png` |
+| Privacy policy | `public/privacy.html` | Static HTML (no JS), served at `/privacy.html` |
+
+**Locale mapping** (app code → Google Play BCP-47):
+`en→en-US`, `zh→zh-CN`, `es→es-ES`, `ar→ar`, `pt-BR→pt-BR`, `de→de-DE`, `fr→fr-FR`, `ja→ja-JP`, `ru→ru-RU`, `hi→hi-IN`, `ko→ko-KR`, `tr→tr-TR`, `it→it-IT`, `id→id`, `nl→nl-NL`, `hu→hu-HU`
+
+**Upload pipeline**:
+- `scripts/google-play-metadata.mjs` — reads Fastlane dirs, uploads via Android Publisher API v3
+- `scripts/generate-feature-graphic.mjs` — generates graphics from SVG using `sharp`
+- Auth: service account JWT (`~/.config/xaiworkspace/xaiworkspace-c7e88e486380.json`)
+
+### Testing Infrastructure
+
+#### Playwright E2E (Local)
+
+13 spec files in `e2e/tests/` covering home, auth, navigation, chat, agents, branding, responsive, i18n, models, content pages, and invites. Runs on Chromium, Firefox, and Mobile Chrome (Pixel 7 emulation).
+
+#### AWS Device Farm — Mobile (Real Devices)
+
+| Setting | Value |
+|---------|-------|
+| Project | `xAIWorkspace` (`34d45d4e-2bd1-4a07-b217-e8796c1b4802`) |
+| Region | `us-west-2` |
+| Device pool | `xAIWorkspace-TestDevices` — Android 9+, max 5 devices |
+| Test type | Built-in fuzz (6000 random UI events) |
+| Script | `scripts/device-farm-test.mjs` |
+| Auth | AWS CLI profile `aws_amplify_docflow4` |
+
+Flow: `ng build` → `cap sync` → `gradlew assembleDebug` → upload APK → schedule fuzz run
+
+#### AWS Device Farm — Desktop Browser
+
+| Setting | Value |
+|---------|-------|
+| Test Grid | `xAIWorkspace-DesktopBrowser` (`ae6b7a7a-6d02-4313-86a6-f3076f5e64f1`) |
+| Browsers | Chrome, Firefox |
+| Tests | 8 Selenium WebDriver smoke tests against live site |
+| Script | `scripts/device-farm-browser.mjs` |
+
+Tests cover: hero rendering, OAuth buttons, footer links, page navigation (/about, /privacy), section headers, wildcard redirect, page title.
 
 ## Backend Integration
 

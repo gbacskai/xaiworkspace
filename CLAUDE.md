@@ -17,6 +17,11 @@ npm run e2e                  # Playwright E2E tests
 npm run gplay:auth           # One-time Google Play OAuth login
 npm run gplay:build          # Build Android AAB
 npm run gplay:publish        # Build + upload to Google Play internal track
+npm run gplay:metadata       # Upload store listings + graphics to Google Play
+npm run devicefarm           # Build APK + fuzz test on real Android devices
+npm run devicefarm:browser   # Smoke tests on Device Farm desktop browsers (Chrome + Firefox)
+npm run devicefarm:chrome    # Desktop browser tests (Chrome only)
+npm run devicefarm:firefox   # Desktop browser tests (Firefox only)
 ```
 
 ## Architecture
@@ -97,6 +102,24 @@ Environment config: `src/environments/environment.ts`
 - `GoogleService-Info.plist` — Firebase iOS config
 - `~/.config/xaiworkspace/google-play-token.json` — OAuth refresh token
 - `~/.config/xaiworkspace/release.keystore` — release signing keystore
+
+## Google Play Store Listing
+
+Store metadata lives in `fastlane/metadata/android/{locale}/` with 16 locales. Key files:
+- `title.txt`, `short_description.txt`, `full_description.txt`, `changelogs/{versionCode}.txt`
+- `en-US/images/featureGraphic.png` (1024x500), `icon.png` (512x512)
+- `public/privacy.html` — static privacy policy (no JS, required by Google Play)
+
+Scripts: `scripts/google-play-metadata.mjs` (upload), `scripts/generate-feature-graphic.mjs` (graphics)
+
+## Testing (AWS Device Farm)
+
+| Type | Script | What it does |
+|------|--------|-------------|
+| Mobile fuzz | `scripts/device-farm-test.mjs` | Builds debug APK, uploads to Device Farm, runs 6000 random UI events on Android 9+ real devices |
+| Desktop browser | `scripts/device-farm-browser.mjs` | 8 Selenium smoke tests on Chrome + Firefox via Device Farm test grid |
+
+AWS profile: `aws_amplify_docflow4`, region: `us-west-2`
 
 ## GDPR Compliance
 
