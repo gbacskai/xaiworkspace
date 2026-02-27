@@ -2,7 +2,6 @@
   <div class="agents-header">
     <div class="agents-tabs">
       <button class="agents-tab" [class.agents-tab--active]="activeTab() === 'agents'" (click)="switchTab('agents')">{{ i18n.t('panel.agents') }}</button>
-      <button class="agents-tab" [class.agents-tab--active]="activeTab() === 'analytics'" (click)="switchTab('analytics')">{{ i18n.t('panel.analytics') }}</button>
       <button class="agents-tab" [class.agents-tab--active]="activeTab() === 'recommendations'" (click)="switchTab('recommendations')">{{ i18n.t('panel.recommendations') }}</button>
     </div>
     <button class="agents-close" (click)="agents.toggle()" aria-label="Close agents">&times;</button>
@@ -172,18 +171,6 @@
             }
           </div>
         }
-      }
-    }
-
-    @if (activeTab() === 'analytics') {
-      @defer {
-        <app-analytics [embedded]="true" />
-      } @loading {
-        <div class="agents-skeleton">
-          @for (i of [1, 2, 3]; track i) {
-            <div class="skeleton-row"></div>
-          }
-        </div>
       }
     }
 

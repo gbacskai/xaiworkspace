@@ -367,7 +367,7 @@ export class App implements OnInit, OnDestroy {
   showChat = computed(() => !this.tg.isTelegram && this.auth.isAuthenticated());
   sidebarCollapsed = signal(false);
   collapseLabel = signal<string>('Help');
-  agentsLabel = signal<string>('Analytics, Tips');
+  agentsLabel = signal<string>('Agents, Tips');
   agentsLabelFlashing = signal(false);
 
   private helpTimerId: ReturnType<typeof setTimeout> | null = null;

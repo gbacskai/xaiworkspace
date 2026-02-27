@@ -8,7 +8,7 @@ import { TelegramService } from '../../services/telegram.service';
 import { ToastService } from '../../services/toast.service';
 import { I18nService } from '../../i18n/i18n.service';
 
-type PanelTab = 'agents' | 'analytics' | 'recommendations';
+type PanelTab = 'agents' | 'recommendations';
 
 interface Recommendation {
   icon: string;
@@ -59,12 +59,10 @@ const AGENT_TEMPLATES: AgentTemplate[] = [
   { name: 'crm-updater', label: 'CRM Updater', content: `# CRM Updater\n**Model**: claude-sonnet-4-6\n**Priority**: medium\n**Purpose**: Keep CRM records up to date\n**Trigger**: After client interactions or deal updates\n**Behavior**:\n- Extract key details from emails, meetings, and notes\n- Update the relevant CRM fields including contact info, deal stage, and next steps\n- Flag records that need manual review\n**Run**: \`/subagents spawn main "Read and execute Agents/CRMUpdater.md" --model claude-sonnet-4-6\`` },
 ];
 
-import { AnalyticsPage } from '../../pages/analytics/analytics';
-
 @Component({
   selector: 'app-agents-panel',
   standalone: true,
-  imports: [FormsModule, AnalyticsPage],
+  imports: [FormsModule],
   templateUrl: './agents-panel.html',
   styleUrl: './agents-panel.scss',
 })
@@ -515,7 +513,7 @@ export class AgentsPanelComponent implements OnInit, OnDestroy {
     // Static recommendations (always shown)
     recs.push(
       { icon: '❓', text: this.i18n.t('recommendations.help'), prompt: '/help' },
-      { icon: '📊', text: this.i18n.t('recommendations.usage'), prompt: '', action: () => this.switchTab('analytics') },
+      { icon: '📊', text: this.i18n.t('recommendations.usage'), prompt: '/usage' },
       { icon: '🤖', text: this.i18n.t('recommendations.newAgent'), prompt: '', action: () => { this.switchTab('agents'); this.startCreate(); } },
       { icon: '📋', text: this.i18n.t('recommendations.summarize'), prompt: 'Summarize our conversation so far' },
     );
