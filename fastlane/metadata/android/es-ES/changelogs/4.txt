@@ -1,0 +1,8 @@
+Lanzamiento inicial de xAI Workspace para Android.
+
+• Chat IA multimodelo con más de 20 modelos (Claude, GPT-4o, Gemini, Mistral, Llama)
+• Agentes IA personalizados para flujos de trabajo empresariales
+• Autenticación biométrica (huella dactilar / Face ID)
+• Notificaciones push para respuestas de los agentes
+• 16 idiomas con soporte completo de RTL
+• Compatibilidad con deep links y universal links

@@ -1,0 +1,22 @@
+xAI Workspace, küçük ve orta ölçekli işletmeler için tasarlanmış çok modelli bir yapay zeka platformudur. Claude, GPT-4o, Gemini, Mistral ve Llama dahil 20'den fazla öncü yapay zeka modeline tek bir çalışma alanından erişin.
+
+TEMEL ÖZELLİKLER
+
+• Çok modelli yapay zeka sohbeti — Konuşma sırasında modeller arasında geçiş yapın. Yanıtları karşılaştırın. Her görev için en uygun modeli kullanın.
+• Özel yapay zeka ajanları — İşletme süreçleriniz için özelleştirilmiş ajanlar oluşturun: müşteri desteği, içerik üretimi, veri analizi ve çok daha fazlası.
+• İşletme analitiği — Yapay zeka kullanımını izleyin, token harcamalarını takip edin ve ekip bütçelerini yerleşik panolarla yönetin.
+• 16 dil desteği — Arapça (sağdan sola) dahil tam arayüz yerelleştirmesi. Tercih ettiğiniz dilde çalışın.
+• Kurumsal güvenlik — Uçtan uca şifreleme, biyometrik kimlik doğrulama (Face ID / parmak izi) ve GDPR uyumlu veri yönetimi.
+• Çoklu platform desteği — Web, Android, iOS ve Telegram'da kesintisiz deneyim.
+
+FİYATLANDIRMA
+
+Ücretsiz katmanla başlayın, ardından esnek kullandıkça öde veya abonelik planlarıyla ölçeklendirin. Gizli ücret yoktur — yalnızca kullandığınız yapay zeka tokenleri için ödeme yaparsınız.
+
+KİMLER İÇİN
+
+Güçlü yapay zekaya karmaşıklık olmadan ihtiyaç duyan serbest çalışanlar, girişimler, ajanslar ve KOBİ ekipleri için. Tek çalışma alanı, tüm modeller, anında verimlilik.
+
+GİZLİLİK VE GÜVENLİK
+
+Verileriniz sizin kalır. Kişisel verileri satmıyoruz. GDPR (AB), Privacy Act 1988 (Avustralya) ve uluslararası veri aktarım güvencelerine uyumluyuz. Gizlilik politikasının tamamı için: https://xaiworkspace.com/privacy.html

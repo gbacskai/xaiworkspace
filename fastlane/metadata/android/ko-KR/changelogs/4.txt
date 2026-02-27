@@ -1,0 +1,8 @@
+xAI Workspace Android 버전 최초 출시.
+
+• 20개 이상의 모델을 지원하는 멀티 모델 AI 채팅 (Claude, GPT-4o, Gemini, Mistral, Llama)
+• 비즈니스 워크플로를 위한 맞춤형 AI 에이전트
+• 생체 인증 (지문 / Face ID)
+• 에이전트 응답 푸시 알림
+• 16개 언어 지원 및 완전한 RTL 지원
+• 딥 링크 및 유니버설 링크 지원

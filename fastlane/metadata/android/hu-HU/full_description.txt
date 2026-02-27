@@ -1,0 +1,22 @@
+Az xAI Workspace egy többmodelles AI platform, amelyet kis- és középvállalkozások számára fejlesztettünk. Egyetlen munkaterületről érheti el a több mint 20 vezető AI modellt — köztük a Claude-ot, a GPT-4o-t, a Geminit, a Mistralt és a Llamát.
+
+FŐBB FUNKCIÓK
+
+• Többmodelles AI csevegés — Váltson modellek között beszélgetés közben. Hasonlítsa össze a válaszokat. Használja a legjobb modellt minden feladathoz.
+• Egyéni AI ügynökök — Hozzon létre speciális ügynököket üzleti munkafolyamataihoz: ügyfélszolgálat, tartalomkészítés, adatelemzés és még sok más.
+• Üzleti analitika — Kövesse nyomon az AI-használatot, figyelje a tokenköltségeket, és kezelje csapata költségvetését beépített irányítópultokkal.
+• 16 nyelv — Teljes felületi lokalizáció, beleértve az arabot (jobbról balra). Dolgozzon az Ön által preferált nyelven.
+• Vállalati biztonság — Végponttól végpontig titkosítás, biometrikus hitelesítés (Face ID / ujjlenyomat), és GDPR-kompatibilis adatkezelés.
+• Többplatformos — Zökkenőmentes élmény weben, Androidon, iOS-en és Telegramon.
+
+ÁRAZÁS
+
+Kezdje ingyenes csomaggal, majd bővítse rugalmas használatalapú vagy előfizetéses csomagokkal. Nincsenek rejtett díjak — csak a felhasznált AI tokenekért fizet.
+
+KINEK SZÓL
+
+Szabadúszóknak, startupoknak, ügynökségeknek és KKV-csapatoknak, akiknek erős AI-ra van szükségük bonyolultság nélkül. Egy munkaterület, minden modell, azonnali hatékonyság.
+
+ADATVÉDELEM ÉS BIZTONSÁG
+
+Az Ön adatai az Ön tulajdonában maradnak. Nem értékesítünk személyes adatokat. Megfelelünk a GDPR (EU), a Privacy Act 1988 (Ausztrália) és a nemzetközi adattovábbítási biztosítékok előírásainak. Teljes adatvédelmi szabályzat: https://xaiworkspace.com/privacy.html

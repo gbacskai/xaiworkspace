@@ -1,0 +1,8 @@
+Erstveröffentlichung von xAI Workspace für Android.
+
+• Multi-Modell-KI-Chat mit über 20 Modellen (Claude, GPT-4o, Gemini, Mistral, Llama)
+• Individuelle KI-Agenten für Geschäftsprozesse
+• Biometrische Authentifizierung (Fingerabdruck / Face ID)
+• Push-Benachrichtigungen für Agenten-Antworten
+• 16 Sprachen mit vollständiger RTL-Unterstützung
+• Deep-Link- und Universal-Link-Unterstützung

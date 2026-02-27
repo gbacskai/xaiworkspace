@@ -1,0 +1,8 @@
+Rilis awal xAI Workspace untuk Android.
+
+• Chat AI multi-model dengan 20+ model (Claude, GPT-4o, Gemini, Mistral, Llama)
+• Agen AI kustom untuk alur kerja bisnis
+• Autentikasi biometrik (sidik jari / Face ID)
+• Notifikasi push untuk respons agen
+• 16 bahasa dengan dukungan RTL penuh
+• Dukungan deep link dan universal link

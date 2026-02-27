@@ -1,0 +1,8 @@
+Az xAI Workspace első kiadása Androidra.
+
+• Többmodelles AI csevegés 20+ modellel (Claude, GPT-4o, Gemini, Mistral, Llama)
+• Egyéni AI ügynökök üzleti munkafolyamatokhoz
+• Biometrikus hitelesítés (ujjlenyomat / Face ID)
+• Push értesítések az ügynökök válaszairól
+• 16 nyelv teljes jobbról balra írás támogatással
+• Mélyhivatkozás és univerzális hivatkozás támogatás

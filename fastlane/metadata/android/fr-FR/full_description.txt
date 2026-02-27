@@ -1,0 +1,22 @@
+xAI Workspace est une plateforme IA multi-modèles conçue pour les petites et moyennes entreprises. Accédez à plus de 20 modèles d'IA de pointe — dont Claude, GPT-4o, Gemini, Mistral et Llama — depuis un seul espace de travail.
+
+FONCTIONNALITÉS CLÉS
+
+• Chat IA multi-modèles — Passez d'un modèle à l'autre en pleine conversation. Comparez les réponses. Utilisez le meilleur modèle pour chaque tâche.
+• Agents IA personnalisés — Créez des agents spécialisés pour vos processus métier : support client, création de contenu, analyse de données, et bien plus.
+• Analytique métier — Suivez l'utilisation de l'IA, surveillez la consommation de tokens et gérez les budgets de votre équipe grâce à des tableaux de bord intégrés.
+• 16 langues — Localisation complète de l'interface, y compris l'arabe (RTL). Travaillez dans la langue de votre choix.
+• Sécurité entreprise — Chiffrement de bout en bout, authentification biométrique (Face ID / empreinte digitale) et traitement des données conforme au RGPD.
+• Multiplateforme — Une expérience fluide sur le web, Android, iOS et Telegram.
+
+TARIFS
+
+Commencez avec une offre gratuite, puis évoluez avec des formules flexibles à la consommation ou par abonnement. Aucun frais caché — vous ne payez que les tokens IA que vous utilisez.
+
+À QUI S'ADRESSE CETTE APPLICATION
+
+Indépendants, startups, agences et équipes PME qui ont besoin d'une IA puissante sans la complexité. Un seul espace de travail, tous les modèles, une productivité immédiate.
+
+CONFIDENTIALITÉ ET SÉCURITÉ
+
+Vos données vous appartiennent. Nous ne vendons pas de données personnelles. Conforme au RGPD (UE), au Privacy Act 1988 (Australie) et aux garanties internationales de transfert de données. Politique de confidentialité complète sur https://xaiworkspace.com/privacy.html

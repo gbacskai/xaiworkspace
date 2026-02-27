@@ -1,0 +1,8 @@
+xAI Workspace'in Android için ilk sürümü.
+
+• 20'den fazla modelle çok modelli yapay zeka sohbeti (Claude, GPT-4o, Gemini, Mistral, Llama)
+• İş süreçleri için özel yapay zeka ajanları
+• Biyometrik kimlik doğrulama (parmak izi / Face ID)
+• Ajan yanıtları için anlık bildirimler
+• Tam sağdan sola (RTL) desteğiyle 16 dil
+• Derin bağlantı ve evrensel bağlantı desteği

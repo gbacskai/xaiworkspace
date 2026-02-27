@@ -1,0 +1,22 @@
+xAI Workspace ist eine Multi-Modell-KI-Plattform, die speziell für kleine und mittlere Unternehmen entwickelt wurde. Greifen Sie auf über 20 führende KI-Modelle zu — darunter Claude, GPT-4o, Gemini, Mistral und Llama — alles in einem einzigen Workspace.
+
+WICHTIGSTE FUNKTIONEN
+
+• Multi-Modell-KI-Chat — Wechseln Sie mitten im Gespräch zwischen Modellen. Vergleichen Sie Antworten. Nutzen Sie für jede Aufgabe das beste Modell.
+• Individuelle KI-Agenten — Erstellen Sie spezialisierte Agenten für Ihre Geschäftsprozesse: Kundensupport, Content-Erstellung, Datenanalyse und vieles mehr.
+• Business-Analysen — Verfolgen Sie die KI-Nutzung, überwachen Sie den Token-Verbrauch und verwalten Sie Team-Budgets mit integrierten Dashboards.
+• 16 Sprachen — Vollständige Lokalisierung der Benutzeroberfläche inklusive Arabisch (RTL). Arbeiten Sie in Ihrer bevorzugten Sprache.
+• Unternehmenssicherheit — Ende-zu-Ende-Verschlüsselung, biometrische Authentifizierung (Face ID / Fingerabdruck) und DSGVO-konforme Datenverarbeitung.
+• Plattformübergreifend — Nahtloses Erlebnis auf Web, Android, iOS und Telegram.
+
+PREISE
+
+Starten Sie mit einem kostenlosen Tarif und skalieren Sie flexibel mit nutzungsbasierter Abrechnung oder Abonnementplänen. Keine versteckten Kosten — Sie zahlen nur für die KI-Tokens, die Sie tatsächlich nutzen.
+
+FÜR WEN IST ES GEDACHT
+
+Freiberufler, Startups, Agenturen und KMU-Teams, die leistungsstarke KI ohne Komplexität benötigen. Ein Workspace, alle Modelle, sofortige Produktivität.
+
+DATENSCHUTZ & SICHERHEIT
+
+Ihre Daten gehören Ihnen. Wir verkaufen keine personenbezogenen Daten. Konform mit der DSGVO (EU), dem Privacy Act 1988 (Australien) und internationalen Datentransfer-Schutzmaßnahmen. Vollständige Datenschutzerklärung unter https://xaiworkspace.com/privacy.html

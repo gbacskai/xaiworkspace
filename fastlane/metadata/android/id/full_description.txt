@@ -1,0 +1,22 @@
+xAI Workspace adalah platform AI multi-model yang dirancang untuk usaha kecil dan menengah. Akses 20+ model AI terkemuka — termasuk Claude, GPT-4o, Gemini, Mistral, dan Llama — dari satu ruang kerja.
+
+FITUR UTAMA
+
+• Chat AI multi-model — Beralih antar model di tengah percakapan. Bandingkan respons. Gunakan model terbaik untuk setiap tugas.
+• Agen AI kustom — Buat agen khusus untuk alur kerja bisnis Anda: dukungan pelanggan, pembuatan konten, analisis data, dan lainnya.
+• Analitik bisnis — Pantau penggunaan AI, lacak pengeluaran token, dan kelola anggaran tim dengan dasbor bawaan.
+• 16 bahasa — Lokalisasi antarmuka lengkap termasuk bahasa Arab (RTL). Bekerja dalam bahasa pilihan Anda.
+• Keamanan tingkat enterprise — Enkripsi end-to-end, autentikasi biometrik (Face ID / sidik jari), dan penanganan data yang mematuhi GDPR.
+• Lintas platform — Pengalaman yang mulus di web, Android, iOS, dan Telegram.
+
+HARGA
+
+Mulai dengan paket gratis, lalu tingkatkan dengan paket bayar sesuai pemakaian atau langganan yang fleksibel. Tanpa biaya tersembunyi — Anda hanya membayar token AI yang Anda gunakan.
+
+UNTUK SIAPA
+
+Pekerja lepas, startup, agensi, dan tim UKM yang membutuhkan AI canggih tanpa kerumitan. Satu ruang kerja, semua model, produktivitas instan.
+
+PRIVASI & KEAMANAN
+
+Data Anda tetap milik Anda. Kami tidak menjual data pribadi. Mematuhi GDPR (Uni Eropa), Privacy Act 1988 (Australia), dan perlindungan transfer data internasional. Kebijakan privasi lengkap di https://xaiworkspace.com/privacy.html

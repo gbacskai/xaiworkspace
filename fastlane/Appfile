@@ -1,0 +1,2 @@
+json_key_file("#{Dir.home}/.config/xaiworkspace/xaiworkspace-c7e88e486380.json")
+package_name("com.xshopper.xaiworkspace")
