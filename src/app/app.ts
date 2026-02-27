@@ -90,7 +90,8 @@ import { ToastComponent } from './components/toast/toast';
       min-height: 100vh;
       width: 100%;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
 
       @media (min-width: 861px) {
         position: fixed;
@@ -105,7 +106,7 @@ import { ToastComponent } from './components/toast/toast';
 
     .content-frame--collapsed {
       @media (min-width: 861px) {
-        transform: translateX(-100%);
+        transform: translateX(100%);
       }
     }
 
@@ -129,7 +130,7 @@ import { ToastComponent } from './components/toast/toast';
         padding: 0;
         color: var(--tg-theme-hint-color);
         transition: background 0.15s, color 0.15s;
-        z-index: 2;
+        z-index: 3;
 
         &:hover {
           background: var(--tg-theme-button-color);
@@ -167,7 +168,7 @@ import { ToastComponent } from './components/toast/toast';
         transform: translateX(-50%);
         width: 860px;
         height: 100vh;
-        z-index: 1;
+        z-index: 2;
       }
 
       @media (max-width: 860px) {
@@ -209,7 +210,7 @@ import { ToastComponent } from './components/toast/toast';
         padding: 0;
         color: var(--tg-theme-hint-color);
         transition: background 0.15s, color 0.15s;
-        z-index: 2;
+        z-index: 3;
 
         &:hover {
           background: var(--tg-theme-button-color);
@@ -244,8 +245,8 @@ import { ToastComponent } from './components/toast/toast';
         width: 350px;
         height: 100vh;
         overflow: hidden;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+        transition: transform 1.5s ease;
       }
 
       &--open {

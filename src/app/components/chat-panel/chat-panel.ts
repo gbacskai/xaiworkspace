@@ -201,9 +201,14 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
           this.commandSelectedIndex.update(i => (i < matches.length - 1 ? i + 1 : 0));
           return;
         case 'Tab':
-        case 'Enter':
           event.preventDefault();
           this.selectCommand(matches[this.commandSelectedIndex()]);
+          return;
+        case 'Enter':
+          event.preventDefault();
+          this.commandMenuOpen.set(false);
+          this.messageText = matches[this.commandSelectedIndex()].command;
+          this.send();
           return;
         case 'Escape':
           event.preventDefault();

@@ -12,7 +12,8 @@ Contact: privacy@xshopper.com
 When you use xAI Workspace, we collect:
 
 - **xAI Workspace user identifier** (chat_id) — your unique xAI Workspace ID, used to identify your account throughout the service
-- **Email address** — if you register or are invited, we store your email to manage your account and send service communications
+- **Google account data** — if you sign in with Google, we receive your email address, display name, and profile picture from Google via OAuth 2.0. We use this data solely to create and identify your account. We do not access your Google contacts, files, or any other Google service data.
+- **Email address** — if you register, sign in with Google, or are invited, we store your email to manage your account and send service communications
 - **IP addresses** — your dedicated server instance's IP addresses, used to route your messages
 - **Payment data** — subscription amounts, dates, Stripe customer ID, and last 4 digits of payment card (payment card details are held by Stripe, not by us)
 - **Token usage data** — daily and monthly AI token consumption
@@ -28,6 +29,7 @@ When you use xAI Workspace, we collect:
 | Billing and payment processing | GDPR Art. 6(1)(b) — performance of a contract; APP 3 — reasonably necessary |
 | Usage monitoring and budget enforcement | GDPR Art. 6(1)(b) — performance of a contract; APP 3 — reasonably necessary |
 | Sending service notifications (usage alerts, renewal reminders) | GDPR Art. 6(1)(b) — performance of a contract |
+| Authenticating your identity via Google OAuth | GDPR Art. 6(1)(b) — performance of a contract; APP 3 — reasonably necessary for service |
 | Sending invite emails on your behalf | GDPR Art. 6(1)(a) — consent (you initiate the /invite command) |
 | Security monitoring and abuse prevention | GDPR Art. 6(1)(f) — legitimate interests |
 
@@ -37,14 +39,12 @@ When you use xAI Workspace, we collect:
 
 We use the following third-party processors to deliver the service:
 
+- **Google** (United States) — identity provider for Google Sign-In (OAuth 2.0); we receive your email, name, and profile picture to authenticate your account. Google may also process conversation content if you select a Gemini model.
 - **Telegram** (Netherlands / UAE) — delivers messages between you and your AI agent
 - **Anthropic** (United States) — primary AI model provider; processes your conversation content to generate AI responses
 - **OpenAI** (United States) — optional AI model provider; processes conversation content if you select an OpenAI model
-- **Google / Gemini** (United States) — optional AI model provider; processes conversation content if you select a Gemini model
 - **Groq** (United States) — optional AI model provider; processes conversation content if you select a Groq model
-- **DeepSeek** (China / Singapore) — optional AI model provider; processes conversation content if you select a DeepSeek model
 - **Mistral AI** (France) — optional AI model provider; processes conversation content if you select a Mistral model
-- **Alibaba Cloud / Qwen** (China / Singapore) — optional AI model provider; processes conversation content if you select a Qwen model
 - **Stripe** (United States) — handles all payment processing
 - **Neon** (United States) — hosts our database
 - **Amazon Web Services** (Australia and United States) — hosts infrastructure in Sydney (ap-southeast-2) and N. Virginia (us-east-1)
@@ -60,9 +60,8 @@ xShopper Pty Ltd is an Australian company. Your personal data is transferred to,
 | Country | Recipients | Data transferred |
 |---|---|---|
 | **Australia** | AWS (Sydney, ap-southeast-2) | All data — primary hosting region |
-| **United States** | Anthropic, OpenAI, Groq, Google, AWS (us-east-1), Neon, Stripe | AI conversations, account data, payment data |
+| **United States** | Google (OAuth, Gemini), Anthropic, OpenAI, Groq, AWS (us-east-1), Neon, Stripe | Google account data (login), AI conversations, account data, payment data |
 | **France** | Mistral AI | AI conversations (if Mistral model selected) |
-| **China / Singapore** | DeepSeek, Alibaba Cloud (Qwen) | AI conversations (if DeepSeek or Qwen model selected) |
 | **Netherlands / UAE** | Telegram | Messages, user identifiers |
 
 **For Australian users (Privacy Act 1988):** Under Australian Privacy Principle 8, xShopper takes reasonable steps to ensure overseas recipients handle your personal information in accordance with the APPs. By using this service and consenting at signup, you acknowledge that your data will be transferred to the countries listed above, and that Australian Privacy Principles may not apply to data held by overseas recipients. You may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) if you believe your information has been mishandled.
@@ -73,7 +72,8 @@ xShopper Pty Ltd is an Australian company. Your personal data is transferred to,
 
 ## How Long We Keep Your Data
 
-- Account data: retained while your account is active and for 30 days after cancellation
+- Account data (including Google profile data): retained while your account is active and for 30 days after cancellation
+- Google OAuth tokens: stored encrypted; deleted immediately upon account deletion or when you disconnect Google
 - Payment records: retained for 7 years as required by Australian tax law
 - AI conversation content: stored on your dedicated server instance; deleted when your instance is terminated
 - Usage logs: retained for 90 days
@@ -130,5 +130,5 @@ Privacy enquiries: privacy@xshopper.com
 xShopper Pty Ltd, Australia
 Australian Trademark No. 1749660 (Class 35)
 
-*Privacy Policy version: 2026-02-27*
+*Privacy Policy version: 2026-02-28*
 `;

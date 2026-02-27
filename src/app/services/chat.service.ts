@@ -365,6 +365,12 @@ export class ChatService {
       return;
     }
 
+    // Intercept /stop — call router API to terminate the instance
+    if (trimmed === '/stop') {
+      this.handleStop();
+      return;
+    }
+
     if (isConnected) {
       this.ws!.send(JSON.stringify({ type: 'message', text: trimmed }));
       this.botTyping.set(true);
@@ -470,6 +476,52 @@ export class ChatService {
       this.addMessage({
         id: crypto.randomUUID(),
         text: `Restart failed: ${err.message || 'Unknown error'}`,
+        sender: 'system',
+        timestamp: Date.now(),
+      });
+    }
+  }
+
+  private async handleStop(): Promise<void> {
+    const token = this.sessionToken;
+    if (!token) {
+      this.addMessage({
+        id: crypto.randomUUID(),
+        text: 'Not authenticated. Please log in first.',
+        sender: 'system',
+        timestamp: Date.now(),
+      });
+      return;
+    }
+
+    this.addMessage({
+      id: crypto.randomUUID(),
+      text: 'Stopping instance...',
+      sender: 'system',
+      timestamp: Date.now(),
+    });
+
+    try {
+      const res = await fetch(`${environment.routerUrl}/api/stop`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!res.ok) {
+        const body = await res.text().catch(() => '');
+        throw new Error(body || `HTTP ${res.status}`);
+      }
+
+      this.addMessage({
+        id: crypto.randomUUID(),
+        text: 'Instance terminated. Send /start to wake it up again.',
+        sender: 'bot',
+        timestamp: Date.now(),
+      });
+    } catch (err: any) {
+      this.addMessage({
+        id: crypto.randomUUID(),
+        text: `Stop failed: ${err.message || 'Unknown error'}`,
         sender: 'system',
         timestamp: Date.now(),
       });

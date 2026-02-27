@@ -12,7 +12,8 @@ Contatto: privacy@xshopper.com
 Quando utilizzi xAI Workspace, raccogliamo:
 
 - **Identificativo utente xAI Workspace** (chat_id) — il tuo ID xAI Workspace univoco, utilizzato per identificare il tuo account in tutto il servizio
-- **Indirizzo email** — se ti registri o vieni invitato, conserviamo la tua email per gestire il tuo account e inviarti comunicazioni di servizio
+- **Dati dell'account Google** — se accedi con Google, riceviamo il tuo indirizzo email, nome visualizzato e foto del profilo da Google tramite OAuth 2.0. Utilizziamo questi dati esclusivamente per creare e identificare il tuo account. Non accediamo ai tuoi contatti Google, file o a qualsiasi altro dato del servizio Google.
+- **Indirizzo email** — se ti registri, accedi con Google o vieni invitato, conserviamo la tua email per gestire il tuo account e inviarti comunicazioni di servizio
 - **Indirizzi IP** — gli indirizzi IP della tua istanza server dedicata, utilizzati per instradare i tuoi messaggi
 - **Dati di pagamento** — importi degli abbonamenti, date, ID cliente Stripe e ultime 4 cifre della carta di pagamento (i dati della carta di pagamento sono conservati da Stripe, non da noi)
 - **Dati di utilizzo** — consumo giornaliero e mensile di token AI
@@ -28,6 +29,7 @@ Quando utilizzi xAI Workspace, raccogliamo:
 | Fatturazione ed elaborazione dei pagamenti | GDPR Art. 6(1)(b) — esecuzione di un contratto; APP 3 — ragionevolmente necessario |
 | Monitoraggio dell'utilizzo e applicazione dei limiti di budget | GDPR Art. 6(1)(b) — esecuzione di un contratto; APP 3 — ragionevolmente necessario |
 | Invio di notifiche di servizio (avvisi di utilizzo, promemoria di rinnovo) | GDPR Art. 6(1)(b) — esecuzione di un contratto |
+| Autenticazione della tua identità tramite Google OAuth | GDPR Art. 6(1)(b) — esecuzione di un contratto; APP 3 — ragionevolmente necessario per il servizio |
 | Invio di email di invito per tuo conto | GDPR Art. 6(1)(a) — consenso (sei tu ad avviare il comando /invite) |
 | Monitoraggio della sicurezza e prevenzione degli abusi | GDPR Art. 6(1)(f) — interessi legittimi |
 
@@ -37,14 +39,12 @@ Quando utilizzi xAI Workspace, raccogliamo:
 
 Utilizziamo i seguenti responsabili del trattamento terzi per erogare il servizio:
 
+- **Google** (Stati Uniti) — fornitore di identità per il Google Sign-In (OAuth 2.0); riceviamo la tua email, il tuo nome e la tua foto del profilo per autenticare il tuo account. Google può anche elaborare il contenuto delle conversazioni se selezioni un modello Gemini.
 - **Telegram** (Paesi Bassi / EAU) — consegna i messaggi tra te e il tuo agente AI
 - **Anthropic** (Stati Uniti) — fornitore principale del modello AI; elabora il contenuto delle tue conversazioni per generare le risposte AI
 - **OpenAI** (Stati Uniti) — fornitore opzionale del modello AI; elabora il contenuto delle conversazioni se selezioni un modello OpenAI
-- **Google / Gemini** (Stati Uniti) — fornitore opzionale del modello AI; elabora il contenuto delle conversazioni se selezioni un modello Gemini
 - **Groq** (Stati Uniti) — fornitore opzionale del modello AI; elabora il contenuto delle conversazioni se selezioni un modello Groq
-- **DeepSeek** (Cina / Singapore) — fornitore opzionale del modello AI; elabora il contenuto delle conversazioni se selezioni un modello DeepSeek
 - **Mistral AI** (Francia) — fornitore opzionale del modello AI; elabora il contenuto delle conversazioni se selezioni un modello Mistral
-- **Alibaba Cloud / Qwen** (Cina / Singapore) — fornitore opzionale del modello AI; elabora il contenuto delle conversazioni se selezioni un modello Qwen
 - **Stripe** (Stati Uniti) — gestisce l'elaborazione di tutti i pagamenti
 - **Neon** (Stati Uniti) — ospita il nostro database
 - **Amazon Web Services** (Australia e Stati Uniti) — ospita l'infrastruttura a Sydney (ap-southeast-2) e in Virginia del Nord (us-east-1)
@@ -60,9 +60,8 @@ xShopper Pty Ltd è una società australiana. I tuoi dati personali vengono tras
 | Paese | Destinatari | Dati trasferiti |
 |---|---|---|
 | **Australia** | AWS (Sydney, ap-southeast-2) | Tutti i dati — regione di hosting principale |
-| **Stati Uniti** | Anthropic, OpenAI, Groq, Google, AWS (us-east-1), Neon, Stripe | Conversazioni AI, dati account, dati di pagamento |
+| **Stati Uniti** | Google (OAuth, Gemini), Anthropic, OpenAI, Groq, AWS (us-east-1), Neon, Stripe | Dati account Google (accesso), conversazioni AI, dati account, dati di pagamento |
 | **Francia** | Mistral AI | Conversazioni AI (se viene selezionato il modello Mistral) |
-| **Cina / Singapore** | DeepSeek, Alibaba Cloud (Qwen) | Conversazioni AI (se viene selezionato il modello DeepSeek o Qwen) |
 | **Paesi Bassi / EAU** | Telegram | Messaggi, identificativi utente |
 
 **Per gli utenti australiani (Privacy Act 1988):** Ai sensi dell'Australian Privacy Principle 8, xShopper adotta misure ragionevoli per garantire che i destinatari stranieri trattino le tue informazioni personali in conformità con gli APP. Utilizzando questo servizio e prestando il consenso alla registrazione, riconosci che i tuoi dati verranno trasferiti nei paesi sopra elencati e che i Principi australiani sulla privacy potrebbero non applicarsi ai dati detenuti da destinatari stranieri. Puoi presentare un reclamo all'Ufficio del Commissario australiano per le informazioni (OAIC) se ritieni che le tue informazioni siano state gestite in modo improprio.
@@ -73,7 +72,8 @@ xShopper Pty Ltd è una società australiana. I tuoi dati personali vengono tras
 
 ## Per quanto tempo conserviamo i tuoi dati
 
-- Dati dell'account: conservati finché il tuo account è attivo e per 30 giorni dopo la cancellazione
+- Dati dell'account (inclusi i dati del profilo Google): conservati finché il tuo account è attivo e per 30 giorni dopo la cancellazione
+- Token OAuth Google: conservati in forma cifrata; eliminati immediatamente alla cancellazione dell'account o quando disconnetti Google
 - Registrazioni dei pagamenti: conservate per 7 anni come richiesto dalla normativa fiscale australiana
 - Contenuto delle conversazioni AI: conservato sulla tua istanza server dedicata; eliminato quando la tua istanza viene terminata
 - Log di utilizzo: conservati per 90 giorni
@@ -130,5 +130,5 @@ Richieste sulla privacy: privacy@xshopper.com
 xShopper Pty Ltd, Australia
 Australian Trademark No. 1749660 (Class 35)
 
-*Versione della politica sulla privacy: 2026-02-27*
+*Versione della politica sulla privacy: 2026-02-28*
 `;

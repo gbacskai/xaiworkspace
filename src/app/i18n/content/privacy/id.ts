@@ -12,7 +12,8 @@ Kontak: privacy@xshopper.com
 Saat Anda menggunakan xAI Workspace, kami mengumpulkan:
 
 - **Pengenal pengguna xAI Workspace** (chat_id) — ID xAI Workspace unik Anda, digunakan untuk mengidentifikasi akun Anda di seluruh layanan
-- **Alamat email** — jika Anda mendaftar atau diundang, kami menyimpan email Anda untuk mengelola akun dan mengirim komunikasi layanan
+- **Data akun Google** — jika Anda masuk dengan Google, kami menerima alamat email, nama tampilan, dan foto profil Anda dari Google melalui OAuth 2.0. Kami menggunakan data ini semata-mata untuk membuat dan mengidentifikasi akun Anda. Kami tidak mengakses kontak Google, file, atau data layanan Google lainnya.
+- **Alamat email** — jika Anda mendaftar, masuk dengan Google, atau diundang, kami menyimpan email Anda untuk mengelola akun dan mengirim komunikasi layanan
 - **Alamat IP** — alamat IP instance server khusus Anda, digunakan untuk merutekan pesan Anda
 - **Data pembayaran** — jumlah langganan, tanggal, ID pelanggan Stripe, dan 4 digit terakhir kartu pembayaran (detail kartu pembayaran disimpan oleh Stripe, bukan oleh kami)
 - **Data penggunaan token** — konsumsi token AI harian dan bulanan
@@ -28,6 +29,7 @@ Saat Anda menggunakan xAI Workspace, kami mengumpulkan:
 | Penagihan dan pemrosesan pembayaran | GDPR Pasal 6(1)(b) — pelaksanaan kontrak; APP 3 — diperlukan secara wajar |
 | Pemantauan penggunaan dan penegakan anggaran | GDPR Pasal 6(1)(b) — pelaksanaan kontrak; APP 3 — diperlukan secara wajar |
 | Pengiriman notifikasi layanan (peringatan penggunaan, pengingat perpanjangan) | GDPR Pasal 6(1)(b) — pelaksanaan kontrak |
+| Mengautentikasi identitas Anda melalui Google OAuth | GDPR Pasal 6(1)(b) — pelaksanaan kontrak; APP 3 — diperlukan secara wajar untuk layanan |
 | Pengiriman email undangan atas nama Anda | GDPR Pasal 6(1)(a) — persetujuan (Anda yang memulai perintah /invite) |
 | Pemantauan keamanan dan pencegahan penyalahgunaan | GDPR Pasal 6(1)(f) — kepentingan sah |
 
@@ -37,14 +39,12 @@ Saat Anda menggunakan xAI Workspace, kami mengumpulkan:
 
 Kami menggunakan pemroses pihak ketiga berikut untuk menyediakan layanan:
 
+- **Google** (Amerika Serikat) — penyedia identitas untuk Google Sign-In (OAuth 2.0); kami menerima email, nama, dan foto profil Anda untuk mengautentikasi akun Anda. Google juga dapat memproses konten percakapan jika Anda memilih model Gemini.
 - **Telegram** (Belanda / UEA) — menyampaikan pesan antara Anda dan agen AI Anda
 - **Anthropic** (Amerika Serikat) — penyedia model AI utama; memproses konten percakapan Anda untuk menghasilkan respons AI
 - **OpenAI** (Amerika Serikat) — penyedia model AI opsional; memproses konten percakapan jika Anda memilih model OpenAI
-- **Google / Gemini** (Amerika Serikat) — penyedia model AI opsional; memproses konten percakapan jika Anda memilih model Gemini
 - **Groq** (Amerika Serikat) — penyedia model AI opsional; memproses konten percakapan jika Anda memilih model Groq
-- **DeepSeek** (China / Singapura) — penyedia model AI opsional; memproses konten percakapan jika Anda memilih model DeepSeek
 - **Mistral AI** (Prancis) — penyedia model AI opsional; memproses konten percakapan jika Anda memilih model Mistral
-- **Alibaba Cloud / Qwen** (China / Singapura) — penyedia model AI opsional; memproses konten percakapan jika Anda memilih model Qwen
 - **Stripe** (Amerika Serikat) — menangani semua pemrosesan pembayaran
 - **Neon** (Amerika Serikat) — menyimpan database kami
 - **Amazon Web Services** (Australia dan Amerika Serikat) — mengelola infrastruktur di Sydney (ap-southeast-2) dan Virginia Utara (us-east-1)
@@ -60,9 +60,8 @@ xShopper Pty Ltd adalah perusahaan Australia. Data pribadi Anda ditransfer ke, d
 | Negara | Penerima | Data yang ditransfer |
 |---|---|---|
 | **Australia** | AWS (Sydney, ap-southeast-2) | Semua data — wilayah hosting utama |
-| **Amerika Serikat** | Anthropic, OpenAI, Groq, Google, AWS (us-east-1), Neon, Stripe | Percakapan AI, data akun, data pembayaran |
+| **Amerika Serikat** | Google (OAuth, Gemini), Anthropic, OpenAI, Groq, AWS (us-east-1), Neon, Stripe | Data akun Google (login), percakapan AI, data akun, data pembayaran |
 | **Prancis** | Mistral AI | Percakapan AI (jika model Mistral dipilih) |
-| **China / Singapura** | DeepSeek, Alibaba Cloud (Qwen) | Percakapan AI (jika model DeepSeek atau Qwen dipilih) |
 | **Belanda / UEA** | Telegram | Pesan, pengenal pengguna |
 
 **Untuk pengguna Australia (Privacy Act 1988):** Berdasarkan Australian Privacy Principle 8, xShopper mengambil langkah-langkah yang wajar untuk memastikan penerima di luar negeri menangani informasi pribadi Anda sesuai dengan APP. Dengan menggunakan layanan ini dan memberikan persetujuan saat pendaftaran, Anda mengakui bahwa data Anda akan ditransfer ke negara-negara yang tercantum di atas, dan bahwa Prinsip Privasi Australia mungkin tidak berlaku untuk data yang dipegang oleh penerima di luar negeri. Anda dapat mengajukan pengaduan kepada Kantor Komisioner Informasi Australia (OAIC) jika Anda yakin informasi Anda telah ditangani secara tidak benar.
@@ -73,7 +72,8 @@ xShopper Pty Ltd adalah perusahaan Australia. Data pribadi Anda ditransfer ke, d
 
 ## Berapa Lama Kami Menyimpan Data Anda
 
-- Data akun: disimpan selama akun Anda aktif dan selama 30 hari setelah pembatalan
+- Data akun (termasuk data profil Google): disimpan selama akun Anda aktif dan selama 30 hari setelah pembatalan
+- Token OAuth Google: disimpan terenkripsi; dihapus segera setelah penghapusan akun atau ketika Anda memutuskan koneksi Google
 - Catatan pembayaran: disimpan selama 7 tahun sebagaimana diwajibkan oleh hukum pajak Australia
 - Konten percakapan AI: disimpan di instance server khusus Anda; dihapus saat instance Anda dihentikan
 - Log penggunaan: disimpan selama 90 hari
@@ -130,5 +130,5 @@ Pertanyaan privasi: privacy@xshopper.com
 xShopper Pty Ltd, Australia
 Australian Trademark No. 1749660 (Class 35)
 
-*Versi Kebijakan Privasi: 2026-02-27*
+*Versi Kebijakan Privasi: 2026-02-28*
 `;

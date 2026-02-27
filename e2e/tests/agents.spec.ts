@@ -16,11 +16,11 @@ test.describe('Agents Panel — Authenticated', () => {
     await expect(page.locator('.agents-panel')).toBeVisible();
   });
 
-  test('three tabs visible: Agents, Analytics, Recommendations', async ({ authenticatedPage: page }) => {
+  test('two tabs visible: Agents, Tips', async ({ authenticatedPage: page }) => {
     await ensureAgentsOpen(page);
 
     const tabs = page.locator('.agents-tab');
-    await expect(tabs).toHaveCount(3);
+    await expect(tabs).toHaveCount(2);
   });
 
   test('active tab has brand styling with bottom border', async ({ authenticatedPage: page }) => {
@@ -58,16 +58,16 @@ test.describe('Agents Panel — Authenticated', () => {
 
     const tabs = page.locator('.agents-tab');
 
-    // Click the second tab (Analytics)
+    // Click the second tab (Recommendations / Tips)
     await tabs.nth(1).click();
     await expect(tabs.nth(1)).toHaveClass(/agents-tab--active/);
-
-    // Click the third tab (Recommendations)
-    await tabs.nth(2).click();
-    await expect(tabs.nth(2)).toHaveClass(/agents-tab--active/);
 
     // Verify recommendations content is visible
     const recList = page.locator('.recommendations-list, .recommendations-empty');
     await expect(recList).toBeVisible({ timeout: 5000 });
+
+    // Switch back to first tab (Agents)
+    await tabs.nth(0).click();
+    await expect(tabs.nth(0)).toHaveClass(/agents-tab--active/);
   });
 });

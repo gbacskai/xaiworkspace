@@ -12,7 +12,8 @@ Kapcsolat: privacy@xshopper.com
 Az xAI Workspace használata során a következő adatokat gyűjtjük:
 
 - **xAI Workspace felhasználói azonosító** (chat_id) — az egyedi xAI Workspace azonosítód, amelyet a fiókod azonosítására használunk a szolgáltatás egészében
-- **Email cím** — ha regisztrálsz vagy meghívást kapsz, tároljuk az email címedet a fiókod kezeléséhez és szolgáltatási kommunikációhoz
+- **Google fiókadatok** — ha Google-lel jelentkezel be, megkapjuk az email-címedet, megjelenítési nevedet és profilképedet a Google-tól OAuth 2.0-n keresztül. Ezeket az adatokat kizárólag a fiókod létrehozásához és azonosításához használjuk. Nem férünk hozzá Google-névjegyeidhez, fájljaidhoz vagy egyéb Google-szolgáltatás adataihoz.
+- **Email cím** — ha regisztrálsz, Google-lel jelentkezel be vagy meghívást kapsz, tároljuk az email-címedet a fiókod kezeléséhez és szolgáltatási kommunikációhoz
 - **IP-címek** — a dedikált szerverpéldányod IP-címei, amelyeket az üzenetek irányítására használunk
 - **Fizetési adatok** — előfizetési összegek, dátumok, Stripe ügyfél-azonosító és a fizetési kártya utolsó 4 számjegye (a fizetési kártya adatait a Stripe tárolja, nem mi)
 - **Tokenfelhasználási adatok** — napi és havi AI tokenfogyasztás
@@ -28,6 +29,7 @@ Az xAI Workspace használata során a következő adatokat gyűjtjük:
 | Számlázás és fizetésfeldolgozás | GDPR 6. cikk (1)(b) — szerződés teljesítése; APP 3 — ésszerűen szükséges |
 | Felhasználás figyelése és költségkeret betartatása | GDPR 6. cikk (1)(b) — szerződés teljesítése; APP 3 — ésszerűen szükséges |
 | Szolgáltatási értesítések küldése (felhasználási figyelmeztetések, megújítási emlékeztetők) | GDPR 6. cikk (1)(b) — szerződés teljesítése |
+| Személyazonosságod hitelesítése Google OAuth-on keresztül | GDPR 6. cikk (1)(b) — szerződés teljesítése; APP 3 — ésszerűen szükséges a szolgáltatáshoz |
 | Meghívó emailek küldése a nevedben | GDPR 6. cikk (1)(a) — hozzájárulás (te kezdeményezed a /invite parancsot) |
 | Biztonsági felügyelet és visszaélésmegakadályozás | GDPR 6. cikk (1)(f) — jogos érdek |
 
@@ -37,14 +39,12 @@ Az xAI Workspace használata során a következő adatokat gyűjtjük:
 
 A következő harmadik fél adatfeldolgozókat vesszük igénybe a szolgáltatás nyújtásához:
 
+- **Google** (Egyesült Államok) — identitásszolgáltató a Google-bejelentkezéshez (OAuth 2.0); megkapjuk az email-címedet, nevedet és profilképedet a fiókod hitelesítéséhez. A Google a beszélgetés tartalmát is feldolgozhatja, ha Gemini modellt választasz.
 - **Telegram** (Hollandia / Egyesült Arab Emírségek) — közvetíti az üzeneteket közted és az AI ügynököd között
 - **Anthropic** (Egyesült Államok) — elsődleges AI modellszolgáltató; feldolgozza a beszélgetés tartalmát az AI válaszok generálásához
 - **OpenAI** (Egyesült Államok) — opcionális AI modellszolgáltató; feldolgozza a beszélgetés tartalmát, ha OpenAI modellt választasz
-- **Google / Gemini** (Egyesült Államok) — opcionális AI modellszolgáltató; feldolgozza a beszélgetés tartalmát, ha Gemini modellt választasz
 - **Groq** (Egyesült Államok) — opcionális AI modellszolgáltató; feldolgozza a beszélgetés tartalmát, ha Groq modellt választasz
-- **DeepSeek** (Kína / Szingapúr) — opcionális AI modellszolgáltató; feldolgozza a beszélgetés tartalmát, ha DeepSeek modellt választasz
 - **Mistral AI** (Franciaország) — opcionális AI modellszolgáltató; feldolgozza a beszélgetés tartalmát, ha Mistral modellt választasz
-- **Alibaba Cloud / Qwen** (Kína / Szingapúr) — opcionális AI modellszolgáltató; feldolgozza a beszélgetés tartalmát, ha Qwen modellt választasz
 - **Stripe** (Egyesült Államok) — kezeli az összes fizetésfeldolgozást
 - **Neon** (Egyesült Államok) — az adatbázisunkat tárolja
 - **Amazon Web Services** (Ausztrália és Egyesült Államok) — infrastruktúrát üzemeltet Sydneyben (ap-southeast-2) és Észak-Virginiában (us-east-1)
@@ -60,9 +60,8 @@ Az xShopper Pty Ltd ausztrál vállalat. Személyes adataidat a következő orsz
 | Ország | Befogadók | Továbbított adatok |
 |---|---|---|
 | **Ausztrália** | AWS (Sydney, ap-southeast-2) | Minden adat — elsődleges tárhelyrégió |
-| **Egyesült Államok** | Anthropic, OpenAI, Groq, Google, AWS (us-east-1), Neon, Stripe | AI beszélgetések, fiókadatok, fizetési adatok |
+| **Egyesült Államok** | Google (OAuth, Gemini), Anthropic, OpenAI, Groq, AWS (us-east-1), Neon, Stripe | Google fiókadatok (bejelentkezés), AI beszélgetések, fiókadatok, fizetési adatok |
 | **Franciaország** | Mistral AI | AI beszélgetések (ha Mistral modellt választasz) |
-| **Kína / Szingapúr** | DeepSeek, Alibaba Cloud (Qwen) | AI beszélgetések (ha DeepSeek vagy Qwen modellt választasz) |
 | **Hollandia / Egyesült Arab Emírségek** | Telegram | Üzenetek, felhasználói azonosítók |
 
 **Ausztrál felhasználók számára (Privacy Act 1988):** Az Australian Privacy Principle 8 értelmében az xShopper ésszerű lépéseket tesz annak biztosítása érdekében, hogy a külföldi befogadók a személyes adataidat az APP-ekkel összhangban kezeljék. A szolgáltatás használatával és a regisztrációkor adott hozzájárulással elismered, hogy adataid a fent felsorolt országokba kerülnek továbbításra, és hogy az ausztrál adatvédelmi elvek esetleg nem vonatkoznak a külföldi befogadóknál tárolt adatokra. Panaszt nyújthatsz be az Ausztrál Információs Biztoshoz (OAIC), ha úgy véled, hogy adataidat nem megfelelően kezelték.
@@ -73,7 +72,8 @@ Az xShopper Pty Ltd ausztrál vállalat. Személyes adataidat a következő orsz
 
 ## Mennyi ideig őrizzük meg az adataidat
 
-- Fiókadatok: amíg a fiókod aktív, és a törlés után még 30 napig
+- Fiókadatok (beleértve a Google-profiladatokat): amíg a fiókod aktív, és a törlés után még 30 napig
+- Google OAuth-tokenek: titkosítva tárolva; azonnal törlésre kerülnek a fiók törlésekor vagy a Google leválasztásakor
 - Fizetési rekordok: 7 évig az ausztrál adójogszabályok előírásai szerint
 - AI beszélgetés tartalma: a dedikált szerverpéldányodon tárolva; a példány leállításakor törlésre kerül
 - Felhasználási naplók: 90 napig megőrizve
@@ -130,5 +130,5 @@ Adatvédelmi megkeresések: privacy@xshopper.com
 xShopper Pty Ltd, Ausztrália
 Australian Trademark No. 1749660 (Class 35)
 
-*Adatvédelmi tájékoztató verziója: 2026-02-27*
+*Adatvédelmi tájékoztató verziója: 2026-02-28*
 `;
