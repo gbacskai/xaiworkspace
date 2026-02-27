@@ -20,8 +20,9 @@
  */
 
 import { execSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, unlinkSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 
@@ -31,7 +32,7 @@ const AWS_REGION = 'us-west-2';
 const PROJECT_ROOT = resolve(import.meta.dirname, '..');
 const ANDROID_DIR = join(PROJECT_ROOT, 'android');
 const APK_PATH = join(ANDROID_DIR, 'app/build/outputs/apk/debug/app-debug.apk');
-const RELEASE_APK_PATH = join(ANDROID_DIR, 'app/build/outputs/apk/release/app-release.apk');
+const AAB_PATH = join(ANDROID_DIR, 'app/build/outputs/bundle/release/app-release.aab');
 
 // Default test device: Pixel-class device with recent Android
 const DEFAULT_DEVICE_POOL_NAME = 'xAIWorkspace-TestDevices';
@@ -65,7 +66,14 @@ function run(cmd, opts = {}) {
   return execSync(cmd, { stdio: 'inherit', cwd: PROJECT_ROOT, ...opts });
 }
 
-// ── Build APK ───────────────────────────────────────────────────────────────
+// ── Find or Build App ───────────────────────────────────────────────────────
+
+function findExistingArtifact() {
+  // Prefer existing APK, then AAB
+  if (existsSync(APK_PATH)) return { path: APK_PATH, type: 'ANDROID_APP', name: 'app-debug.apk' };
+  if (existsSync(AAB_PATH)) return { path: AAB_PATH, type: 'ANDROID_APP', name: 'app-release.aab' };
+  return null;
+}
 
 function buildApk() {
   log('Building Angular app for production...');
@@ -84,16 +92,16 @@ function buildApk() {
 
   const size = (readFileSync(APK_PATH).length / 1024 / 1024).toFixed(1);
   log(`APK built: ${APK_PATH} (${size} MB)`);
-  return APK_PATH;
+  return { path: APK_PATH, type: 'ANDROID_APP', name: 'app-debug.apk' };
 }
 
 // ── Upload to Device Farm ───────────────────────────────────────────────────
 
-function uploadApk(apkPath) {
-  log('Creating upload in Device Farm...');
+function uploadApk({ path: apkPath, type, name }) {
+  log(`Creating upload in Device Farm (${name})...`);
 
   const upload = aws(
-    `devicefarm create-upload --project-arn "${PROJECT_ARN}" --name "app-debug.apk" --type ANDROID_APP`
+    `devicefarm create-upload --project-arn "${PROJECT_ARN}" --name "${name}" --type ${type}`
   );
 
   const uploadArn = upload.upload.arn;
@@ -137,13 +145,27 @@ function getOrCreateDevicePool() {
 
   // Create a device pool: modern Android devices (API 28+, i.e. Android 9+)
   log(`Creating device pool: ${DEFAULT_DEVICE_POOL_NAME}...`);
-  const pool = aws(
-    `devicefarm create-device-pool --project-arn "${PROJECT_ARN}" ` +
-    `--name "${DEFAULT_DEVICE_POOL_NAME}" ` +
-    `--description "Android 9+ devices for xAI Workspace testing" ` +
-    `--rules '[{"attribute":"OS_VERSION","operator":"GREATER_THAN_OR_EQUALS","value":"9"},{"attribute":"PLATFORM","operator":"EQUALS","value":"ANDROID"}]' ` +
-    `--max-devices 5`
-  );
+
+  // Write rules to temp file to avoid shell quoting issues with nested JSON strings
+  const rules = [
+    { attribute: 'OS_VERSION', operator: 'GREATER_THAN_OR_EQUALS', value: '"9"' },
+    { attribute: 'PLATFORM', operator: 'EQUALS', value: '"ANDROID"' },
+  ];
+  const rulesFile = join(tmpdir(), 'devicefarm-rules.json');
+  writeFileSync(rulesFile, JSON.stringify(rules), 'utf-8');
+
+  let pool;
+  try {
+    pool = aws(
+      `devicefarm create-device-pool --project-arn "${PROJECT_ARN}" ` +
+      `--name "${DEFAULT_DEVICE_POOL_NAME}" ` +
+      `--description "Android 9+ devices for xAI Workspace testing" ` +
+      `--rules file://${rulesFile} ` +
+      `--max-devices 5`
+    );
+  } finally {
+    try { unlinkSync(rulesFile); } catch {}
+  }
 
   log(`Device pool created: ${pool.devicePool.arn}`);
   return pool.devicePool.arn;
@@ -287,8 +309,26 @@ if (args.includes('--status')) {
     );
   }
 
-  const apkPath = buildApk();
-  const uploadArn = uploadApk(apkPath);
+  // Try to build; if Gradle/Java unavailable, use existing artifact
+  let artifact;
+  if (args.includes('--skip-build')) {
+    artifact = findExistingArtifact();
+    if (!artifact) die('No existing APK or AAB found. Build with Android Studio first, or install Java and remove --skip-build.');
+    log(`Using existing artifact: ${artifact.name}`);
+  } else {
+    try {
+      artifact = buildApk();
+    } catch (err) {
+      log('Gradle build failed — checking for existing artifact...');
+      artifact = findExistingArtifact();
+      if (!artifact) die('No APK/AAB found and Gradle build failed. Install Java or build with Android Studio first.');
+      log(`Using existing artifact: ${artifact.name}`);
+    }
+  }
+
+  const size = (readFileSync(artifact.path).length / 1024 / 1024).toFixed(1);
+  log(`Artifact: ${artifact.name} (${size} MB)`);
+  const uploadArn = uploadApk(artifact);
 
   if (args.includes('--upload-only')) {
     log(`\nAPK uploaded: ${uploadArn}`);

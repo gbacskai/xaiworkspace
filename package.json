@@ -20,7 +20,10 @@
     "gplay:upload": "node scripts/google-play-publish.mjs upload",
     "gplay:metadata": "node scripts/google-play-metadata.mjs",
     "devicefarm": "node scripts/device-farm-test.mjs",
-    "devicefarm:status": "node scripts/device-farm-test.mjs --list-runs"
+    "devicefarm:status": "node scripts/device-farm-test.mjs --list-runs",
+    "devicefarm:browser": "node scripts/device-farm-browser.mjs",
+    "devicefarm:chrome": "node scripts/device-farm-browser.mjs --browser chrome",
+    "devicefarm:firefox": "node scripts/device-farm-browser.mjs --browser firefox"
   },
   "prettier": {
     "printWidth": 100,
@@ -68,6 +71,7 @@
     "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^8.1.0",
     "@playwright/test": "^1.58.2",
+    "selenium-webdriver": "^4.41.0",
     "sharp": "^0.34.5",
     "typescript": "~5.9.2"
   }
