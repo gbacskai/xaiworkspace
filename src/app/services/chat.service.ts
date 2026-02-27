@@ -57,6 +57,9 @@ export class ChatService {
   readonly currentChatId = signal<string>('');
   readonly pendingInput = signal<string | null>(null);
   readonly currentTier = signal<string>('trial');
+  readonly instanceSource = signal<'pool' | 'cold_start' | null>(null);
+  readonly instanceStartupMs = signal<number | null>(null);
+  readonly instanceRegion = signal<string | null>(null);
 
   private static readonly MAX_MESSAGES = 500;
 
@@ -146,6 +149,11 @@ export class ChatService {
             ));
           }
           if (msg.tier) this.currentTier.set(msg.tier);
+          if (msg.instance) {
+            this.instanceSource.set(msg.instance.source || null);
+            this.instanceStartupMs.set(msg.instance.startupMs || null);
+            this.instanceRegion.set(msg.instance.region || null);
+          }
           if (msg.chatId && msg.sessionToken) {
             this.sessionToken = msg.sessionToken;
             this.currentChatId.set(msg.chatId);

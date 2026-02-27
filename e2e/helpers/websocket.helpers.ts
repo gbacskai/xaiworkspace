@@ -128,7 +128,7 @@ export async function mockWebSocketWithAgents(page: Page): Promise<void> {
           const msg = JSON.parse(data);
 
           if (msg.type === 'auth') {
-            this._respond({ type: 'auth_ok', chatId: 'mock-chat-123', sessionToken: 'mock-session-token', tier });
+            this._respond({ type: 'auth_ok', chatId: 'mock-chat-123', sessionToken: 'mock-session-token', tier, instance: { source: 'pool', startupMs: 487, region: 'us-east-1' } });
             return;
           }
 
@@ -247,7 +247,7 @@ export async function mockWebSocketWithEmptyAgents(page: Page): Promise<void> {
         try {
           const msg = JSON.parse(data);
           if (msg.type === 'auth') {
-            this._respond({ type: 'auth_ok', chatId: 'mock-chat-123', sessionToken: 'mock-session-token', tier });
+            this._respond({ type: 'auth_ok', chatId: 'mock-chat-123', sessionToken: 'mock-session-token', tier, instance: { source: 'pool', startupMs: 312, region: 'us-east-1' } });
             return;
           }
           if (msg.type === 'agents_list') {
@@ -318,7 +318,7 @@ export async function mockWebSocketWithAgentsTrial(page: Page): Promise<void> {
           const msg = JSON.parse(data);
 
           if (msg.type === 'auth') {
-            this._respond({ type: 'auth_ok', chatId: 'mock-chat-123', sessionToken: 'mock-session-token', tier });
+            this._respond({ type: 'auth_ok', chatId: 'mock-chat-123', sessionToken: 'mock-session-token', tier, instance: { source: 'cold_start', startupMs: 4200, region: 'us-east-1' } });
             return;
           }
 
@@ -435,6 +435,7 @@ export async function mockWebSocketConnected(page: Page): Promise<void> {
                   chatId: 'mock-chat-123',
                   sessionToken: 'mock-session-token',
                   tier: 'pro',
+                  instance: { source: 'pool', startupMs: 487, region: 'us-east-1' },
                 }),
               } as MessageEvent);
             }, 30);
