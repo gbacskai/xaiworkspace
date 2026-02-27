@@ -42,9 +42,13 @@
         [class.chat-bubble--user]="msg.sender === 'user'"
         [class.chat-bubble--bot]="msg.sender === 'bot'"
         [class.chat-bubble--system]="msg.sender === 'system'">
-        <span class="chat-bubble-text"
-        [class.chat-bubble-text--command]="msg.sender === 'user' && msg.text.startsWith('/')"
-        (click)="msg.sender === 'user' && msg.text.startsWith('/') && copyToInput(msg.text)">{{ msg.text }}</span>
+        @if (msg.sender === 'bot') {
+          <span class="chat-bubble-text chat-bubble-text--md" [innerHTML]="renderMarkdown(msg.text)"></span>
+        } @else {
+          <span class="chat-bubble-text"
+            [class.chat-bubble-text--command]="msg.sender === 'user' && msg.text.startsWith('/')"
+            (click)="msg.sender === 'user' && msg.text.startsWith('/') && copyToInput(msg.text)">{{ msg.text }}</span>
+        }
         <span class="chat-bubble-time">{{ formatTime(msg.timestamp) }}@if (msg.sender === 'user' && msg.status === 'sending') { · sending}@if (msg.sender === 'user' && msg.status === 'failed') { · failed}</span>
         @if (msg.buttons) {
           <div class="chat-buttons">

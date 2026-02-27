@@ -1,5 +1,6 @@
-import { Component, inject, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, HostListener, signal, computed, effect } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef, HostListener, signal, computed, effect, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { marked } from 'marked';
 import { ChatService, ChatMessage, FileAttachment } from '../../services/chat.service';
 import { TelegramService } from '../../services/telegram.service';
 import { I18nService } from '../../i18n/i18n.service';
@@ -30,6 +31,7 @@ const COMMANDS: { command: string; description: string }[] = [
   imports: [FormsModule],
   templateUrl: './chat-panel.html',
   styleUrl: './chat-panel.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
   chat = inject(ChatService);
@@ -212,6 +214,10 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
     if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
     if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
     return new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  }
+
+  renderMarkdown(text: string): string {
+    return marked.parse(text, { async: false }) as string;
   }
 
   accountDisplayName(session: { chatId: string; provider: string }): string {

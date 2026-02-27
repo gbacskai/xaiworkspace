@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, computed, signal, effect } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, computed, signal, effect } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TelegramService } from './services/telegram.service';
 import { I18nService } from './i18n/i18n.service';
@@ -20,15 +20,23 @@ import { ToastComponent } from './components/toast/toast';
       }
     </div>
     @if (showChat()) {
-      <button class="collapse-toggle" (click)="toggleSidebar()" aria-label="Toggle sidebar">
-        <span class="collapse-toggle-icon">{{ sidebarCollapsed() ? '›' : '‹' }}</span>
+      <button class="collapse-toggle" [class.collapse-toggle--labeled]="collapseLabel()" (click)="toggleSidebar()" aria-label="Toggle sidebar">
+        @if (collapseLabel()) {
+          <span class="collapse-toggle-label">{{ collapseLabel() }}</span>
+        } @else {
+          <span class="collapse-toggle-icon">{{ sidebarCollapsed() ? '›' : '‹' }}</span>
+        }
       </button>
       <app-chat-panel
         class="chat-frame"
         [class.chat-frame--open]="chat.isOpen()"
         [class.chat-frame--expanded]="sidebarCollapsed()" />
-      <button class="agents-toggle" (click)="agents.toggle()" aria-label="Toggle agents">
-        <span class="collapse-toggle-icon">{{ agents.isOpen() ? '›' : '‹' }}</span>
+      <button class="agents-toggle" [class.agents-toggle--flashing]="agentsLabelFlashing()" (click)="agents.toggle()" aria-label="Toggle agents">
+        @if (agentsLabel()) {
+          <span class="agents-toggle-label">{{ agentsLabel() }}</span>
+        } @else {
+          <span class="collapse-toggle-icon">{{ agents.isOpen() ? '›' : '‹' }}</span>
+        }
       </button>
       <app-agents-panel
         class="agents-frame"
@@ -125,6 +133,21 @@ import { ToastComponent } from './components/toast/toast';
       }
     }
 
+    .collapse-toggle--labeled {
+      width: auto;
+      min-width: 20px;
+      padding: 4px 2px;
+    }
+
+    .collapse-toggle-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      letter-spacing: 1px;
+    }
+
     .collapse-toggle-icon {
       font-size: 16px;
       font-weight: bold;
@@ -154,6 +177,24 @@ import { ToastComponent } from './components/toast/toast';
           color: var(--tg-theme-button-text-color);
         }
       }
+    }
+
+    .agents-toggle-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .agents-toggle--flashing {
+      animation: flashGreyBlue 2s ease-in-out infinite;
+    }
+
+    @keyframes flashGreyBlue {
+      0%, 100% { background: var(--tg-theme-secondary-bg-color); color: var(--tg-theme-hint-color); }
+      50% { background: var(--brand-primary); color: #fff; }
     }
 
     .chat-frame {
@@ -300,14 +341,23 @@ import { ToastComponent } from './components/toast/toast';
         z-index: 99;
       }
     }
+
+    :host-context(.all-panels) {
+      @media (min-width: 1220px) {
+        .content-frame { flex: 1 1 0; max-width: none; }
+        .chat-frame { flex: 1 1 0; }
+        .agents-frame--open { flex: 1 1 0; }
+      }
+    }
   `,
   host: {
     '[class.has-chat]': 'showChat()',
     '[class.has-agents]': 'agents.isOpen()',
     '[class.sidebar-collapsed]': 'sidebarCollapsed()',
+    '[class.all-panels]': 'showChat() && agents.isOpen() && !sidebarCollapsed()',
   },
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
   private tg = inject(TelegramService);
   private i18n = inject(I18nService);
   private auth = inject(AuthService);
@@ -316,11 +366,32 @@ export class App implements OnInit {
 
   showChat = computed(() => !this.tg.isTelegram && this.auth.isAuthenticated());
   sidebarCollapsed = signal(false);
+  collapseLabel = signal<string>('Help');
+  agentsLabel = signal<string>('Analytics, Tips');
+  agentsLabelFlashing = signal(false);
+
+  private helpTimerId: ReturnType<typeof setTimeout> | null = null;
+  private collapseTimerId: ReturnType<typeof setTimeout> | null = null;
+  private flashTimerId: ReturnType<typeof setTimeout> | null = null;
 
   private autoOpenEffect = effect(() => {
     if (this.showChat() && window.innerWidth > 860) {
       this.chat.isOpen.set(true);
-      this.agents.isOpen.set(true);
+      // Agents panel starts collapsed — do NOT auto-open
+
+      // Auto-collapse left panel after 3s
+      this.collapseTimerId = setTimeout(() => this.sidebarCollapsed.set(true), 3000);
+
+      // Show "Help" label, switch to arrow after 5 minutes
+      this.collapseLabel.set('Help');
+      this.helpTimerId = setTimeout(() => this.collapseLabel.set(''), 5 * 60 * 1000);
+
+      // Flash agents divider label for 5s
+      this.agentsLabelFlashing.set(true);
+      this.flashTimerId = setTimeout(() => {
+        this.agentsLabelFlashing.set(false);
+        this.agentsLabel.set('');
+      }, 5000);
     }
   });
 
@@ -329,7 +400,18 @@ export class App implements OnInit {
     this.i18n.detect();
   }
 
+  ngOnDestroy() {
+    if (this.helpTimerId) clearTimeout(this.helpTimerId);
+    if (this.collapseTimerId) clearTimeout(this.collapseTimerId);
+    if (this.flashTimerId) clearTimeout(this.flashTimerId);
+  }
+
   toggleSidebar() {
     this.sidebarCollapsed.update(v => !v);
+    this.collapseLabel.set('');
+    if (this.helpTimerId) {
+      clearTimeout(this.helpTimerId);
+      this.helpTimerId = null;
+    }
   }
 }
