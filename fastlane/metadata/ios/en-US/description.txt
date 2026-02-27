@@ -1,0 +1,35 @@
+xAI Workspace is a multi-model AI platform built for small and medium businesses. Access 20+ leading AI models -- including Claude, GPT-4o, Gemini, Mistral, and Llama -- from a single workspace. Your dedicated instance means no shared resources, faster responses, and complete data isolation.
+
+MULTI-MODEL AI CHAT
+
+Switch between models mid-conversation. Compare responses side by side. Use the best model for every task -- whether it's creative writing, code generation, data analysis, or customer communication. With persistent memory across sessions, your AI remembers context and learns your preferences over time.
+
+CUSTOM AI AGENTS
+
+Build specialised agents tailored to your business workflows. Automate customer support, streamline content creation, accelerate data analysis, and more. Each agent can be configured with specific instructions, knowledge bases, and model preferences to deliver consistent, high-quality results.
+
+BUSINESS ANALYTICS
+
+Track AI usage across your team with built-in dashboards. Monitor token spend in real time, set team budgets, and generate usage reports. Stay in control of costs while maximising the value of AI across your organisation.
+
+16 LANGUAGES
+
+Full interface localisation in 16 languages, including Arabic with right-to-left (RTL) support. Every team member can work in their preferred language, making xAI Workspace truly global.
+
+ENTERPRISE SECURITY
+
+Your data stays protected with end-to-end encryption, biometric authentication (Face ID and Touch ID), and GDPR-compliant data handling. We do not sell personal data and comply with international privacy regulations including the Privacy Act 1988 (Australia) and EU data transfer safeguards.
+
+CROSS-PLATFORM
+
+Seamless experience across web, iOS, Android, and Telegram. Start a conversation on your iPhone, continue on your desktop, and pick it up again in Telegram. Your workspace follows you everywhere.
+
+PRICING
+
+Start with a free tier, then scale with flexible pay-as-you-go or subscription plans. No hidden fees -- you only pay for the AI tokens you use.
+
+WHO IT'S FOR
+
+Freelancers, startups, agencies, and SME teams who need powerful AI without the complexity. One workspace, every model, instant productivity.
+
+Privacy policy: https://xaiworkspace.com/privacy.html

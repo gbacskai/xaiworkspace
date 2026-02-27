@@ -23,7 +23,11 @@
     "devicefarm:status": "node scripts/device-farm-test.mjs --list-runs",
     "devicefarm:browser": "node scripts/device-farm-browser.mjs",
     "devicefarm:chrome": "node scripts/device-farm-browser.mjs --browser chrome",
-    "devicefarm:firefox": "node scripts/device-farm-browser.mjs --browser firefox"
+    "devicefarm:firefox": "node scripts/device-farm-browser.mjs --browser firefox",
+    "devicefarm:ios": "node scripts/device-farm-ios.mjs",
+    "devicefarm:ios:status": "node scripts/device-farm-ios.mjs --list-runs",
+    "appstore:metadata": "fastlane ios metadata",
+    "appstore:upload": "fastlane ios upload"
   },
   "prettier": {
     "printWidth": 100,

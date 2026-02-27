@@ -1,0 +1,10 @@
+Eerste release van xAI Workspace voor iOS.
+
+- Toegang tot meer dan 20 AI-modellen, waaronder Claude, GPT-4o, Gemini, Mistral en Llama
+- Aangepaste AI-agents voor uw bedrijfsprocessen
+- Bedrijfsanalyse-dashboards
+- 16 talen met RTL-ondersteuning
+- Biometrische authenticatie met Face ID en Touch ID
+- Cross-platform synchronisatie met web, Android en Telegram
+- Persistent geheugen tussen sessies
+- Toegewezen instantie met volledige data-isolatie

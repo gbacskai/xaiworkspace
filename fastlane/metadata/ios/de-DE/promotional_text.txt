@@ -1,0 +1,1 @@
+Ueber 20 KI-Modelle in einem Workspace. Claude, GPT-4o, Gemini, Mistral und Llama -- mit individuellen Agenten, persistentem Gedaechtnis und dedizierter Instanz.

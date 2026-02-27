@@ -1,0 +1,10 @@
+Erstveroeffentlichung von xAI Workspace fuer iOS.
+
+- Zugriff auf ueber 20 KI-Modelle, darunter Claude, GPT-4o, Gemini, Mistral und Llama
+- Individuelle KI-Agenten fuer Ihre Geschaeftsprozesse
+- Business-Analyse-Dashboards
+- 16 Sprachen mit RTL-Unterstuetzung
+- Biometrische Authentifizierung mit Face ID und Touch ID
+- Plattformuebergreifende Synchronisation mit Web, Android und Telegram
+- Persistentes Gedaechtnis ueber Sitzungen hinweg
+- Dedizierte Instanz mit vollstaendiger Datenisolierung

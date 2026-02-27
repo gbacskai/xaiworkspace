@@ -1,0 +1,10 @@
+Initial release of xAI Workspace for iOS.
+
+- Access 20+ AI models including Claude, GPT-4o, Gemini, Mistral, and Llama
+- Custom AI agents for your business workflows
+- Business analytics dashboards
+- 16 languages with RTL support
+- Biometric authentication with Face ID and Touch ID
+- Cross-platform sync with web, Android, and Telegram
+- Persistent memory across sessions
+- Dedicated instance with full data isolation

@@ -1,0 +1,35 @@
+xAI Workspace is een multi-model AI-platform gebouwd voor het midden- en kleinbedrijf. Krijg toegang tot meer dan 20 toonaangevende AI-modellen -- waaronder Claude, GPT-4o, Gemini, Mistral en Llama -- vanuit een enkele workspace. Uw toegewezen instantie betekent geen gedeelde bronnen, snellere reacties en volledige data-isolatie.
+
+MULTI-MODEL AI-CHAT
+
+Wissel midden in een gesprek van model. Vergelijk antwoorden naast elkaar. Gebruik het beste model voor elke taak -- of het nu gaat om creatief schrijven, codegeneratie, data-analyse of klantcommunicatie. Dankzij persistent geheugen tussen sessies onthoudt de AI de context en leert uw voorkeuren na verloop van tijd.
+
+AANGEPASTE AI-AGENTS
+
+Bouw gespecialiseerde agents op maat van uw bedrijfsprocessen. Automatiseer klantenservice, stroomlijn contentcreatie, versnel data-analyse en meer. Elke agent kan worden geconfigureerd met specifieke instructies, kennisbanken en modelvoorkeuren voor consistente, hoogwaardige resultaten.
+
+BEDRIJFSANALYSES
+
+Volg het AI-gebruik van uw team met ingebouwde dashboards. Houd tokenverbruik bij in realtime, stel teambudgetten in en genereer gebruiksrapporten. Behoud controle over de kosten terwijl u de waarde van AI in uw organisatie maximaliseert.
+
+16 TALEN
+
+Volledige interfacevertaling in 16 talen, inclusief Arabisch met rechts-naar-links (RTL) ondersteuning. Elk teamlid kan werken in de taal van voorkeur, waardoor xAI Workspace een werkelijk mondiale tool is.
+
+BEDRIJFSBEVEILIGING
+
+Uw gegevens worden beschermd door end-to-end-encryptie, biometrische authenticatie (Face ID en Touch ID) en AVG-conforme gegevensverwerking. Wij verkopen geen persoonsgegevens en voldoen aan internationale privacyregelgeving, waaronder de Privacy Act 1988 (Australie) en EU-waarborgen voor gegevensoverdracht.
+
+CROSS-PLATFORM
+
+Naadloze ervaring op web, iOS, Android en Telegram. Begin een gesprek op uw iPhone, ga verder op de desktop en hervat in Telegram. Uw workspace volgt u overal.
+
+PRIJZEN
+
+Begin met een gratis abonnement en schaal vervolgens op met flexibele betaal-per-gebruik- of abonnementsplannen. Geen verborgen kosten -- u betaalt alleen voor de AI-tokens die u gebruikt.
+
+VOOR WIE
+
+Freelancers, startups, bureaus en mkb-teams die krachtige AI nodig hebben zonder de complexiteit. Een workspace, elk model, directe productiviteit.
+
+Privacybeleid: https://xaiworkspace.com/privacy.html

@@ -1,0 +1,10 @@
+Lancement initial de xAI Workspace pour iOS.
+
+- Acces a plus de 20 modeles d'IA, dont Claude, GPT-4o, Gemini, Mistral et Llama
+- Agents IA personnalises pour vos processus metier
+- Tableaux de bord d'analytique metier
+- 16 langues avec prise en charge RTL
+- Authentification biometrique avec Face ID et Touch ID
+- Synchronisation multiplateforme avec le web, Android et Telegram
+- Memoire persistante entre les sessions
+- Instance dediee avec isolation complete des donnees

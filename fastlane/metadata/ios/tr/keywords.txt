@@ -1,0 +1,1 @@
+yapay zeka,sohbet,GPT,Claude,Gemini,isletme,ajan,asistan,Llama,Mistral,model,chat

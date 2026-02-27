@@ -1,0 +1,10 @@
+xAI Workspace iOS 최초 출시.
+
+- Claude, GPT-4o, Gemini, Mistral, Llama 포함 20개 이상 AI 모델 이용
+- 비즈니스 워크플로용 맞춤형 AI 에이전트
+- 비즈니스 분석 대시보드
+- RTL 포함 16개 언어 지원
+- Face ID 및 Touch ID 생체 인증
+- 웹, Android, Telegram과 크로스 플랫폼 동기화
+- 세션 간 지속 메모리
+- 완전한 데이터 격리를 갖춘 전용 인스턴스

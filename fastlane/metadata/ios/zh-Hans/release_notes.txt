@@ -1,0 +1,10 @@
+xAI Workspace iOS 版首次发布。
+
+- 访问 20 多种 AI 模型，包括 Claude、GPT-4o、Gemini、Mistral 和 Llama
+- 为您的业务流程定制 AI 智能体
+- 业务分析仪表板
+- 支持 16 种语言及 RTL 排版
+- 面容 ID 和触控 ID 生物识别认证
+- 与网页端、Android 和 Telegram 跨平台同步
+- 跨会话持久记忆
+- 专属实例，完整数据隔离

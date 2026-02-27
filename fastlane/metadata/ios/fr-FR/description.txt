@@ -1,0 +1,35 @@
+xAI Workspace est une plateforme IA multi-modeles concue pour les petites et moyennes entreprises. Accedez a plus de 20 modeles d'IA de pointe -- dont Claude, GPT-4o, Gemini, Mistral et Llama -- depuis un seul espace de travail. Votre instance dediee signifie aucune ressource partagee, des reponses plus rapides et une isolation complete des donnees.
+
+CHAT IA MULTI-MODELES
+
+Passez d'un modele a l'autre en pleine conversation. Comparez les reponses cote a cote. Utilisez le meilleur modele pour chaque tache -- qu'il s'agisse de redaction creative, de generation de code, d'analyse de donnees ou de communication client. Grace a la memoire persistante entre les sessions, votre IA se souvient du contexte et apprend vos preferences au fil du temps.
+
+AGENTS IA PERSONNALISES
+
+Creez des agents specialises adaptes a vos processus metier. Automatisez le support client, optimisez la creation de contenu, accelerez l'analyse de donnees et bien plus encore. Chaque agent peut etre configure avec des instructions specifiques, des bases de connaissances et des preferences de modele pour fournir des resultats coherents et de haute qualite.
+
+ANALYTIQUE METIER
+
+Suivez l'utilisation de l'IA au sein de votre equipe avec des tableaux de bord integres. Surveillez la consommation de tokens en temps reel, definissez des budgets d'equipe et generez des rapports d'utilisation. Gardez le controle des couts tout en maximisant la valeur de l'IA dans votre organisation.
+
+16 LANGUES
+
+Localisation complete de l'interface en 16 langues, y compris l'arabe avec prise en charge de droite a gauche (RTL). Chaque membre de l'equipe peut travailler dans sa langue preferee, faisant de xAI Workspace un outil veritablement mondial.
+
+SECURITE ENTREPRISE
+
+Vos donnees sont protegees par un chiffrement de bout en bout, une authentification biometrique (Face ID et Touch ID) et un traitement des donnees conforme au RGPD. Nous ne vendons pas de donnees personnelles et respectons les reglementations internationales en matiere de vie privee, y compris le Privacy Act 1988 (Australie) et les garanties de transfert de donnees de l'UE.
+
+MULTIPLATEFORME
+
+Une experience fluide sur le web, iOS, Android et Telegram. Commencez une conversation sur votre iPhone, poursuivez-la sur votre ordinateur et reprenez-la dans Telegram. Votre espace de travail vous suit partout.
+
+TARIFS
+
+Commencez avec une offre gratuite, puis evoluez avec des formules flexibles a la consommation ou par abonnement. Aucun frais cache -- vous ne payez que les tokens IA que vous utilisez.
+
+A QUI S'ADRESSE CETTE APPLICATION
+
+Independants, startups, agences et equipes PME qui ont besoin d'une IA puissante sans la complexite. Un seul espace de travail, tous les modeles, une productivite immediate.
+
+Politique de confidentialite : https://xaiworkspace.com/privacy.html

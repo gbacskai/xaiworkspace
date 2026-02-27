@@ -1,0 +1,35 @@
+xAI Workspace ist eine Multi-Modell-KI-Plattform, die speziell fuer kleine und mittlere Unternehmen entwickelt wurde. Greifen Sie auf ueber 20 fuehrende KI-Modelle zu -- darunter Claude, GPT-4o, Gemini, Mistral und Llama -- alles in einem einzigen Workspace. Ihre dedizierte Instanz bedeutet keine geteilten Ressourcen, schnellere Antworten und vollstaendige Datenisolierung.
+
+MULTI-MODELL-KI-CHAT
+
+Wechseln Sie mitten im Gespraech zwischen Modellen. Vergleichen Sie Antworten nebeneinander. Nutzen Sie fuer jede Aufgabe das beste Modell -- ob kreatives Schreiben, Code-Generierung, Datenanalyse oder Kundenkommunikation. Dank persistentem Gedaechtnis ueber Sitzungen hinweg erinnert sich Ihre KI an den Kontext und lernt Ihre Praeferenzen im Laufe der Zeit.
+
+INDIVIDUELLE KI-AGENTEN
+
+Erstellen Sie spezialisierte Agenten, die auf Ihre Geschaeftsprozesse zugeschnitten sind. Automatisieren Sie den Kundensupport, optimieren Sie die Content-Erstellung, beschleunigen Sie die Datenanalyse und vieles mehr. Jeder Agent kann mit spezifischen Anweisungen, Wissensdatenbanken und Modellpraeferenzen konfiguriert werden, um konsistente Ergebnisse in hoher Qualitaet zu liefern.
+
+BUSINESS-ANALYSEN
+
+Verfolgen Sie die KI-Nutzung Ihres Teams mit integrierten Dashboards. Ueberwachen Sie den Token-Verbrauch in Echtzeit, legen Sie Team-Budgets fest und erstellen Sie Nutzungsberichte. Behalten Sie die Kontrolle ueber die Kosten und maximieren Sie gleichzeitig den KI-Mehrwert in Ihrer Organisation.
+
+16 SPRACHEN
+
+Vollstaendige Lokalisierung der Benutzeroberflaeche in 16 Sprachen, einschliesslich Arabisch mit Rechts-nach-Links-Unterstuetzung (RTL). Jedes Teammitglied kann in seiner bevorzugten Sprache arbeiten -- fuer einen wirklich globalen Workspace.
+
+UNTERNEHMENSSICHERHEIT
+
+Ihre Daten werden durch Ende-zu-Ende-Verschluesselung, biometrische Authentifizierung (Face ID und Touch ID) und DSGVO-konforme Datenverarbeitung geschuetzt. Wir verkaufen keine personenbezogenen Daten und erfuellen internationale Datenschutzvorschriften, darunter den Privacy Act 1988 (Australien) und EU-Datentransfer-Schutzmassnahmen.
+
+PLATTFORMUEBERGREIFEND
+
+Nahtloses Erlebnis auf Web, iOS, Android und Telegram. Beginnen Sie ein Gespraech auf dem iPhone, setzen Sie es am Desktop fort und nehmen Sie es in Telegram wieder auf. Ihr Workspace begleitet Sie ueberallhin.
+
+PREISE
+
+Starten Sie mit einem kostenlosen Tarif und skalieren Sie flexibel mit nutzungsbasierter Abrechnung oder Abonnementplaenen. Keine versteckten Kosten -- Sie zahlen nur fuer die KI-Tokens, die Sie tatsaechlich nutzen.
+
+FUER WEN
+
+Freiberufler, Startups, Agenturen und KMU-Teams, die leistungsstarke KI ohne Komplexitaet benoetigen. Ein Workspace, alle Modelle, sofortige Produktivitaet.
+
+Datenschutzerklaerung: https://xaiworkspace.com/privacy.html

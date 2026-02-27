@@ -1,2 +1,7 @@
 json_key_file("#{Dir.home}/.config/xaiworkspace/xaiworkspace-c7e88e486380.json")
 package_name("com.xshopper.xaiworkspace")
+
+# iOS
+app_identifier("com.xshopper.xaiworkspace")
+apple_id("gbacskai@gmail.com")
+team_name("xShopper Pty Ltd")

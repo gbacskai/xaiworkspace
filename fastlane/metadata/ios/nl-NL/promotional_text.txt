@@ -1,0 +1,1 @@
+Meer dan 20 AI-modellen in een workspace. Claude, GPT-4o, Gemini, Mistral en Llama -- met aangepaste agents, persistent geheugen en een toegewezen instantie.

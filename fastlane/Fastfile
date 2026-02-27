@@ -29,3 +29,50 @@ platform :android do
     )
   end
 end
+
+platform :ios do
+  desc "Upload App Store metadata (descriptions, keywords, etc.)"
+  lane :metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_metadata: false,
+      metadata_path: "fastlane/metadata/ios",
+      force: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Build and upload IPA to App Store Connect (TestFlight)"
+  lane :upload do
+    build_app(
+      project: "ios/App/App.xcodeproj",
+      scheme: "App",
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: "ios/App/build",
+      output_name: "xAIWorkspace.ipa",
+      clean: true
+    )
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      ipa: "ios/App/build/xAIWorkspace.ipa"
+    )
+  end
+
+  desc "Submit the latest TestFlight build for App Store review"
+  lane :release do
+    deliver(
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      submit_for_review: true,
+      automatic_release: true,
+      metadata_path: "fastlane/metadata/ios",
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submission_information: {
+        add_id_info_uses_idfa: false
+      }
+    )
+  end
+end

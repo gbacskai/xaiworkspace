@@ -1,0 +1,35 @@
+xAI Workspace adalah platform AI multi-model yang dirancang untuk usaha kecil dan menengah. Akses 20+ model AI terkemuka -- termasuk Claude, GPT-4o, Gemini, Mistral, dan Llama -- dari satu ruang kerja. Instansi khusus Anda berarti tidak ada sumber daya bersama, respons lebih cepat, dan isolasi data sepenuhnya.
+
+CHAT AI MULTI-MODEL
+
+Beralih antar model di tengah percakapan. Bandingkan respons secara berdampingan. Gunakan model terbaik untuk setiap tugas -- baik penulisan kreatif, pembuatan kode, analisis data, atau komunikasi pelanggan. Dengan memori persisten antar sesi, AI mengingat konteks dan mempelajari preferensi Anda dari waktu ke waktu.
+
+AGEN AI KUSTOM
+
+Buat agen khusus yang disesuaikan dengan alur kerja bisnis Anda. Otomatisasi dukungan pelanggan, optimalkan pembuatan konten, percepat analisis data, dan banyak lagi. Setiap agen dapat dikonfigurasi dengan instruksi spesifik, basis pengetahuan, dan preferensi model untuk memberikan hasil yang konsisten dan berkualitas tinggi.
+
+ANALITIK BISNIS
+
+Pantau penggunaan AI tim Anda dengan dasbor bawaan. Lacak pengeluaran token secara real-time, tetapkan anggaran tim, dan buat laporan penggunaan. Jaga kontrol biaya sambil memaksimalkan nilai AI di organisasi Anda.
+
+16 BAHASA
+
+Lokalisasi antarmuka lengkap dalam 16 bahasa, termasuk bahasa Arab dengan dukungan kanan-ke-kiri (RTL). Setiap anggota tim dapat bekerja dalam bahasa pilihan mereka, menjadikan xAI Workspace benar-benar global.
+
+KEAMANAN TINGKAT ENTERPRISE
+
+Data Anda dilindungi dengan enkripsi end-to-end, autentikasi biometrik (Face ID dan Touch ID), dan penanganan data yang mematuhi GDPR. Kami tidak menjual data pribadi dan mematuhi regulasi privasi internasional termasuk Privacy Act 1988 (Australia) dan perlindungan transfer data UE.
+
+LINTAS PLATFORM
+
+Pengalaman yang mulus di web, iOS, Android, dan Telegram. Mulai percakapan di iPhone Anda, lanjutkan di desktop, dan ambil kembali di Telegram. Ruang kerja Anda mengikuti Anda ke mana saja.
+
+HARGA
+
+Mulai dengan paket gratis, lalu tingkatkan dengan paket bayar sesuai pemakaian atau langganan yang fleksibel. Tanpa biaya tersembunyi -- Anda hanya membayar token AI yang Anda gunakan.
+
+UNTUK SIAPA
+
+Pekerja lepas, startup, agensi, dan tim UKM yang membutuhkan AI canggih tanpa kerumitan. Satu ruang kerja, semua model, produktivitas instan.
+
+Kebijakan privasi: https://xaiworkspace.com/privacy.html

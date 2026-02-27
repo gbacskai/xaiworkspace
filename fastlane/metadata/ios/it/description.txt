@@ -1,0 +1,35 @@
+xAI Workspace e una piattaforma IA multi-modello progettata per piccole e medie imprese. Accedi a oltre 20 modelli IA di punta -- tra cui Claude, GPT-4o, Gemini, Mistral e Llama -- da un unico workspace. La tua istanza dedicata significa nessuna risorsa condivisa, risposte piu rapide e isolamento completo dei dati.
+
+CHAT IA MULTI-MODELLO
+
+Passa da un modello all'altro durante la conversazione. Confronta le risposte fianco a fianco. Usa il modello migliore per ogni attivita -- dalla scrittura creativa alla generazione di codice, dall'analisi dati alla comunicazione con i clienti. Grazie alla memoria persistente tra le sessioni, l'IA ricorda il contesto e impara le tue preferenze nel tempo.
+
+AGENTI IA PERSONALIZZATI
+
+Crea agenti specializzati su misura per i flussi di lavoro della tua azienda. Automatizza l'assistenza clienti, ottimizza la creazione di contenuti, accelera l'analisi dei dati e molto altro. Ogni agente puo essere configurato con istruzioni specifiche, basi di conoscenza e preferenze di modello per risultati costanti e di alta qualita.
+
+ANALISI AZIENDALE
+
+Monitora l'utilizzo dell'IA del tuo team con dashboard integrate. Controlla il consumo di token in tempo reale, imposta budget di team e genera report di utilizzo. Mantieni il controllo dei costi massimizzando il valore dell'IA nella tua organizzazione.
+
+16 LINGUE
+
+Localizzazione completa dell'interfaccia in 16 lingue, incluso l'arabo con supporto da destra a sinistra (RTL). Ogni membro del team puo lavorare nella propria lingua preferita, rendendo xAI Workspace uno strumento veramente globale.
+
+SICUREZZA AZIENDALE
+
+I tuoi dati sono protetti con crittografia end-to-end, autenticazione biometrica (Face ID e Touch ID) e gestione dei dati conforme al GDPR. Non vendiamo dati personali e rispettiamo le normative internazionali sulla privacy, incluso il Privacy Act 1988 (Australia) e le garanzie di trasferimento dati dell'UE.
+
+MULTIPIATTAFORMA
+
+Esperienza fluida su web, iOS, Android e Telegram. Inizia una conversazione sul tuo iPhone, prosegui sul desktop e riprendila su Telegram. Il tuo workspace ti segue ovunque.
+
+PREZZI
+
+Inizia con il piano gratuito, poi scala con piani flessibili a consumo o in abbonamento. Nessun costo nascosto -- paghi solo i token IA che utilizzi.
+
+A CHI SI RIVOLGE
+
+Freelance, startup, agenzie e team di PMI che necessitano di un'IA potente senza complessita. Un unico workspace, tutti i modelli, produttivita immediata.
+
+Informativa sulla privacy: https://xaiworkspace.com/privacy.html

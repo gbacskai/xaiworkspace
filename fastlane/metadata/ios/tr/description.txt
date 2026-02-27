@@ -1,0 +1,35 @@
+xAI Workspace, kucuk ve orta olcekli isletmeler icin tasarlanmis cok modelli bir yapay zeka platformudur. Claude, GPT-4o, Gemini, Mistral ve Llama dahil 20'den fazla oncu yapay zeka modeline tek bir calisma alanindan erisin. Ozel ornekleyiciniz, paylasilan kaynak olmamasi, daha hizli yanitlar ve tam veri yalitimi anlamina gelir.
+
+COK MODELLI YAPAY ZEKA SOHBETI
+
+Konusma sirasinda modeller arasinda gecis yapin. Yanitlari yan yana karsilastirin. Her gorev icin en uygun modeli kullanin -- ister yaratici yazim, ister kod uretimi, ister veri analizi, ister musteri iletisimi olsun. Oturumlar arasi kalici bellek sayesinde yapay zeka baglami hatirlayarak zaman icinde tercihlerinizi ogrenir.
+
+OZEL YAPAY ZEKA AJANLARI
+
+Isletme sureclerinize ozel ajanlar olusturun. Musteri destegini otomatiklestirin, icerik uretimini optimize edin, veri analizini hizlandirin ve daha fazlasini yapin. Her ajan, tutarli ve yuksek kaliteli sonuclar sunmak icin belirli talimatlar, bilgi tabanlari ve model tercihleriyle yapilandirilabilir.
+
+ISLETME ANALITIGI
+
+Yerlesik panolarla ekibinizin yapay zeka kullanimini izleyin. Token harcamalarini gercek zamanli takip edin, ekip butceleri belirleyin ve kullanim raporlari olusturun. Organizasyonunuzda yapay zekanin degerini maksimize ederken maliyetleri kontrol altinda tutun.
+
+16 DIL DESTEGI
+
+Arapca sagdan sola (RTL) dahil 16 dilde tam arayuz yerellestirmesi. Her ekip uyesi tercih ettigi dilde calisabilir, bu da xAI Workspace'i gercek anlamda kuresel bir arac haline getirir.
+
+KURUMSAL GUVENLIK
+
+Verileriniz uctan uca sifreleme, biyometrik kimlik dogrulama (Face ID ve Touch ID) ve GDPR uyumlu veri yonetimiyle korunur. Kisisel verileri satmiyoruz ve Privacy Act 1988 (Avustralya) ile AB veri aktarim guvencelerini iceren uluslararasi gizlilik duzenlemelerine uyuyoruz.
+
+COKLU PLATFORM
+
+Web, iOS, Android ve Telegram'da kesintisiz deneyim. iPhone'unuzda bir konusma baslatip, masaustunde devam edin ve Telegram'da tekrar surdurün. Calisma alaniniz her yerde sizinle.
+
+FIYATLANDIRMA
+
+Ucretsiz katmanla baslayin, ardindan esnek kullandikca ode veya abonelik planlariyla olceklendirin. Gizli ucret yoktur -- yalnizca kullandiginiz yapay zeka tokenleri icin odeme yaparsiniz.
+
+KIMLER ICIN
+
+Guclu yapay zekaya karmasiklik olmadan ihtiyac duyan serbest calisanlar, girisimler, ajanslar ve KOBI ekipleri icin. Tek calisma alani, tum modeller, aninda verimlilik.
+
+Gizlilik politikasi: https://xaiworkspace.com/privacy.html

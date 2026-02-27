@@ -1,0 +1,35 @@
+Az xAI Workspace egy tobbmodelles AI platform, amelyet kis- es kozepvallalkozasok szamara fejlesztettunk. Egyetlen munkateroletrol erheti el a tobb mint 20 vezeto AI modellt -- koztuk a Claude-ot, a GPT-4o-t, a Geminit, a Mistralt es a Llamat. A dedikalt peldany azt jelenti, hogy nincsenek megosztott eroforrasok, gyorsabbak a valaszok, es teljes az adatelkulonites.
+
+TOBBMODELLES AI CSEVEGOS
+
+Valtson modellek kozott beszelgetes kozben. Hasonlitsa ossze a valaszokat egymas mellett. Hasznalja a legjobb modellt minden feladathoz -- legyen szo kreativ irasrol, kodgeneratasrol, adatelemzesrol vagy ugyfellevelezesrol. A munkamenetek kozotti allo memoria revn az AI megjegyzi a kontextust, es idovel megtanulja az On preferenciait.
+
+EGYENI AI UGYNOKOK
+
+Hozzon letre specializalt ugynokoket, amelyek az On uzleti munkafolyamataihoz vannak szabva. Automatizalja az ugyfeltamogatast, optimalizalja a tartalomkesztest, gyorsitsa fel az adatelemzest es meg sok mast. Minden ugynok konfiguralhato specifikus utasitasokkal, tudazbazisokkal es modell-preferenciakkal a konzisztens, minosegi eredmenyek erdekeben.
+
+UZLETI ANALITIKA
+
+Kovesse nyomon csapata AI-hasznalatat beepitett iranyitopultokkal. Figyelje a tokenkoltsegeket valos idoben, allitson be csapatkoltsegveteseket es keszitsen hasznalati jelenteseket. Tartsa kzben a koltsegeket, mikozben maximalizalja az AI ertekett szervezeteben.
+
+16 NYELV
+
+Teljes feluleti lokalizacio 16 nyelven, beleertve az arabot jobbrol balra (RTL) tamogatassal. Minden csapattag a sajat nyelven dolgozhat, ami az xAI Workspace-t valodi globalis eszozzke teszi.
+
+VALLALATI BIZTONSAG
+
+Adatai vedelmere vegponttol vegpontig titkositas, biometrikus hitelesites (Face ID es Touch ID) es GDPR-kompatibilis adatkezeles all rendelkezesre. Nem ertekesitjuk szemelyes adatait, es betartjuk a nemzetkozi adatvedelmi szabalyozasokat, beleertve a Privacy Act 1988-at (Ausztralia) es az EU adattovabbitasi biztositekait.
+
+TOBBPLATFORMOS
+
+Zokkenmentes elmeny weben, iOS-en, Androidon es Telegramon. Kezdjen egy beszelgetest iPhone-jan, folytassa asztali gepen, es vegye fel ujra Telegramon. Munkaterolete mindenhova koveti.
+
+ARAZAS
+
+Kezdje ingyenes csomaggal, majd bovitse rugalmas hasznalatalpu vagy elofizeteses csomagokkal. Nincsenek rejtett dijak -- csak a felhasznalt AI tokenekert fizet.
+
+KINEK SZOL
+
+Szabaduszoknak, startupoknak, ugynoksegeknek es KKV-csapatoknak, akiknek eros AI-ra van szukseguk bonyolultsag nelkul. Egy munkaterulet, minden modell, azonnali hatekonysag.
+
+Adatvedelmi szabalyzat: https://xaiworkspace.com/privacy.html

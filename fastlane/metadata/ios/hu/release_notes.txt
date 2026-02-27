@@ -1,0 +1,10 @@
+Az xAI Workspace elso kiadasa iOS-re.
+
+- Hozzaferes tobb mint 20 AI modellhez, koztuk Claude, GPT-4o, Gemini, Mistral es Llama
+- Egyeni AI ugynokok az On uzleti munkafolyamataihoz
+- Uzleti analitikai iranyitopultok
+- 16 nyelv RTL tamogatassal
+- Biometrikus hitelesites Face ID-vel es Touch ID-vel
+- Platformok kozotti szinkronizalas webbel, Androiddal es Telegrammal
+- Munkamenetek kozotti allo memoria
+- Dedikalt peldany teljes adatelkulonitessel

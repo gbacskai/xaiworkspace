@@ -19,9 +19,12 @@ npm run gplay:build          # Build Android AAB
 npm run gplay:publish        # Build + upload to Google Play internal track
 npm run gplay:metadata       # Upload store listings + graphics to Google Play
 npm run devicefarm           # Build APK + fuzz test on real Android devices
+npm run devicefarm:ios       # Build IPA + fuzz test on real iOS 16+ devices
 npm run devicefarm:browser   # Smoke tests on Device Farm desktop browsers (Chrome + Firefox)
 npm run devicefarm:chrome    # Desktop browser tests (Chrome only)
 npm run devicefarm:firefox   # Desktop browser tests (Firefox only)
+npm run appstore:metadata    # Upload App Store listings via fastlane
+npm run appstore:upload      # Build IPA + upload to TestFlight
 ```
 
 ## Architecture
@@ -112,11 +115,19 @@ Store metadata lives in `fastlane/metadata/android/{locale}/` with 16 locales. K
 
 Scripts: `scripts/google-play-metadata.mjs` (upload), `scripts/generate-feature-graphic.mjs` (graphics)
 
+## App Store (iOS)
+
+Store metadata lives in `fastlane/metadata/ios/{locale}/` with 16 locales (Apple locale codes).
+Key files per locale: `name.txt`, `subtitle.txt`, `description.txt`, `keywords.txt`, `promotional_text.txt`, `release_notes.txt`, `privacy_url.txt`, `support_url.txt`, `marketing_url.txt`
+
+Fastlane lanes: `fastlane ios metadata` (upload listings), `fastlane ios upload` (build + TestFlight), `fastlane ios release` (submit for review)
+
 ## Testing (AWS Device Farm)
 
 | Type | Script | What it does |
 |------|--------|-------------|
-| Mobile fuzz | `scripts/device-farm-test.mjs` | Builds debug APK, uploads to Device Farm, runs 6000 random UI events on Android 9+ real devices |
+| Android fuzz | `scripts/device-farm-test.mjs` | Builds debug APK, uploads to Device Farm, runs 6000 random UI events on Android 9+ real devices |
+| iOS fuzz | `scripts/device-farm-ios.mjs` | Builds unsigned IPA, uploads to Device Farm, runs 6000 random UI events on iOS 16+ real devices |
 | Desktop browser | `scripts/device-farm-browser.mjs` | 45 public + 20 auth Selenium tests on Chrome + Firefox via Device Farm test grid |
 
 AWS profile: `aws_amplify_docflow4`, region: `us-west-2`

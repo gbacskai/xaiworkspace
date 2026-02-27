@@ -1,0 +1,10 @@
+xAI Workspace iOS icin ilk surum.
+
+- Claude, GPT-4o, Gemini, Mistral ve Llama dahil 20'den fazla yapay zeka modeline erisim
+- Is akislariniz icin ozel yapay zeka ajanlari
+- Isletme analitik panolari
+- RTL destegi dahil 16 dil
+- Face ID ve Touch ID ile biyometrik kimlik dogrulama
+- Web, Android ve Telegram ile platformlar arasi senkronizasyon
+- Oturumlar arasi kalici bellek
+- Tam veri yalitimi ile ozel ornekleyici
