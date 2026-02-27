@@ -18,6 +18,13 @@ Lorsque vous utilisez xAI Workspace, nous collectons :
 - **Données de paiement** — montants des abonnements, dates, identifiant client Stripe et quatre derniers chiffres de la carte de paiement (les coordonnées complètes de la carte sont conservées par Stripe, pas par nous)
 - **Données de consommation de tokens** — consommation quotidienne et mensuelle de tokens IA
 - **Contenu des conversations IA** — les messages que vous envoyez à votre agent IA
+- **Préférence de langue** — votre paramètre de langue Telegram, détecté automatiquement pour définir la langue de communication du bot
+
+---
+
+## Anonymat
+
+Nous ne pouvons pas fournir un accès anonyme ou pseudonyme à xAI Workspace. La plateforme provisionne une infrastructure de serveur dédiée et traite des paiements d'abonnement, ce qui nécessite une identification persistante. Cela est autorisé en vertu de l'Australian Privacy Principle 2.2 (exception d'impraticabilité).
 
 ---
 
@@ -81,6 +88,18 @@ xShopper Pty Ltd est une société australienne. Vos données personnelles sont 
 
 ---
 
+## Informations personnelles de tiers
+
+Lors de l'utilisation de xAI Workspace, vous pouvez partager des informations personnelles concernant d'autres personnes (telles que des collègues, des clients ou des contacts) dans vos conversations avec l'agent IA.
+
+- xShopper Pty Ltd ne collecte ni ne sollicite activement d'informations personnelles sur des tiers. De telles informations sont fournies uniquement à votre discrétion.
+- Vous êtes responsable de vous assurer que vous disposez de l'autorité, du consentement ou de la base légale appropriés pour partager des données personnelles de tiers avec le service.
+- Les données de conversation contenant des informations personnelles de tiers sont traitées uniquement pour fournir le service d'agent IA et ne sont pas utilisées à d'autres fins.
+- Les données personnelles de tiers partagées dans les conversations sont soumises aux mêmes politiques de conservation et de suppression que vos propres données (voir « Durée de conservation de vos données » ci-dessus).
+- Pour demander la suppression de conversations contenant des informations personnelles de tiers, utilisez la commande \`/workspace reset\` dans xAI Workspace ou contactez-nous à privacy@xshopper.com.
+
+---
+
 ## Vos droits
 
 ### Utilisateurs australiens (Privacy Act 1988)
@@ -114,6 +133,17 @@ Vous pouvez exercer plusieurs de ces droits directement dans xAI Workspace :
 - Envoyez \`/email\` pour mettre à jour votre adresse e-mail
 
 Pour toute autre demande, contactez-nous à privacy@xshopper.com. Nous répondrons dans un délai de 30 jours.
+
+---
+
+## Contact et droits de rectification
+
+Pour toute demande relative à la confidentialité ou pour exercer vos droits, contactez-nous à :
+
+**privacy@xshopper.com**
+xShopper Pty Ltd, Australie
+
+**Droit de rectification (APP 13) :** En vertu de l'Australian Privacy Principle 13, vous avez le droit de demander la correction des données personnelles que nous détenons à votre sujet qui sont inexactes, périmées, incomplètes, non pertinentes ou trompeuses. Pour demander une correction, envoyez un e-mail à privacy@xshopper.com en décrivant les informations à corriger et en indiquant les informations correctes. Nous répondrons dans un délai de 30 jours.
 
 ---
 

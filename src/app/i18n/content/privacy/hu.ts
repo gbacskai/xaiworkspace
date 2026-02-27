@@ -18,6 +18,13 @@ Az xAI Workspace használata során a következő adatokat gyűjtjük:
 - **Fizetési adatok** — előfizetési összegek, dátumok, Stripe ügyfél-azonosító és a fizetési kártya utolsó 4 számjegye (a fizetési kártya adatait a Stripe tárolja, nem mi)
 - **Tokenfelhasználási adatok** — napi és havi AI tokenfogyasztás
 - **AI beszélgetés tartalma** — az AI ügynöködnek küldött üzenetek
+- **Nyelvi beállítás** — a Telegram nyelvbeállításod, amelyet automatikusan érzékelünk a bot kommunikációs nyelvének meghatározásához
+
+---
+
+## Anonimitás
+
+Nem tudunk névtelen vagy álnéven történő hozzáférést biztosítani az xAI Workspace-hez. A platform dedikált szerver-infrastruktúrát konfigurál és előfizetési fizetéseket kezel, amelyek tartós azonosítást igényelnek. Ez az Australian Privacy Principle 2.2 (kivitelezhetetlen kivétel) alapján megengedett.
 
 ---
 
@@ -81,6 +88,18 @@ Az xShopper Pty Ltd ausztrál vállalat. Személyes adataidat a következő orsz
 
 ---
 
+## Harmadik felek személyes adatai
+
+Az xAI Workspace használata során az AI ügynökkel folytatott beszélgetésekben más személyekre (pl. kollégákra, ügyfelekre vagy ismerősökre) vonatkozó személyes adatokat is megoszthatsz.
+
+- Az xShopper Pty Ltd nem gyűjt és nem kér aktívan személyes adatokat harmadik felekről. Az ilyen adatokat kizárólag a te belátásod szerint osztod meg.
+- Te felelős vagy annak biztosításáért, hogy a harmadik felek személyes adatainak a szolgáltatással való megosztásához megfelelő felhatalmazással, hozzájárulással vagy jogalappal rendelkezel.
+- A harmadik felek személyes adatait tartalmazó beszélgetési adatokat kizárólag az AI ügynök szolgáltatásának nyújtása céljából dolgozzuk fel, és más célra nem használjuk.
+- A beszélgetésekben megosztott, harmadik felekre vonatkozó személyes adatokra ugyanolyan megőrzési és törlési szabályok vonatkoznak, mint a saját adataidra (lásd fent: „Mennyi ideig őrizzük meg az adataidat").
+- A harmadik felek személyes adatait tartalmazó beszélgetések törlésének kéréséhez használd a \`/workspace reset\` parancsot az xAI Workspace-en belül, vagy vedd fel velünk a kapcsolatot a privacy@xshopper.com címen.
+
+---
+
 ## Jogaid
 
 ### Ausztrál felhasználók (Privacy Act 1988)
@@ -114,6 +133,17 @@ Ezen jogok közül többet közvetlenül az xAI Workspace-en belül gyakorolhats
 - Küldj \`/email\` üzenetet az email-címed frissítéséhez
 
 Egyéb kérésekhez írj nekünk a privacy@xshopper.com címre. 30 napon belül válaszolunk.
+
+---
+
+## Kapcsolat és helyesbítési jogok
+
+Adatvédelmi megkeresésekhez vagy jogaid gyakorlásához vedd fel velünk a kapcsolatot:
+
+**privacy@xshopper.com**
+xShopper Pty Ltd, Ausztrália
+
+**Helyesbítési jog (APP 13):** Az Australian Privacy Principle 13 értelmében jogod van kérni az általunk tárolt, rólad szóló személyes adatok helyesbítését, ha azok pontatlanok, elavultak, hiányosak, irrelevánsak vagy félrevezetők. Helyesbítés kéréséhez írj a privacy@xshopper.com címre, leírva a javítandó adatokat és a helyes információt. 30 napon belül válaszolunk.
 
 ---
 

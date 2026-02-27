@@ -1,12 +1,16 @@
 import { test, expect } from '../fixtures/auth.fixture';
 
-/** Open the agents panel — uses FAB on mobile, already open on desktop. */
+/** Open the agents panel — uses FAB on mobile, toggle on desktop. */
 async function ensureAgentsOpen(page: import('@playwright/test').Page) {
   const fab = page.locator('.agents-fab');
   if (await fab.isVisible()) {
     await fab.click();
+  } else {
+    // Desktop: click the agents toggle divider to open the panel
+    await page.locator('.agents-toggle').click();
+    // Wait for the 1.5s slide-out transition to finish
+    await page.waitForTimeout(1600);
   }
-  // On desktop the panel auto-opens via effect
   await expect(page.locator('.agents-panel')).toBeVisible({ timeout: 5000 });
 }
 

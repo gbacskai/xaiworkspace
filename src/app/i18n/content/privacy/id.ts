@@ -18,6 +18,13 @@ Saat Anda menggunakan xAI Workspace, kami mengumpulkan:
 - **Data pembayaran** — jumlah langganan, tanggal, ID pelanggan Stripe, dan 4 digit terakhir kartu pembayaran (detail kartu pembayaran disimpan oleh Stripe, bukan oleh kami)
 - **Data penggunaan token** — konsumsi token AI harian dan bulanan
 - **Konten percakapan AI** — pesan yang Anda kirim ke agen AI Anda
+- **Preferensi bahasa** — pengaturan bahasa Telegram Anda, dideteksi secara otomatis untuk mengatur bahasa komunikasi bot
+
+---
+
+## Anonimitas
+
+Kami tidak dapat menyediakan akses anonim atau pseudonim ke xAI Workspace. Platform ini menyediakan infrastruktur server khusus dan memproses pembayaran langganan, yang memerlukan identifikasi persisten. Hal ini diizinkan berdasarkan Australian Privacy Principle 2.2 (pengecualian ketidakpraktisan).
 
 ---
 
@@ -81,6 +88,18 @@ xShopper Pty Ltd adalah perusahaan Australia. Data pribadi Anda ditransfer ke, d
 
 ---
 
+## Informasi Pribadi Pihak Ketiga
+
+Saat menggunakan xAI Workspace, Anda mungkin berbagi informasi pribadi tentang orang lain (seperti rekan kerja, klien, atau kontak) dalam percakapan Anda dengan agen AI.
+
+- xShopper Pty Ltd tidak secara aktif mengumpulkan atau meminta informasi pribadi tentang pihak ketiga. Informasi tersebut diberikan semata-mata atas kebijakan Anda sendiri.
+- Anda bertanggung jawab untuk memastikan bahwa Anda memiliki kewenangan, persetujuan, atau dasar hukum yang tepat untuk berbagi data pribadi pihak ketiga dengan layanan ini.
+- Data percakapan yang mengandung informasi pribadi pihak ketiga diproses semata-mata untuk menyediakan layanan agen AI dan tidak digunakan untuk tujuan lain.
+- Data pribadi pihak ketiga yang dibagikan dalam percakapan tunduk pada kebijakan penyimpanan dan penghapusan yang sama seperti data Anda sendiri (lihat "Berapa Lama Kami Menyimpan Data Anda" di atas).
+- Untuk meminta penghapusan percakapan yang mengandung informasi pribadi pihak ketiga, gunakan perintah \`/workspace reset\` di dalam xAI Workspace, atau hubungi kami di privacy@xshopper.com.
+
+---
+
 ## Hak-Hak Anda
 
 ### Pengguna Australia (Privacy Act 1988)
@@ -114,6 +133,17 @@ Anda dapat menggunakan beberapa hak ini langsung di dalam xAI Workspace:
 - Kirim \`/email\` untuk memperbarui alamat email Anda
 
 Untuk permintaan lainnya, hubungi kami di privacy@xshopper.com. Kami akan merespons dalam waktu 30 hari.
+
+---
+
+## Kontak & Hak Koreksi
+
+Untuk pertanyaan privasi atau untuk menggunakan hak Anda, hubungi kami di:
+
+**privacy@xshopper.com**
+xShopper Pty Ltd, Australia
+
+**Hak koreksi (APP 13):** Berdasarkan Australian Privacy Principle 13, Anda berhak meminta koreksi data pribadi yang kami simpan tentang Anda yang tidak akurat, usang, tidak lengkap, tidak relevan, atau menyesatkan. Untuk meminta koreksi, kirim email ke privacy@xshopper.com dengan deskripsi informasi yang perlu dikoreksi dan informasi yang benar. Kami akan merespons dalam waktu 30 hari.
 
 ---
 

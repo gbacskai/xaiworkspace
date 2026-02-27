@@ -12,11 +12,19 @@ Iletisim: privacy@xshopper.com
 xAI Workspace'yi kullandiginizda asagidaki verileri topluyoruz:
 
 - **xAI Workspace kullanici kimlik numarasi** (chat_id) — hizmet genelinde hesabinizi tanimlamak icin kullanilan benzersiz xAI Workspace kimliginiz
-- **E-posta adresi** — kayit oldugunuzda veya davet edildiginizde, hesabinizi yonetmek ve hizmet bildirimlerini gondermek icin e-postanizi saklariz
+- **Google hesap verileri** — Google ile giris yaptiginizda, OAuth 2.0 araciligiyla Google'dan e-posta adresinizi, goruntu adinizi ve profil fotografinizi aliriz. Bu verileri yalnizca hesabinizi olusturmak ve tanimlamak icin kullaniriz. Google kisisel bilgilerinize, dosyalariniza veya diger Google hizmet verilerinize erismiyoruz.
+- **E-posta adresi** — kayit oldugunuzda, Google ile giris yaptiginizda veya davet edildiginizde, hesabinizi yonetmek ve hizmet bildirimlerini gondermek icin e-postanizi saklariz
 - **IP adresleri** — mesajlarinizi yonlendirmek icin kullanilan ozel sunucu IP adresleriniz
 - **Odeme verileri** — abonelik tutarlari, tarihleri, Stripe musteri kimlligi ve odeme kartinin son 4 hanesi (odeme karti detaylari biz degil Stripe tarafindan tutulur)
 - **Token kullanim verileri** — gunluk ve aylik AI token tuketimi
 - **AI konusma icerigi** — AI ajaniniza gonderdiginiz mesajlar
+- **Dil tercihi** — Telegram dil ayariniz, botun iletisim dilini belirlemek icin otomatik olarak algilanan
+
+---
+
+## Anonimlik
+
+xAI Workspace'e anonim veya takma adli erisim saglamak mumkun degildir. Platform, kalici tanimlama gerektiren ozel sunucu altyapisi saglamakta ve abonelik odemeleri islemektedir. Bu, Australian Privacy Principle 2.2 (uygulanamaz olma istisnasi) cercevesinde kabul edilebilirdir.
 
 ---
 
@@ -28,6 +36,7 @@ xAI Workspace'yi kullandiginizda asagidaki verileri topluyoruz:
 | Faturalama ve odeme isleme | GDPR Madde 6(1)(b) — sozlesmenin ifasi; APP 3 — makul olcude gerekli |
 | Kullanim izleme ve butce uygulamasi | GDPR Madde 6(1)(b) — sozlesmenin ifasi; APP 3 — makul olcude gerekli |
 | Hizmet bildirimlerinin gonderilmesi (kullanim uyarilari, yenileme hatirlatmalari) | GDPR Madde 6(1)(b) — sozlesmenin ifasi |
+| Google OAuth araciligiyla kimliginizin dogrulanmasi | GDPR Madde 6(1)(b) — sozlesmenin ifasi; APP 3 — hizmet icin makul olcude gerekli |
 | Sizin adiniza davet e-postasi gonderilmesi | GDPR Madde 6(1)(a) — riza (/invite komutunu siz baslatirsiniz) |
 | Guvenlik izleme ve kotuye kullanimi onleme | GDPR Madde 6(1)(f) — mesru menfaatler |
 
@@ -37,14 +46,12 @@ xAI Workspace'yi kullandiginizda asagidaki verileri topluyoruz:
 
 Hizmeti sunmak icin asagidaki ucuncu taraf veri isleyicilerini kullaniyoruz:
 
+- **Google** (Amerika Birlesik Devletleri) — Google ile Giris (OAuth 2.0) icin kimlik saglayicisi; hesabinizi dogrulamak icin e-postanizi, adinizi ve profil fotografinizi aliriz. Gemini modeli secerseniz Google da konusma icerigini isleyebilir.
 - **Telegram** (Hollanda / BAE) — siz ve AI ajaniniz arasindaki mesajlari iletir
 - **Anthropic** (Amerika Birlesik Devletleri) — birincil AI model saglayicisi; AI yanitlari olusturmak icin konusma iceriginiizi isler
 - **OpenAI** (Amerika Birlesik Devletleri) — opsiyonel AI model saglayicisi; OpenAI modeli secerseniz konusma icerigini isler
-- **Google / Gemini** (Amerika Birlesik Devletleri) — opsiyonel AI model saglayicisi; Gemini modeli secerseniz konusma icerigini isler
 - **Groq** (Amerika Birlesik Devletleri) — opsiyonel AI model saglayicisi; Groq modeli secerseniz konusma icerigini isler
-- **DeepSeek** (Cin / Singapur) — opsiyonel AI model saglayicisi; DeepSeek modeli secerseniz konusma icerigini isler
 - **Mistral AI** (Fransa) — opsiyonel AI model saglayicisi; Mistral modeli secerseniz konusma icerigini isler
-- **Alibaba Cloud / Qwen** (Cin / Singapur) — opsiyonel AI model saglayicisi; Qwen modeli secerseniz konusma icerigini isler
 - **Stripe** (Amerika Birlesik Devletleri) — tum odeme islemlerini yonetir
 - **Neon** (Amerika Birlesik Devletleri) — veritabanimizi barindiirir
 - **Amazon Web Services** (Avustralya ve Amerika Birlesik Devletleri) — Sydney (ap-southeast-2) ve Kuzey Virginia (us-east-1) altyapisini barindirir
@@ -60,9 +67,8 @@ xShopper Pty Ltd bir Avustralya sirketidir. Kisisel verileriniz asagidaki ulkele
 | Ulke | Alicilar | Aktarilan veriler |
 |---|---|---|
 | **Avustralya** | AWS (Sydney, ap-southeast-2) | Tum veriler — birincil barinma bolgesi |
-| **Amerika Birlesik Devletleri** | Anthropic, OpenAI, Groq, Google, AWS (us-east-1), Neon, Stripe | AI konusmalari, hesap verileri, odeme verileri |
+| **Amerika Birlesik Devletleri** | Google (OAuth, Gemini), Anthropic, OpenAI, Groq, AWS (us-east-1), Neon, Stripe | Google hesap verileri (giris), AI konusmalari, hesap verileri, odeme verileri |
 | **Fransa** | Mistral AI | AI konusmalari (Mistral modeli secilmisse) |
-| **Cin / Singapur** | DeepSeek, Alibaba Cloud (Qwen) | AI konusmalari (DeepSeek veya Qwen modeli secilmisse) |
 | **Hollanda / BAE** | Telegram | Mesajlar, kullanici tanimlayicilari |
 
 **Avustralyali kullanicilar icin (Privacy Act 1988):** Avustralya Gizlilik Ilkesi 8 (APP 8) uyarinca xShopper, yurt disindaki alicilarin kisisel bilgilerinizi APP'lere uygun sekilde islemesini saglamak icin makul adimlar atar. Bu hizmeti kullanarak ve kayit sirasinda onay vererek, verilerinizin yukarida listelenen ulkelere aktarilacagini ve Avustralya Gizlilik Ilkelerinin yurt disindaki alicilar tarafindan tutulan verilere uygulanamayabilecegin kabul etmis olursunuz. Bilgilerinizin yanlis ele alindigi dusunuyorsaniz Avustralya Bilgi Komiseri Ofisi'ne (OAIC) sikayet basvurusunda bulunabilirsiniz.
@@ -73,11 +79,24 @@ xShopper Pty Ltd bir Avustralya sirketidir. Kisisel verileriniz asagidaki ulkele
 
 ## Verilerinizi Ne Kadar Sure Sakliyoruz
 
-- Hesap verileri: hesabiniz aktif oldugu surece ve iptalden sonra 30 gun boyunca saklanir
+- Hesap verileri (Google profil verileri dahil): hesabiniz aktif oldugu surece ve iptalden sonra 30 gun boyunca saklanir
+- Google OAuth tokenlari: sifrelenmis olarak saklanir; hesap silindiginde veya Google baglantisi kesildiginde aninda silinir
 - Odeme kayitlari: Avustralya vergi mevzuatinin gerektirdigi sekilde 7 yil boyunca saklanir
 - AI konusma icerigi: ozel sunucunuzda saklanir; sunucunuz sonlandirildiginda silinir
 - Kullanim gunlukleri: 90 gun boyunca saklanir
 - API kullanim kayitlari: 90 gun boyunca saklanir
+
+---
+
+## Ucuncu Taraflara Ait Kisisel Bilgiler
+
+xAI Workspace'yi kullanirken AI ajaniyla yaptginiz konusmalarda baska kisiler (meslektaslar, musteriler veya kisiler gibi) hakkinda kisisel bilgileri paylasiyor olabilirsiniz.
+
+- xShopper Pty Ltd, ucuncu taraflara iliskin kisisel bilgileri aktif olarak toplamaz veya talep etmez. Bu tur bilgiler yalnizca sizin takdirinizle saglanir.
+- Ucuncu taraflara ait kisisel verileri hizmetle paylasmak icin gerekli yetkiye, rizaya veya yasal dayanaga sahip oldugunuzdan emin olmak sizin sorumlulugunuzdadir.
+- Ucuncu taraflara ait kisisel bilgiler iceren konusma verileri yalnizca AI ajan hizmetini sunmak amaciyla islenir ve baska hicbir amac icin kullanilmaz.
+- Konusmalarda paylasilan ucuncu taraf kisisel verileri, kendi verilerinizle ayni saklama ve silme politikalarina tabidir (yukaridaki "Verilerinizi Ne Kadar Sure Sakliyoruz" bolumune bakiniz).
+- Ucuncu taraflara ait kisisel bilgiler iceren konusmalarin silinmesini talep etmek icin xAI Workspace icerisinde \`/workspace reset\` komutunu kullanin veya privacy@xshopper.com adresinden bizimle iletisime gecin.
 
 ---
 
@@ -117,6 +136,17 @@ Diger talepler icin privacy@xshopper.com adresinden bizimle iletisime gecin. 30 
 
 ---
 
+## Iletisim ve Duzeltme Haklari
+
+Gizlilik sorulari veya haklarinizi kullanmak icin bizimle iletisime gecin:
+
+**privacy@xshopper.com**
+xShopper Pty Ltd, Avustralya
+
+**Duzeltme hakki (APP 13):** Avustralya Gizlilik Ilkesi 13 uyarinca, hakkinizdaki yanlis, guncel olmayan, eksik, alakasiz veya yaniltici kisisel verilerin duzeltilmesini talep etme hakkiniz vardir. Duzeltme talep etmek icin privacy@xshopper.com adresine, duzeltilmesi gereken bilgilerin aciklamasini ve dogru bilgileri iceren bir e-posta gonderin. 30 gun icinde yanit verecegiz.
+
+---
+
 ## Sikayet
 
 - **Avustralya:** Avustralya Bilgi Komiseri Ofisi (OAIC), [oaic.gov.au](https://www.oaic.gov.au), Telefon: 1300 363 992
@@ -130,5 +160,5 @@ Gizlilik sorulari: privacy@xshopper.com
 xShopper Pty Ltd, Avustralya
 Avustralya Marka Tescil No. 1749660 (Sinif 35)
 
-*Gizlilik Politikasi versiyonu: 2026-02-27*
+*Gizlilik Politikasi versiyonu: 2026-02-28*
 `;

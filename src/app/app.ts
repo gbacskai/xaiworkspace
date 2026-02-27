@@ -92,7 +92,9 @@ import { ToastComponent } from './components/toast/toast';
       position: relative;
       overflow-x: hidden;
       overflow-y: auto;
+    }
 
+    :host(.has-chat) .content-frame {
       @media (min-width: 861px) {
         position: fixed;
         top: 0;
@@ -104,7 +106,7 @@ import { ToastComponent } from './components/toast/toast';
       }
     }
 
-    .content-frame--collapsed {
+    :host(.has-chat) .content-frame--collapsed {
       @media (min-width: 861px) {
         transform: translateX(100%);
       }
