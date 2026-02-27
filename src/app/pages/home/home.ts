@@ -188,6 +188,16 @@ export class HomePage implements OnInit, OnDestroy {
     this.startLinkingTimeout();
   }
 
+  private getUtmSource(): string {
+    const params = new URLSearchParams(window.location.search);
+    const parts = [
+      params.get('utm_source'),
+      params.get('utm_medium'),
+      params.get('utm_campaign'),
+    ].filter(Boolean);
+    return parts.length ? parts.join('/') : 'website';
+  }
+
   async submitWaitlist(event: Event) {
     event.preventDefault();
     const email = this.waitlistEmail().trim();
@@ -197,7 +207,7 @@ export class HomePage implements OnInit, OnDestroy {
       const res = await fetch(`${environment.routerUrl}/api/waitlist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'website' }),
+        body: JSON.stringify({ email, source: this.getUtmSource() }),
       });
       if (res.ok) {
         this.waitlistSubmitted.set(true);
