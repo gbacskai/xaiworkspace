@@ -36,6 +36,25 @@
   }
 }
 
+.usage-monitor {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.usage-item {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--tg-theme-hint-color);
+  white-space: nowrap;
+
+  &--warn {
+    color: #e53935;
+  }
+}
+
 .chat-close {
   display: none;
   font-size: 24px;

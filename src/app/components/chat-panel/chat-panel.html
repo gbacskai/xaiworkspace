@@ -15,6 +15,13 @@
         }
       </span>
     </div>
+    @if (usageLoaded()) {
+      <div class="usage-monitor">
+        <span class="usage-item" [class.usage-item--warn]="usageDaily() >= 80">D: {{ usageDaily() }}%</span>
+        <span class="usage-item" [class.usage-item--warn]="usageWeekly() >= 80">W: {{ usageWeekly() }}%</span>
+        <span class="usage-item" [class.usage-item--warn]="usageMonthly() >= 80">M: {{ usageMonthly() }}%</span>
+      </div>
+    }
     @if (chat.sessions().length > 1) {
       <div class="account-switcher">
         <button class="account-switcher-btn" (click)="toggleAccountMenu()">

@@ -75,14 +75,9 @@ import { ToastComponent } from './components/toast/toast';
 
     :host(.has-chat) {
       @media (min-width: 861px) {
-        max-width: 860px;
+        max-width: none;
         display: flex;
-      }
-    }
-
-    :host(.has-agents) {
-      @media (min-width: 1220px) {
-        max-width: 1230px;
+        justify-content: center;
       }
     }
 
@@ -96,15 +91,13 @@ import { ToastComponent } from './components/toast/toast';
       min-height: 100vh;
       width: 100%;
       position: relative;
-      transition: flex-basis 0.3s ease, max-width 0.3s ease;
+      overflow: hidden;
+      transition: margin-left 1.5s ease;
     }
 
     .content-frame--collapsed {
       @media (min-width: 861px) {
-        flex: 0 0 0px;
-        max-width: 0px;
-        min-width: 0px;
-        overflow: hidden;
+        margin-left: -430px;
       }
     }
 
@@ -198,12 +191,11 @@ import { ToastComponent } from './components/toast/toast';
     }
 
     .chat-frame {
-      flex: 1;
+      flex: 0 0 430px;
       min-width: 0;
       position: sticky;
       top: 0;
       height: 100vh;
-      transition: flex 0.3s ease;
 
       @media (max-width: 860px) {
         position: fixed;
@@ -342,19 +334,10 @@ import { ToastComponent } from './components/toast/toast';
       }
     }
 
-    :host-context(.all-panels) {
-      @media (min-width: 1220px) {
-        .content-frame { flex: 1 1 0; max-width: none; }
-        .chat-frame { flex: 1 1 0; }
-        .agents-frame--open { flex: 1 1 0; }
-      }
-    }
   `,
   host: {
     '[class.has-chat]': 'showChat()',
-    '[class.has-agents]': 'agents.isOpen()',
     '[class.sidebar-collapsed]': 'sidebarCollapsed()',
-    '[class.all-panels]': 'showChat() && agents.isOpen() && !sidebarCollapsed()',
   },
 })
 export class App implements OnInit, OnDestroy {

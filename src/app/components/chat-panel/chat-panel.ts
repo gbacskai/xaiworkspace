@@ -4,6 +4,7 @@ import { marked } from 'marked';
 import { ChatService, ChatMessage, FileAttachment } from '../../services/chat.service';
 import { TelegramService } from '../../services/telegram.service';
 import { I18nService } from '../../i18n/i18n.service';
+import { environment } from '../../../environments/environment';
 
 const COMMANDS: { command: string; description: string }[] = [
   { command: '/usage',      description: 'View your token usage and limits' },
@@ -49,6 +50,13 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private prevMessageCount = 0;
   private userHasScrolledUp = false;
+
+  // Usage monitor
+  usageDaily = signal(0);
+  usageWeekly = signal(0);
+  usageMonthly = signal(0);
+  usageLoaded = signal(false);
+  private usageInterval: ReturnType<typeof setInterval> | null = null;
 
   accountMenuOpen = signal(false);
   currentAccountLabel = computed(() => {
@@ -102,10 +110,14 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
         });
       }
     });
+    // Fetch usage after connection establishes, then every 60s
+    setTimeout(() => this.fetchUsage(), 2000);
+    this.usageInterval = setInterval(() => this.fetchUsage(), 60000);
   }
 
   ngOnDestroy() {
     this.chat.disconnect();
+    if (this.usageInterval) clearInterval(this.usageInterval);
   }
 
   ngAfterViewChecked() {
@@ -223,6 +235,35 @@ export class ChatPanelComponent implements OnInit, OnDestroy, AfterViewChecked {
   accountDisplayName(session: { chatId: string; provider: string }): string {
     if (session.provider) return session.provider.charAt(0).toUpperCase() + session.provider.slice(1);
     return session.chatId.startsWith('w_') ? session.chatId.substring(0, 10) : session.chatId;
+  }
+
+  private async fetchUsage(): Promise<void> {
+    const token = this.chat.getSessionToken();
+    if (!token) return;
+    try {
+      const res = await fetch(`${environment.routerUrl}/api/analytics`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      const limits = data.limits;
+      if (!limits) return;
+
+      // Daily: sum today's spend from hourly data
+      const dailySpend = (data.hourly as { spend: number }[])?.reduce((s, h) => s + h.spend, 0) ?? 0;
+      // Weekly: sum this week's spend from daily data
+      const weeklySpend = (data.daily as { spend: number }[])?.reduce((s, d) => s + d.spend, 0) ?? 0;
+      // Monthly: last entry in monthly data (current month)
+      const monthlyArr = data.monthly as { spend: number }[];
+      const monthlySpend = monthlyArr?.length ? monthlyArr[monthlyArr.length - 1].spend : 0;
+
+      this.usageDaily.set(limits.dailyCap > 0 ? Math.round((dailySpend / limits.dailyCap) * 100) : 0);
+      this.usageWeekly.set(limits.weeklyCap > 0 ? Math.round((weeklySpend / limits.weeklyCap) * 100) : 0);
+      this.usageMonthly.set(limits.monthlyCap > 0 ? Math.round((monthlySpend / limits.monthlyCap) * 100) : 0);
+      this.usageLoaded.set(true);
+    } catch {
+      // Silently fail — usage monitor is non-critical
+    }
   }
 
   private scrollToBottom(): void {
